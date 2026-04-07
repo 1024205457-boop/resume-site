@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="姜慧男 - AI 产品经理简历">
+  <title>简历 - 姜慧男</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container navbar__inner">
+        <button class="navbar__back" onclick="window.location.href='index.html'">
+          &larr; 返回
+        </button>
+        <span class="navbar__title">姜慧男</span>
+        <div class="navbar__actions">
+          <a class="btn btn--ghost btn--sm" href="assets/docs/resume.pdf" download>
+            下载 PDF
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="page-content">
+      <div class="container">
+        <!-- 公司 Banner（动态渲染） -->
+        <div id="companyBanner"></div>
+
+        <!-- 联系方式 -->
+        <div id="contactInfo" style="text-align:center; padding-top:1.5rem; color:var(--color-text-secondary); font-size:var(--font-sm)"></div>
+
+        <!-- 教育经历 -->
+        <div id="educationSection"></div>
+
+        <!-- 个人技能 -->
+        <div id="skillsSection"></div>
+
+        <!-- 实习经历 -->
+        <div id="experienceSection"></div>
+
+        <!-- 项目经历 -->
+        <div id="projectsSection"></div>
+
+        <!-- 产品分析（定制区，动态渲染） -->
+        <div id="analysisSection"></div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer__links">
+        <a href="mailto:jianghuinan@connect.hku.hk">jianghuinan@connect.hku.hk</a>
+        <span>|</span>
+        <a href="https://www.linkedin.com/in/lily-jiang-325913325" target="_blank" rel="noopener">LinkedIn</a>
+        <span>|</span>
+        <span>15241569480</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/data/resume.js"></script>
+  <script src="js/data/companies.js"></script>
+  <script src="js/data/projects.js"></script>
+  <script src="js/renderer.js"></script>
+  <script src="js/resume.js"></script>
+</body>
+</html>
