@@ -116,18 +116,53 @@
 })();
 
 // ============================================================
-// 5. Hero 滚动视差
+// 5. Tagline 打字机效果 + 光标
+// ============================================================
+(function () {
+  const tagline = document.querySelector('.hero__tagline');
+  const text = tagline.textContent;
+  tagline.textContent = '';
+  tagline.classList.add('typing-cursor');
+
+  let i = 0;
+  function type() {
+    if (i < text.length) {
+      tagline.textContent += text[i];
+      i++;
+      setTimeout(type, 60);
+    } else {
+      // 打完后光标闪烁3秒后消失
+      setTimeout(() => tagline.classList.remove('typing-cursor'), 3000);
+    }
+  }
+  setTimeout(type, 2000); // 等名字显现完再开始打
+})();
+
+// ============================================================
+// 6. Hero 滚动视差（加强版）
 // ============================================================
 (function () {
   const hero = document.querySelector('.hero__inner');
   const scroll = document.querySelector('.hero__scroll');
+  const cards = document.querySelectorAll('.strength-card');
 
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
+
+    // Hero视差
     if (y < window.innerHeight) {
-      hero.style.transform = `translateY(${y * 0.15}px)`;
-      hero.style.opacity = 1 - y / (window.innerHeight * 0.8);
+      hero.style.transform = `translateY(${y * 0.2}px)`;
+      hero.style.opacity = 1 - y / (window.innerHeight * 0.7);
       if (scroll) scroll.style.opacity = 1 - y / 200;
     }
+
+    // 卡片微视差：每张卡片以略不同的速度移动
+    cards.forEach((card, index) => {
+      const rect = card.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        const offset = (rect.top - window.innerHeight / 2) * (0.02 + index * 0.01);
+        card.style.transform = `translateY(${offset}px)`;
+      }
+    });
   });
 })();

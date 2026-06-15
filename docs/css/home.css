@@ -281,11 +281,8 @@ a { color: inherit; text-decoration: none; }
   justify-content: center;
   color: var(--color-text-muted);
   font-size: 0.85rem;
-  /* 胶片风格边框 */
-  box-shadow:
-    inset 0 8px 0 var(--color-bg),
-    inset 0 -8px 0 var(--color-bg);
 }
+
 
 .case__placeholder span {
   font-size: 0.9rem;
@@ -440,6 +437,19 @@ a { color: inherit; text-decoration: none; }
 @keyframes fadeInChar {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* 打字机光标 */
+.typing-cursor::after {
+  content: '|';
+  color: var(--color-gold);
+  animation: blink 0.8s infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 .hero__name {
