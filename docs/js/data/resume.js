@@ -76,6 +76,50 @@ const RESUME_DATA = {
 
   projects: [
     {
+      id: "ai-research-workflow",
+      name: "AI 辅助市场研究工作流",
+      role: "产品经理",
+      period: "2026.6",
+      award: null,
+      highlights: [
+        {
+          label: "工作流设计",
+          content: "搭建 Brief解析→数据采集→NLP框架分析→三元校验→HTML报告自动生成 的5阶段Pipeline，将快消母婴品类消费者旅程研究全流程产品化。"
+        },
+        {
+          label: "NLP分析引擎",
+          content: "基于 jieba分词 + TF-IDF 提取话题关键词，自动识别消费者痛点并对齐决策旅程框架（认知→兴趣→决策→购买→分享），可选接入 LLM 增强分析深度。"
+        },
+        {
+          label: "三元校验机制",
+          content: "设计源校验（语义相关性）+ 交叉校验（情感一致性+数据源多样性）+ 逻辑校验（过度推断检测）三重质量保障，洞察有源率 100%，校验通过率 62%+。"
+        }
+      ],
+      hasDetailPage: true
+    },
+    {
+      id: "ai-product-eval",
+      name: "AI 产品体验评测系统",
+      role: "产品经理",
+      period: "2026.6",
+      award: null,
+      highlights: [
+        {
+          label: "评测方法论",
+          content: "设计黄金评测集→LLM-as-Judge四维度MOS评分→低分归因→标杆回复生成→复测验证的完整评测闭环，覆盖简单/复杂指令各半，按用户画像分层评估。"
+        },
+        {
+          label: "评分体系",
+          content: "四维度加权MOS评分（准确性/完整性/自然度/可用性），按用户经验水平动态调整权重（新手侧重可用性，专家侧重准确性），支持LLM-as-Judge与规则引擎双通道。"
+        },
+        {
+          label: "归因与优化",
+          content: "自动识别8类归因标签（多约束冲突/预算不合理/信息缺失等），按维度/场景/用户类型聚类分析，生成针对性标杆回复作为优化建议交付。"
+        }
+      ],
+      hasDetailPage: true
+    },
+    {
       id: "venn-ai",
       name: "Venn AI 维恩图智能笔记",
       role: "产品经理 & 全栈开发",

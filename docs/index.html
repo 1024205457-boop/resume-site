@@ -3,46 +3,158 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="姜慧男 - AI 产品经理，港大市场学硕士，厦大双学位">
+  <meta name="description" content="姜慧男 - AI 产品经理，模型评测与影视数据策略">
   <title>姜慧男 - AI 产品经理</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
-  <div class="page-wrapper">
-    <main class="page-content">
-      <div class="container container--wide">
 
-        <!-- Hero -->
-        <section class="hero fade-in">
-          <h1 class="hero__name">姜慧男</h1>
-          <p class="hero__title">AI 产品经理</p>
-          <p class="hero__tagline"></p>
-        </section>
-
-        <!-- Prompt -->
-        <p class="hero__prompt fade-in" style="text-align:center">请选择您所在的公司，查看为您定制的简历</p>
-
-        <!-- Company Grid -->
-        <div class="company-grid" id="companyGrid"></div>
-
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero__overlay"></div>
+    <div class="container hero__inner">
+      <p class="hero__label">AI Product Manager</p>
+      <h1 class="hero__name">姜慧男</h1>
+      <p class="hero__tagline">把用户体验翻译成可量化的模型评测标准</p>
+      <div class="hero__actions">
+        <a href="assets/docs/resume.pdf" class="btn btn--gold" download>下载简历</a>
+        <a href="mailto:jianghuinan@connect.hku.hk" class="btn btn--outline">联系我</a>
       </div>
-    </main>
+    </div>
+    <div class="hero__scroll">↓</div>
+  </header>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="footer__links">
-        <a href="mailto:jianghuinan@connect.hku.hk">jianghuinan@connect.hku.hk</a>
-        <span>|</span>
-        <a href="https://www.linkedin.com/in/lily-jiang-325913325" target="_blank" rel="noopener">LinkedIn</a>
-        <span>|</span>
-        <span>15241569480</span>
+  <!-- Core Strengths -->
+  <section class="section" id="strengths">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-header__flourish">—</span>
+        <h2 class="section-header__title">核心优势</h2>
+        <span class="section-header__flourish">—</span>
       </div>
-    </footer>
-  </div>
+      <p class="section-header__sub">商科 × AI，把模糊的体验问题翻译成可量化的评测标准</p>
 
-  <script src="js/data/resume.js"></script>
-  <script src="js/data/companies.js"></script>
-  <script src="js/renderer.js"></script>
-  <script src="js/index.js"></script>
+      <div class="strength-grid">
+        <div class="strength-card reveal">
+          <div class="strength-card__accent"></div>
+          <h3 class="strength-card__title">识别伪痛点</h3>
+          <p class="strength-card__desc">用户说"速度慢"，真正问题是"手指挡住看不见效果"。市场营销训练出的洞察力，穿透表面反馈找到真需求。</p>
+          <span class="strength-card__source">凯度 × OPPO</span>
+        </div>
+        <div class="strength-card reveal">
+          <div class="strength-card__accent"></div>
+          <h3 class="strength-card__title">评测体系设计</h3>
+          <p class="strength-card__desc">5维度 · 13指标 · 24人评测 · 竞品对标。从0到1定义"什么是好"，让主观感受变成可度量的分数。</p>
+          <span class="strength-card__source">MOS 3.9</span>
+        </div>
+        <div class="strength-card reveal">
+          <div class="strength-card__accent"></div>
+          <h3 class="strength-card__title">数据策略闭环</h3>
+          <p class="strength-card__desc">标准制定 → 评测执行 → badcase定位 → 反馈优化。不只发现问题，更能驱动模型持续迭代。</p>
+          <span class="strength-card__source">斑马百科 · 凯度</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study -->
+  <section class="section section--dark" id="cases">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-header__flourish">—</span>
+        <h2 class="section-header__title">Case Study</h2>
+        <span class="section-header__flourish">—</span>
+      </div>
+
+      <!-- Case 1 -->
+      <div class="case reveal">
+        <div class="case__image">
+          <div class="case__placeholder">
+            <span>评测框架图</span>
+            <p>待放入脱敏截图</p>
+          </div>
+        </div>
+        <div class="case__content">
+          <span class="case__number">01</span>
+          <h3 class="case__title">AI图像消除功能的评测体系设计</h3>
+          <p class="case__desc">为OPPO AI魔法消除从0到1定义评测标准：5大维度13项指标，组织24人评测团队，对标华为做benchmark，定位3大核心badcase场景，推动产品体验迭代。</p>
+          <div class="case__tags">
+            <span class="tag">凯度咨询</span>
+            <span class="tag">OPPO</span>
+            <span class="tag">图像生成</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 2 -->
+      <div class="case case--reverse reveal">
+        <div class="case__image">
+          <div class="case__placeholder">
+            <span>MOS评测流程图</span>
+            <p>待放入脱敏截图</p>
+          </div>
+        </div>
+        <div class="case__content">
+          <span class="case__number">02</span>
+          <h3 class="case__title">多模态内容生成的质量评估</h3>
+          <p class="case__desc">搭建行为总结→多模态输出的Agent工作流，设计分层Prompt策略，定义评估标准（指令遵循、画面一致性），MOS离线评测均分3.85。</p>
+          <div class="case__tags">
+            <span class="tag">斑马百科</span>
+            <span class="tag">多模态</span>
+            <span class="tag">Agent</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Aesthetic Gallery -->
+  <section class="section" id="aesthetic">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-header__flourish">—</span>
+        <h2 class="section-header__title">审美积累</h2>
+        <span class="section-header__flourish">—</span>
+      </div>
+      <p class="section-header__sub">对视觉语言的判断力来自持续的观察</p>
+
+      <div class="gallery">
+        <div class="gallery__item reveal">
+          <div class="gallery__placeholder">展览照片 1</div>
+        </div>
+        <div class="gallery__item gallery__item--tall reveal">
+          <div class="gallery__placeholder">展览照片 2</div>
+        </div>
+        <div class="gallery__item reveal">
+          <div class="gallery__placeholder">展览照片 3</div>
+        </div>
+        <div class="gallery__item reveal">
+          <div class="gallery__placeholder">展览照片 4</div>
+        </div>
+        <div class="gallery__item gallery__item--wide reveal">
+          <div class="gallery__placeholder">展览照片 5</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer / Credits -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__credits">
+        <p class="footer__name">姜慧男</p>
+        <p class="footer__detail">香港大学 商学院 市场学硕士 · 厦门大学 管理学院 双学位</p>
+        <div class="footer__contact">
+          <span>jianghuinan@connect.hku.hk</span>
+          <span class="footer__dot">·</span>
+          <span>15241569480</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/home.js"></script>
 </body>
 </html>

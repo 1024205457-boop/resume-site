@@ -24,7 +24,7 @@ const COMPANIES = [
         }
       ]
     },
-    featuredProjects: ["venn-ai", "douyin-hackathon", "tencent-hackathon", "tsinghua-hackathon"]
+    featuredProjects: ["mrw-workflow", "venn-ai", "douyin-hackathon", "tencent-hackathon", "tsinghua-hackathon"]
   },
   {
     id: "tencent",
@@ -41,7 +41,7 @@ const COMPANIES = [
         { heading: "我能贡献什么", content: "（内容即将更新）" }
       ]
     },
-    featuredProjects: ["tencent-hackathon", "venn-ai", "douyin-hackathon", "tsinghua-hackathon"]
+    featuredProjects: ["mrw-workflow", "tencent-hackathon", "venn-ai", "douyin-hackathon", "tsinghua-hackathon"]
   },
   {
     id: "alibaba",
@@ -58,7 +58,7 @@ const COMPANIES = [
         { heading: "我能贡献什么", content: "（内容即将更新）" }
       ]
     },
-    featuredProjects: ["venn-ai", "douyin-hackathon", "tencent-hackathon", "tsinghua-hackathon"]
+    featuredProjects: ["mrw-workflow", "venn-ai", "douyin-hackathon", "tencent-hackathon", "tsinghua-hackathon"]
   },
   {
     id: "meituan",
@@ -84,7 +84,7 @@ const COMPANIES = [
         }
       ]
     },
-    featuredProjects: ["venn-ai", "douyin-hackathon", "tencent-hackathon", "tsinghua-hackathon"]
+    featuredProjects: ["mrw-workflow", "venn-ai", "douyin-hackathon", "tencent-hackathon", "tsinghua-hackathon"]
   },
   {
     id: "visitor",
@@ -94,6 +94,6 @@ const COMPANIES = [
     greeting: null,
     targetPosition: "AI 产品经理",
     productAnalysis: null,
-    featuredProjects: ["venn-ai", "douyin-hackathon", "tencent-hackathon", "tsinghua-hackathon"]
+    featuredProjects: ["mrw-workflow", "venn-ai", "douyin-hackathon", "tencent-hackathon", "tsinghua-hackathon"]
   }
 ];

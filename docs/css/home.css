@@ -1,0 +1,518 @@
+/* ============================================================
+   姜慧男个人网站 — 电影风格 + Cappiello特征
+   ============================================================ */
+
+:root {
+  --color-bg: #0A0A0A;
+  --color-bg-section: #0F0F0F;
+  --color-bg-card: #161616;
+  --color-text: #F0EDE8;
+  --color-text-secondary: #A09C94;
+  --color-text-muted: #5C5952;
+  --color-gold: #C9A84C;
+  --color-gold-light: rgba(201, 168, 76, 0.12);
+  --color-gold-glow: rgba(201, 168, 76, 0.3);
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-border-hover: rgba(201, 168, 76, 0.3);
+
+  --font-display: 'Playfair Display', serif;
+  --font-sans: 'Noto Sans SC', -apple-system, "PingFang SC", sans-serif;
+  --max-width: 1060px;
+  --radius: 4px;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 2rem; }
+
+/* ============================================================
+   HERO — 电影片头感
+   ============================================================ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background: var(--color-bg);
+  /* 占位：之后替换为真实背景图 */
+  background-image:
+    radial-gradient(ellipse at 50% 80%, rgba(201, 168, 76, 0.04) 0%, transparent 60%);
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.9) 100%);
+  z-index: 1;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 2;
+}
+
+.hero__label {
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.hero__name {
+  font-family: var(--font-display);
+  font-size: 5rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.hero__tagline {
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero__actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.hero__scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  color: var(--color-text-muted);
+  font-size: 1.5rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  letter-spacing: 0.05em;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.btn--gold {
+  background: var(--color-gold);
+  color: #0A0A0A;
+  border-color: var(--color-gold);
+}
+.btn--gold:hover {
+  box-shadow: 0 0 24px var(--color-gold-glow);
+  transform: translateY(-2px);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-text-secondary);
+  border-color: var(--color-border);
+}
+.btn--outline:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+.section {
+  padding: 6rem 0;
+}
+
+.section--dark {
+  background: var(--color-bg-section);
+}
+
+/* Section Header — Cappiello flourish style */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.section-header__flourish {
+  color: var(--color-gold);
+  font-size: 1.5rem;
+  font-weight: 300;
+  opacity: 0.6;
+}
+
+.section-header__title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.section-header__sub {
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  font-weight: 300;
+  margin-bottom: 3rem;
+}
+
+/* ============================================================
+   STRENGTH CARDS
+   ============================================================ */
+.strength-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.strength-card {
+  position: relative;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  padding: 2.5rem 2rem 2rem;
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+.strength-card:hover {
+  border-color: var(--color-border-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+}
+
+.strength-card__accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.strength-card:hover .strength-card__accent {
+  opacity: 1;
+}
+
+.strength-card__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--color-text);
+}
+
+.strength-card__desc {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+
+.strength-card__source {
+  font-size: 0.75rem;
+  color: var(--color-gold);
+  letter-spacing: 0.05em;
+}
+
+/* ============================================================
+   CASE STUDY
+   ============================================================ */
+.case {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.case--reverse .case__image { order: 2; }
+.case--reverse .case__content { order: 1; }
+
+.case__image {
+  position: relative;
+}
+
+.case__placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  /* 胶片风格边框 */
+  box-shadow:
+    inset 0 8px 0 var(--color-bg),
+    inset 0 -8px 0 var(--color-bg);
+}
+
+.case__placeholder span {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.25rem;
+}
+
+.case__number {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--color-gold);
+  opacity: 0.2;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.case__title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.case__desc {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+
+.case__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.2rem 0.7rem;
+  border: 1px solid var(--color-border);
+  font-size: 0.7rem;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.03em;
+  transition: all 0.3s ease;
+}
+
+.tag:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+/* ============================================================
+   GALLERY — 展览照片墙
+   ============================================================ */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 200px;
+  gap: 0.75rem;
+}
+
+.gallery__item {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  transition: all 0.4s ease;
+}
+
+.gallery__item--tall {
+  grid-row: span 2;
+}
+
+.gallery__item--wide {
+  grid-column: span 2;
+}
+
+.gallery__item:hover {
+  border-color: var(--color-border-hover);
+  transform: scale(1.02);
+  z-index: 2;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+}
+
+.gallery__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery__item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery__placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
+
+/* ============================================================
+   FOOTER — Credits风格
+   ============================================================ */
+.footer {
+  padding: 4rem 0;
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.footer__credits {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.footer__name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.footer__detail {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+}
+
+.footer__contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+.footer__dot {
+  color: var(--color-gold);
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+
+/* 逐字显现 */
+@keyframes fadeInChar {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero__name {
+  visibility: hidden; /* JS控制显现 */
+}
+
+.hero__name span {
+  display: inline-block;
+}
+
+/* 光线扫过效果 */
+.shine-effect {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(201, 168, 76, 0.08),
+    rgba(201, 168, 76, 0.15),
+    rgba(201, 168, 76, 0.08),
+    transparent
+  );
+  z-index: 10;
+  pointer-events: none;
+}
+
+@keyframes shineSweep {
+  from { left: -100%; }
+  to { left: 150%; }
+}
+
+/* 滚动渐入 */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .hero__name { font-size: 3rem; }
+
+  .strength-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .case {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .case--reverse .case__image { order: -1; }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 160px;
+  }
+  .gallery__item--tall { grid-row: span 1; }
+  .gallery__item--wide { grid-column: span 1; }
+}
+
+@media (max-width: 480px) {
+  .hero__name { font-size: 2.5rem; }
+  .section { padding: 4rem 0; }
+  .hero__actions { flex-direction: column; align-items: center; }
+  .gallery { grid-template-columns: 1fr; }
+}
