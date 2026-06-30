@@ -1,17 +1,65 @@
 // ============================================================
-// 1. 金色光尘粒子（Hero区域）
+// 0. 页面导航切换
 // ============================================================
 (function () {
+  const tabs = document.querySelectorAll('.top-nav__tab');
+  const pages = document.querySelectorAll('.page');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.page;
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      pages.forEach(p => {
+        p.classList.toggle('active', p.id === 'page-' + target);
+      });
+      window.scrollTo(0, 0);
+      // Directly show all reveal elements on the active page
+      document.querySelectorAll('#page-' + target + ' .reveal').forEach(el => {
+        el.classList.add('visible');
+      });
+    });
+  });
+})();
+
+// ============================================================
+// 1. 风格切换
+// ============================================================
+(function () {
+  const btns = document.querySelectorAll('.theme-btn');
+  const saved = localStorage.getItem('theme');
+  if (saved) {
+    document.documentElement.setAttribute('data-theme', saved);
+    btns.forEach(b => b.classList.toggle('active', b.dataset.theme === saved));
+  }
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const theme = btn.dataset.theme;
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+})();
+
+// ============================================================
+// 2. 金色光尘粒子（Hero区域）
+// ============================================================
+(function () {
+  const hero = document.querySelector('.hero');
+  if (!hero) return;
+
   const canvas = document.createElement('canvas');
   canvas.id = 'dust';
   canvas.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none;';
-  document.querySelector('.hero').appendChild(canvas);
+  hero.appendChild(canvas);
 
   const ctx = canvas.getContext('2d');
   let w, h, particles = [];
 
   function resize() {
-    const hero = document.querySelector('.hero');
     w = canvas.width = hero.offsetWidth;
     h = canvas.height = hero.offsetHeight;
   }
@@ -38,14 +86,23 @@
     }
     draw() {
       const fade = 1 - this.age / this.life;
+      const style = getComputedStyle(document.documentElement);
+      const accent = style.getPropertyValue('--color-accent').trim() || '#C9A84C';
+      // Extract RGB from hex
+      let r = 201, g = 168, b = 76;
+      if (accent.startsWith('#')) {
+        r = parseInt(accent.slice(1, 3), 16);
+        g = parseInt(accent.slice(3, 5), 16);
+        b = parseInt(accent.slice(5, 7), 16);
+      }
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(201, 168, 76, ${this.alpha * fade})`;
+      ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${this.alpha * fade})`;
       ctx.fill();
     }
   }
 
-  for (let i = 0; i < 80; i++) particles.push(new Dust());
+  for (let i = 0; i < 60; i++) particles.push(new Dust());
 
   function animate() {
     ctx.clearRect(0, 0, w, h);
@@ -56,10 +113,11 @@
 })();
 
 // ============================================================
-// 2. Hero文字逐字显现
+// 3. Hero文字逐字显现
 // ============================================================
 (function () {
   const name = document.querySelector('.hero__name');
+  if (!name) return;
   const text = name.textContent;
   name.textContent = '';
   name.style.visibility = 'visible';
@@ -77,26 +135,7 @@
       setTimeout(typeChar, 150);
     }
   }
-  setTimeout(typeChar, 500);
-})();
-
-// ============================================================
-// 3. 卡片hover光线扫过
-// ============================================================
-(function () {
-  document.querySelectorAll('.strength-card').forEach(card => {
-    const shine = document.createElement('div');
-    shine.className = 'shine-effect';
-    card.style.position = 'relative';
-    card.style.overflow = 'hidden';
-    card.appendChild(shine);
-
-    card.addEventListener('mouseenter', () => {
-      shine.style.animation = 'none';
-      void shine.offsetWidth; // reflow
-      shine.style.animation = 'shineSweep 0.6s ease forwards';
-    });
-  });
+  setTimeout(typeChar, 300);
 })();
 
 // ============================================================
@@ -116,53 +155,19 @@
 })();
 
 // ============================================================
-// 5. Tagline 打字机效果 + 光标
-// ============================================================
-(function () {
-  const tagline = document.querySelector('.hero__tagline');
-  const text = tagline.textContent;
-  tagline.textContent = '';
-  tagline.classList.add('typing-cursor');
-
-  let i = 0;
-  function type() {
-    if (i < text.length) {
-      tagline.textContent += text[i];
-      i++;
-      setTimeout(type, 60);
-    } else {
-      // 打完后光标闪烁3秒后消失
-      setTimeout(() => tagline.classList.remove('typing-cursor'), 3000);
-    }
-  }
-  setTimeout(type, 2000); // 等名字显现完再开始打
-})();
-
-// ============================================================
-// 6. Hero 滚动视差（加强版）
+// 5. Hero 滚动视差
 // ============================================================
 (function () {
   const hero = document.querySelector('.hero__inner');
   const scroll = document.querySelector('.hero__scroll');
-  const cards = document.querySelectorAll('.strength-card');
+  if (!hero) return;
 
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
-
-    // Hero视差
     if (y < window.innerHeight) {
       hero.style.transform = `translateY(${y * 0.2}px)`;
       hero.style.opacity = 1 - y / (window.innerHeight * 0.7);
       if (scroll) scroll.style.opacity = 1 - y / 200;
     }
-
-    // 卡片微视差：每张卡片以略不同的速度移动
-    cards.forEach((card, index) => {
-      const rect = card.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
-        const offset = (rect.top - window.innerHeight / 2) * (0.02 + index * 0.01);
-        card.style.transform = `translateY(${offset}px)`;
-      }
-    });
   });
 })();
