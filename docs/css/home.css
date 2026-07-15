@@ -695,6 +695,99 @@ body {
 }
 
 /* ============================================================
+   MORE PROJECTS
+   ============================================================ */
+.more-projects {
+  margin-top: 3.2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+  display: grid;
+  grid-template-columns: minmax(180px, 0.32fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.more-projects__eyebrow {
+  margin: 0 0 0.35rem;
+  color: var(--color-accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.more-projects__title {
+  margin: 0 0 0.45rem;
+  color: var(--color-text);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.more-projects__desc {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 0.84rem;
+  line-height: 1.7;
+}
+
+.more-projects__list {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.more-project-card {
+  display: grid;
+  gap: 0.65rem;
+  padding: 1.15rem 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(201, 168, 76, 0.07), transparent 32%),
+    var(--color-bg-card);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.more-project-card:hover {
+  border-color: var(--color-border-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(0,0,0,0.24);
+}
+
+.more-project-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.more-project-card__meta span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.45rem;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  color: var(--color-accent);
+  font-size: 0.68rem;
+  line-height: 1;
+}
+
+.more-project-card__title {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 0.96rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.more-project-card__desc {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+
+/* ============================================================
    PROJECT DETAIL MODAL
    ============================================================ */
 .project-modal {
@@ -1257,6 +1350,11 @@ body {
   .workflow-grid .project-card:not(:first-child) .project-card__media {
     aspect-ratio: 16/10;
     min-height: 170px;
+  }
+
+  .more-projects {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .project-modal {

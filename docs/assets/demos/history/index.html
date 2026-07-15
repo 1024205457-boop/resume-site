@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>发票金额填报 - 项目选择</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+      color: #333;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 24px;
+      color: #2c3e50;
+      font-size: 28px;
+    }
+    .desc {
+      text-align: center;
+      margin-bottom: 24px;
+      color: #666;
+      font-size: 14px;
+    }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: 10px;
+    }
+    .project-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 16px;
+      border-radius: 8px;
+      border: none;
+      background: #3498db;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+      text-align: center;
+      min-height: 56px;
+    }
+    .project-btn:hover {
+      background: #2980b9;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+    .project-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    .footer {
+      margin-top: 30px;
+      font-size: 12px;
+      color: #888;
+      text-align: center;
+    }
+    .btn-inline {
+      padding: 0 8px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      color: #333;
+      background: transparent;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 28px;
+    }
+    .btn-inline:hover {
+      color: #27ae60;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>发票金额填报</h1>
+    <p class="desc" id="yearMonthInfo">
+      请选择年份和月份，然后选择要填报的项目。进入后可以维护该项目的食材，并按用餐类别录入、汇总发票金额。
+    </p>
+
+    <div class="row" style="justify-content: flex-start; margin-bottom: 16px; gap: 16px; flex-wrap: wrap; align-items: center;">
+      <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+        <div>
+          <label for="yearInput">年份：</label>
+          <input type="number" id="yearInput" style="width: 90px;" />
+        </div>
+        <div>
+          <label for="monthSelect">月份：</label>
+          <select id="monthSelect">
+            <option value="1">1月</option>
+            <option value="2">2月</option>
+            <option value="3">3月</option>
+            <option value="4">4月</option>
+            <option value="5">5月</option>
+            <option value="6">6月</option>
+            <option value="7">7月</option>
+            <option value="8">8月</option>
+            <option value="9">9月</option>
+            <option value="10">10月</option>
+            <option value="11">11月</option>
+            <option value="12">12月</option>
+          </select>
+        </div>
+        <button class="btn-inline" onclick="applyYearMonth()">
+          应用年份和月份
+        </button>
+        <button
+          class="btn-inline"
+          id="manageBtn"
+          onclick="toggleManageProjects()"
+        >
+          项目管理
+        </button>
+      </div>
+    </div>
+
+    <div class="project-grid" id="projectGrid"></div>
+
+    <div style="margin-top: 28px; text-align: center; display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
+      <a
+        href="summary.html"
+        class="project-btn"
+        style="
+          display: inline-block;
+          min-width: 180px;
+          background: linear-gradient(135deg, #ff9f43, #e84393);
+        "
+      >
+        数据总计
+      </a>
+      <a
+        href="invoice.html"
+        class="project-btn"
+        style="
+          display: inline-block;
+          min-width: 180px;
+          background: linear-gradient(135deg, #6c5ce7, #0984e3);
+        "
+      >
+        发票夹
+      </a>
+    </div>
+
+    <div class="footer">
+      类别配置和填报数据均保存在当前浏览器本地（localStorage），更换电脑后需要重新配置。
+    </div>
+  </div>
+
+  <script>
+    // 默认项目列表，名称需与 project.html 中 DEFAULT_CONFIG 的 key 保持一致
+    const DEFAULT_PROJECT_LIST = [
+      "乐福源猪肉",
+      "王家猪肉",
+      "香万家猪肉",
+      "清真牛肉",
+      "嘉泽牛肉",
+      "利丰鸡蛋",
+      "小毛蔬菜",
+      "子茼豆腐",
+      "老李土豆",
+      "利丰粮油",
+      "李军调料",
+      "徐国熏鸡",
+      "金联蔬菜",
+      "利丰水产"
+    ];
+
+    const PROJECT_LIST_STORAGE_KEY = "projectListConfig";
+    const YEAR_MONTH_STORAGE_KEY = "invoiceYearMonth";
+
+    let projectList = [];
+    let isManagingProjects = false;
+
+    function loadProjectList() {
+      const saved = localStorage.getItem(PROJECT_LIST_STORAGE_KEY);
+      if (saved) {
+        try {
+          const arr = JSON.parse(saved);
+          if (Array.isArray(arr) && arr.length) {
+            projectList = arr;
+            return;
+          }
+        } catch (e) {
+          console.error("解析项目列表失败，使用默认：", e);
+        }
+      }
+      projectList = DEFAULT_PROJECT_LIST.slice();
+    }
+
+    function saveProjectList() {
+      localStorage.setItem(PROJECT_LIST_STORAGE_KEY, JSON.stringify(projectList));
+    }
+
+    function getCurrentYearMonth() {
+      const saved = localStorage.getItem(YEAR_MONTH_STORAGE_KEY);
+      if (saved) {
+        try {
+          const obj = JSON.parse(saved);
+          if (obj && obj.year && obj.month) return obj;
+        } catch (e) {
+          console.error("解析年份月份失败，将使用当前日期：", e);
+        }
+      }
+      const now = new Date();
+      return { year: now.getFullYear(), month: now.getMonth() + 1 };
+    }
+
+    function setYearMonthInputs() {
+      const ym = getCurrentYearMonth();
+      const yearInput = document.getElementById("yearInput");
+      const monthSelect = document.getElementById("monthSelect");
+      if (yearInput) yearInput.value = ym.year;
+      if (monthSelect) monthSelect.value = String(ym.month);
+      updateYearMonthInfo();
+    }
+
+    function applyYearMonth() {
+      const yearInput = document.getElementById("yearInput");
+      const monthSelect = document.getElementById("monthSelect");
+      const year = parseInt(yearInput.value, 10);
+      const month = parseInt(monthSelect.value, 10);
+      if (!year || !month || month < 1 || month > 12) {
+        alert("请填写正确的年份和月份。");
+        return;
+      }
+      localStorage.setItem(
+        YEAR_MONTH_STORAGE_KEY,
+        JSON.stringify({ year, month })
+      );
+      updateYearMonthInfo();
+      alert("已应用当前年份和月份，本次查看和统计以该月份为准。");
+    }
+
+    function updateYearMonthInfo() {
+      const ym = getCurrentYearMonth();
+      const p = document.getElementById("yearMonthInfo");
+      if (p) {
+        p.textContent =
+          "当前统计范围为：" +
+          ym.year +
+          " 年 " +
+          ym.month +
+          " 月。请选择要填报的项目。进入后可以维护该项目的食材，并按用餐类别录入、汇总发票金额。";
+      }
+    }
+
+    function toggleManageProjects() {
+      isManagingProjects = !isManagingProjects;
+      const btn = document.getElementById("manageBtn");
+      if (btn) {
+        if (isManagingProjects) {
+          btn.textContent = "完成编辑";
+        } else {
+          btn.textContent = "项目管理";
+        }
+      }
+      renderProjects();
+    }
+
+    function deleteProject(name) {
+      if (!confirm("确定删除项目「" + name + "」吗？仅删除项目按钮，不会删除已填数据。")) {
+        return;
+      }
+      projectList = projectList.filter(function (n) {
+        return n !== name;
+      });
+      saveProjectList();
+      renderProjects();
+    }
+
+    function addProject() {
+      const name = prompt("请输入新项目名称：");
+      if (!name) return;
+      const trimmed = name.trim();
+      if (!trimmed) return;
+      if (projectList.includes(trimmed)) {
+        alert("该项目已存在。");
+        return;
+      }
+      projectList.push(trimmed);
+      saveProjectList();
+      renderProjects();
+    }
+
+    function renderProjects() {
+      const grid = document.getElementById("projectGrid");
+      grid.innerHTML = "";
+
+      projectList.forEach((name) => {
+        if (isManagingProjects) {
+          const btn = document.createElement("div");
+          btn.className = "project-btn";
+          btn.textContent = name;
+          btn.style.position = "relative";
+
+          const del = document.createElement("button");
+          del.textContent = "✕";
+          del.title = "删除该项目";
+          del.style.position = "absolute";
+          del.style.top = "4px";
+          del.style.right = "8px";
+          del.style.width = "18px";
+          del.style.height = "18px";
+          del.style.borderRadius = "50%";
+          del.style.border = "2px solid #fff";
+          del.style.background = "#e74c3c";
+          del.style.color = "#fff";
+          del.style.cursor = "pointer";
+          del.style.fontSize = "11px";
+          del.style.display = "flex";
+          del.style.alignItems = "center";
+          del.style.justifyContent = "center";
+          del.style.boxShadow = "0 0 3px rgba(0,0,0,0.4)";
+          del.onclick = function (e) {
+            e.stopPropagation();
+            deleteProject(name);
+          };
+
+          btn.appendChild(del);
+          grid.appendChild(btn);
+        } else {
+          const a = document.createElement("a");
+          a.className = "project-btn";
+          // 使用 URL 参数传递项目名
+          a.href = "project.html?project=" + encodeURIComponent(name);
+          a.textContent = name;
+          grid.appendChild(a);
+        }
+      });
+
+      if (isManagingProjects) {
+        const addBtn = document.createElement("button");
+        addBtn.className = "project-btn";
+        addBtn.style.background = "#27ae60";
+        addBtn.textContent = "＋ 添加项目";
+        addBtn.onclick = function () {
+          addProject();
+        };
+        grid.appendChild(addBtn);
+      }
+    }
+
+    function goHistory() {
+      window.location.href = "history.html";
+    }
+
+    window.onload = function () {
+      loadProjectList();
+      setYearMonthInputs();
+      renderProjects();
+    };
+  </script>
+</body>
+</html>
+
+

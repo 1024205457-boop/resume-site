@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>发票金额填报 - 历史记录</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+      color: #333;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 24px;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    h1 {
+      font-size: 24px;
+      color: #2c3e50;
+    }
+    .back-link {
+      font-size: 14px;
+      color: #3498db;
+      text-decoration: none;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+    .desc {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 12px;
+    }
+    .btn {
+      padding: 6px 14px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      font-size: 13px;
+      color: #fff;
+      background: #3498db;
+    }
+    .btn:hover {
+      background: #2980b9;
+    }
+    .btn-danger {
+      background: #e74c3c;
+    }
+    .btn-danger:hover {
+      background: #c0392b;
+    }
+    select {
+      padding: 6px 10px;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+      font-size: 13px;
+    }
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .empty-tip {
+      font-size: 13px;
+      color: #999;
+      margin-top: 16px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background: #34495e;
+      color: #fff;
+      font-weight: 600;
+    }
+    tr:nth-child(even) {
+      background: #f8f9fa;
+    }
+    tr:hover {
+      background: #e8f4f8;
+    }
+    .total-row {
+      background: #ffeaa7;
+      font-weight: 600;
+    }
+    .meal-section {
+      margin-top: 20px;
+      margin-bottom: 12px;
+      padding: 12px;
+      border-radius: 6px;
+      background: #f7f9fb;
+    }
+    .meal-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 4px;
+    }
+    .ym-tip {
+      font-size: 13px;
+      color: #555;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>历史记录</h1>
+      <a href="index.html" class="back-link">← 返回项目列表</a>
+    </div>
+
+    <p class="desc">
+      这里展示在“数据总计”页面点击“保存”后保存下来的历史汇总记录，可以按月份查看当时的统计结果。
+    </p>
+
+    <div class="toolbar">
+      <label for="historySelect">选择历史记录：</label>
+      <select id="historySelect"></select>
+      <button class="btn" onclick="viewSelected()">查看</button>
+      <button class="btn-danger" onclick="deleteSelected()">删除该条</button>
+    </div>
+
+    <p id="ymInfo" class="ym-tip"></p>
+
+    <div id="tableContainer"></div>
+  </div>
+
+  <script>
+    const SUMMARY_HISTORY_KEY = "summaryHistory";
+
+    let historyList = [];
+    let currentIndex = -1;
+
+    function loadHistory() {
+      const saved = localStorage.getItem(SUMMARY_HISTORY_KEY);
+      if (!saved) {
+        historyList = [];
+        return;
+      }
+      try {
+        const arr = JSON.parse(saved);
+        if (Array.isArray(arr)) {
+          historyList = arr;
+        } else {
+          historyList = [];
+        }
+      } catch (e) {
+        console.error("解析历史记录失败：", e);
+        historyList = [];
+      }
+    }
+
+    function saveHistory() {
+      localStorage.setItem(SUMMARY_HISTORY_KEY, JSON.stringify(historyList));
+    }
+
+    function formatLabel(item, index) {
+      const y = item.year;
+      const m = item.month;
+      const t = item.createdAt
+        ? item.createdAt.replace("T", " ").substring(0, 16)
+        : "";
+      return (
+        (index + 1) +
+        "）" +
+        y +
+        "年" +
+        m +
+        "月 - 保存时间 " +
+        t
+      );
+    }
+
+    function renderHistorySelect() {
+      const select = document.getElementById("historySelect");
+      select.innerHTML = "";
+      if (!historyList.length) {
+        const opt = document.createElement("option");
+        opt.value = "-1";
+        opt.textContent = "暂无历史记录";
+        select.appendChild(opt);
+        currentIndex = -1;
+        renderSnapshot(null);
+        return;
+      }
+      historyList.forEach(function (item, index) {
+        const opt = document.createElement("option");
+        opt.value = String(index);
+        opt.textContent = formatLabel(item, index);
+        select.appendChild(opt);
+      });
+      select.value = "0";
+      currentIndex = 0;
+      renderSnapshot(historyList[0]);
+    }
+
+    function viewSelected() {
+      const select = document.getElementById("historySelect");
+      const idx = parseInt(select.value, 10);
+      if (isNaN(idx) || idx < 0 || idx >= historyList.length) {
+        alert("请选择一条有效的历史记录。");
+        return;
+      }
+      currentIndex = idx;
+      renderSnapshot(historyList[idx]);
+    }
+
+    function deleteSelected() {
+      if (currentIndex < 0 || currentIndex >= historyList.length) {
+        alert("当前没有可删除的历史记录。");
+        return;
+      }
+      if (
+        !confirm(
+          "确定要删除选中的这条历史记录吗？此操作不可恢复。"
+        )
+      ) {
+        return;
+      }
+      historyList.splice(currentIndex, 1);
+      saveHistory();
+      renderHistorySelect();
+    }
+
+    function renderSnapshot(item) {
+      const container = document.getElementById("tableContainer");
+      const ymInfo = document.getElementById("ymInfo");
+      container.innerHTML = "";
+      ymInfo.textContent = "";
+
+      if (!item || !item.summary) {
+        const p = document.createElement("p");
+        p.className = "empty-tip";
+        p.textContent = "暂无历史记录可显示。";
+        container.appendChild(p);
+        return;
+      }
+
+      ymInfo.textContent =
+        "对应统计月份：" +
+        item.year +
+        " 年 " +
+        item.month +
+        " 月；保存时间：" +
+        (item.createdAt
+          ? item.createdAt.replace("T", " ").substring(0, 16)
+          : "");
+
+      const summary = item.summary;
+      const mealOrder = [
+        "营养午餐",
+        "自收午餐",
+        "早晚餐",
+        "教师餐",
+        "幼儿园餐"
+      ];
+
+      let hasAnyData = false;
+
+      mealOrder.forEach(function (meal) {
+        const section = summary[meal];
+        if (!section || !section.rows || !section.rows.length) return;
+        hasAnyData = true;
+
+        const box = document.createElement("div");
+        box.className = "meal-section";
+
+        const title = document.createElement("div");
+        title.className = "meal-title";
+        title.textContent = meal;
+        box.appendChild(title);
+
+        const table = document.createElement("table");
+        const thead = document.createElement("thead");
+        thead.innerHTML =
+          "<tr><th>项目</th><th>总数量</th><th>总金额（元）</th><th>整体均价</th></tr>";
+        table.appendChild(thead);
+
+        const tbody = document.createElement("tbody");
+        section.rows.forEach(function (row) {
+          const tr = document.createElement("tr");
+          tr.innerHTML =
+            "<td>" +
+            row.project +
+            "</td><td>" +
+            row.quantity.toFixed(2) +
+            "</td><td>" +
+            row.amount.toFixed(2) +
+            "</td><td>" +
+            row.avgPrice +
+            "</td>";
+          tbody.appendChild(tr);
+        });
+
+        const totalTr = document.createElement("tr");
+        totalTr.className = "total-row";
+        totalTr.innerHTML =
+          "<td>合计</td><td>" +
+          section.totalQuantity.toFixed(2) +
+          "</td><td>" +
+          section.totalAmount.toFixed(2) +
+          "</td><td>" +
+          section.totalAvg +
+          "</td>";
+        tbody.appendChild(totalTr);
+
+        table.appendChild(tbody);
+        box.appendChild(table);
+
+        container.appendChild(box);
+      });
+
+      if (!hasAnyData) {
+        const p = document.createElement("p");
+        p.className = "empty-tip";
+        p.textContent = "该记录下无任何统计数据。";
+        container.appendChild(p);
+      }
+    }
+
+    window.onload = function () {
+      loadHistory();
+      renderHistorySelect();
+    };
+  </script>
+</body>
+</html>
+
+

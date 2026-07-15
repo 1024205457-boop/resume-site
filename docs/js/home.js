@@ -119,6 +119,16 @@
       role: '通过 4 场用户访谈定义痛点，参考微信来电弹窗设计交互，并用 Cursor 快速完成上线。',
       intro: '项目来自清华 Vibe Coding 黑客松。它从“线上会议难以优雅离场”这个高频小痛点切入，通过高仿真来电界面和快速触发流程，给用户一个自然离场的社交缓冲。项目 3 小时内完成开发上线，积累 300+ 用户，并在小红书获得 6w+ 关注。',
       demo: '展示位支持上传来电界面截图、触发流程录屏和移动端效果图。'
+    },
+    invoice: {
+      category: '更多项目 · 业务工具',
+      title: '发票金额填报与汇总工具',
+      media: { label: '发票填报 Demo' },
+      audience: '食堂采购、财务对账人员、项目负责人和月度汇总维护者',
+      summary: '把多供应商、多用餐类别的发票金额录入和月度汇总做成无需后端的本地网页工具。',
+      role: '梳理供应商项目、食材维护、日期筛选、用餐类别汇总、发票夹总览和 CSV 导出流程。',
+      intro: '这个工具来自一个很具体的运营场景：多个食材供应商按项目填报发票金额，需要按年月、用餐类别、食材、数量、金额和均价做汇总。网站提供项目列表管理、项目内食材维护、发票记录录入、按月统计、发票夹总览、历史汇总和 CSV/Excel 导出。数据存储在浏览器 localStorage，适合轻量内部工具快速上线。',
+      demo: 'Demo 已复制到 assets/demos/history/，入口为 index.html。它不是 AI 项目，但能展示把真实业务表格流程产品化、工具化的落地能力。'
     }
   };
 
@@ -179,7 +189,7 @@
     const github = card.dataset.github;
     if (github) {
       fields.github.href = github;
-      fields.github.textContent = '查看 GitHub';
+      fields.github.textContent = card.dataset.linkLabel || '查看 GitHub';
       fields.github.classList.remove('is-disabled');
     } else {
       fields.github.href = '#';
@@ -198,7 +208,7 @@
     document.body.style.overflow = '';
   }
 
-  document.querySelectorAll('.project-card[data-project]').forEach(card => {
+  document.querySelectorAll('.project-card[data-project], .more-project-card[data-project]').forEach(card => {
     card.addEventListener('click', event => {
       event.preventDefault();
       openProject(card);

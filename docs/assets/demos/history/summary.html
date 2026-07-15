@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>发票金额填报 - 数据总计</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+      color: #333;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 24px;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    h1 {
+      font-size: 24px;
+      color: #2c3e50;
+    }
+    .back-link {
+      font-size: 14px;
+      color: #3498db;
+      text-decoration: none;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+    .desc {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 12px;
+    }
+    .btn {
+      padding: 8px 16px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      color: #fff;
+      background: #3498db;
+    }
+    .btn:hover {
+      background: #2980b9;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background: #34495e;
+      color: #fff;
+      font-weight: 600;
+    }
+    tr:nth-child(even) {
+      background: #f8f9fa;
+    }
+    tr:hover {
+      background: #e8f4f8;
+    }
+    .total-row {
+      background: #ffeaa7;
+      font-weight: 600;
+    }
+    .empty-tip {
+      font-size: 13px;
+      color: #999;
+      margin-top: 16px;
+    }
+    .ym-tip {
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+    }
+    .meal-section {
+      margin-top: 20px;
+      margin-bottom: 12px;
+      padding: 12px;
+      border-radius: 6px;
+      background: #f7f9fb;
+    }
+    .meal-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>数据总计</h1>
+      <a href="index.html" class="back-link">← 返回项目列表</a>
+    </div>
+
+    <p class="desc">
+      汇总当前浏览器中所有项目的发票填报数据，按项目和用餐类别统计总数量、总金额与整体均价。
+    </p>
+
+    <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px; flex-wrap:wrap;">
+      <label for="yearInput">年份：</label>
+      <input type="number" id="yearInput" style="width:80px; padding:6px 10px; border:1px solid #ddd; border-radius:4px; font-size:13px;" />
+      <label for="monthSelect">月份：</label>
+      <select id="monthSelect" style="padding:6px 10px; border:1px solid #ddd; border-radius:4px; font-size:13px;">
+        <option value="1">1月</option>
+        <option value="2">2月</option>
+        <option value="3">3月</option>
+        <option value="4">4月</option>
+        <option value="5">5月</option>
+        <option value="6">6月</option>
+        <option value="7">7月</option>
+        <option value="8">8月</option>
+        <option value="9">9月</option>
+        <option value="10">10月</option>
+        <option value="11">11月</option>
+        <option value="12">12月</option>
+      </select>
+      <button class="btn" onclick="switchMonth()">切换月份</button>
+      <button class="btn" onclick="exportAllExcel()">导出 Excel</button>
+    </div>
+
+    <p id="ymInfo" class="ym-tip"></p>
+
+    <div id="tableContainer"></div>
+  </div>
+
+  <script>
+    const PROJECT_LIST_STORAGE_KEY = "projectListConfig";
+    const YEAR_MONTH_STORAGE_KEY = "invoiceYearMonth";
+
+    let localYearMonth = null;
+
+    const DEFAULT_PROJECT_LIST = [
+      "乐福源猪肉",
+      "王家猪肉",
+      "香万家猪肉",
+      "清真牛肉",
+      "嘉泽牛肉",
+      "利丰鸡蛋",
+      "小毛蔬菜",
+      "子茼豆腐",
+      "老李土豆",
+      "利丰粮油",
+      "李军调料",
+      "徐国熏鸡",
+      "金联蔬菜",
+      "利丰水产"
+    ];
+
+    let PROJECT_LIST = [];
+
+    function loadProjectList() {
+      const saved = localStorage.getItem(PROJECT_LIST_STORAGE_KEY);
+      if (saved) {
+        try {
+          const arr = JSON.parse(saved);
+          if (Array.isArray(arr) && arr.length) {
+            PROJECT_LIST = arr;
+            return;
+          }
+        } catch (e) {
+          console.error("解析项目列表失败，使用默认：", e);
+        }
+      }
+      PROJECT_LIST = DEFAULT_PROJECT_LIST.slice();
+    }
+
+    function getCurrentYearMonth() {
+      const saved = localStorage.getItem(YEAR_MONTH_STORAGE_KEY);
+      if (saved) {
+        try {
+          const obj = JSON.parse(saved);
+          if (obj && obj.year && obj.month) return obj;
+        } catch (e) {
+          console.error("解析年份月份失败，将使用当前日期：", e);
+        }
+      }
+      const now = new Date();
+      return { year: now.getFullYear(), month: now.getMonth() + 1 };
+    }
+
+    function getEffectiveYearMonth() {
+      if (localYearMonth) return localYearMonth;
+      return getCurrentYearMonth();
+    }
+
+    function isInCurrentYearMonth(dateString) {
+      const ym = getEffectiveYearMonth();
+      const d = new Date(dateString);
+      if (isNaN(d.getTime())) return false;
+      return d.getFullYear() === ym.year && d.getMonth() + 1 === ym.month;
+    }
+
+    function switchMonth() {
+      const year = parseInt(document.getElementById("yearInput").value, 10);
+      const month = parseInt(document.getElementById("monthSelect").value, 10);
+      if (!year || !month || month < 1 || month > 12) {
+        alert("请填写正确的年份和月份。");
+        return;
+      }
+      localYearMonth = { year: year, month: month };
+      document.getElementById("ymInfo").textContent =
+        "当前统计范围为：" + year + " 年 " + month + " 月。";
+      renderTable();
+    }
+
+    function loadProjectEntries(projectName) {
+      const key = "invoiceEntries_" + projectName;
+      const saved = localStorage.getItem(key);
+      if (!saved) return [];
+      try {
+        return JSON.parse(saved) || [];
+      } catch (e) {
+        console.error("解析项目[" + projectName + "]记录失败：", e);
+        return [];
+      }
+    }
+
+    function buildSummary() {
+      const result = {};
+      const mealOrder = [
+        "营养午餐",
+        "自收午餐",
+        "早晚餐",
+        "教师餐",
+        "幼儿园餐"
+      ];
+
+      mealOrder.forEach(function (meal) {
+        result[meal] = {
+          rows: [],
+          totalQuantity: 0,
+          totalAmount: 0,
+          totalAvg: "0.00"
+        };
+      });
+
+      PROJECT_LIST.forEach(function (name) {
+        const allEntries = loadProjectEntries(name);
+        const filtered = allEntries.filter(function (e) {
+          return isInCurrentYearMonth(e.date);
+        });
+
+        const perProjectPerMeal = {};
+        filtered.forEach(function (e) {
+          const meal = e.mealCategory || "";
+          if (!mealOrder.includes(meal)) return;
+          if (!perProjectPerMeal[meal]) {
+            perProjectPerMeal[meal] = { quantity: 0, amount: 0 };
+          }
+          perProjectPerMeal[meal].quantity += e.quantity || 0;
+          perProjectPerMeal[meal].amount += e.amount || 0;
+        });
+
+        mealOrder.forEach(function (meal) {
+          const info = perProjectPerMeal[meal] || { quantity: 0, amount: 0 };
+          const qty = info.quantity;
+          const amt = info.amount;
+          const section = result[meal];
+          section.totalQuantity += qty;
+          section.totalAmount += amt;
+          const avg = qty > 0 ? (amt / qty).toFixed(2) : "0.00";
+          section.rows.push({
+            project: name,
+            quantity: qty,
+            amount: amt,
+            avgPrice: avg
+          });
+        });
+      });
+
+      Object.keys(result).forEach(function (meal) {
+        const section = result[meal];
+        section.totalAvg =
+          section.totalQuantity > 0
+            ? (section.totalAmount / section.totalQuantity).toFixed(2)
+            : "0.00";
+      });
+
+      return result;
+    }
+
+    function renderTable() {
+      const container = document.getElementById("tableContainer");
+      container.innerHTML = "";
+
+      const summary = buildSummary();
+      const mealOrder = [
+        "营养午餐",
+        "自收午餐",
+        "早晚餐",
+        "教师餐",
+        "幼儿园餐"
+      ];
+
+      let hasAnyData = false;
+
+      mealOrder.forEach(function (meal) {
+        const section = summary[meal];
+        if (!section || !section.rows.length) {
+          return;
+        }
+        hasAnyData = true;
+
+        const box = document.createElement("div");
+        box.className = "meal-section";
+
+        const title = document.createElement("div");
+        title.className = "meal-title";
+        title.textContent = meal;
+        box.appendChild(title);
+
+        const table = document.createElement("table");
+        const thead = document.createElement("thead");
+        thead.innerHTML =
+          "<tr><th>项目</th><th>总数量</th><th>总金额（元）</th><th>整体均价</th></tr>";
+        table.appendChild(thead);
+
+        const tbody = document.createElement("tbody");
+        section.rows.forEach(function (row) {
+          const tr = document.createElement("tr");
+          tr.innerHTML =
+            "<td>" +
+            row.project +
+            "</td><td>" +
+            row.quantity.toFixed(2) +
+            "</td><td>" +
+            row.amount.toFixed(2) +
+            "</td><td>" +
+            row.avgPrice +
+            "</td>";
+          tbody.appendChild(tr);
+        });
+
+        const totalTr = document.createElement("tr");
+        totalTr.className = "total-row";
+        totalTr.innerHTML =
+          "<td>合计</td><td>" +
+          section.totalQuantity.toFixed(2) +
+          "</td><td>" +
+          section.totalAmount.toFixed(2) +
+          "</td><td>" +
+          section.totalAvg +
+          "</td>";
+        tbody.appendChild(totalTr);
+
+        table.appendChild(tbody);
+        box.appendChild(table);
+
+        container.appendChild(box);
+      });
+
+      if (!hasAnyData) {
+        const p = document.createElement("p");
+        p.className = "empty-tip";
+        p.textContent = "暂无数据。请先在各项目页面录入发票金额。";
+        container.appendChild(p);
+      }
+    }
+
+    function exportAllExcel() {
+      const summary = buildSummary();
+      const mealOrder = [
+        "营养午餐",
+        "自收午餐",
+        "早晚餐",
+        "教师餐",
+        "幼儿园餐"
+      ];
+
+      let hasAnyData = false;
+      const ym = getCurrentYearMonth();
+      let csv = "\uFEFF";
+
+      mealOrder.forEach(function (meal) {
+        const section = summary[meal];
+        if (!section || !section.rows.length) return;
+        hasAnyData = true;
+
+        csv += meal + "\n";
+        csv += "项目,总数量,总金额(元),整体均价(元/斤)\n";
+        section.rows.forEach(function (row) {
+          const line = [
+            row.project,
+            row.quantity.toFixed(2),
+            row.amount.toFixed(2),
+            row.avgPrice
+          ]
+            .map(function (v) {
+              return '"' + String(v).replace(/"/g, '""') + '"';
+            })
+            .join(",");
+          csv += line + "\n";
+        });
+        const totalLine = [
+          "合计",
+          section.totalQuantity.toFixed(2),
+          section.totalAmount.toFixed(2),
+          section.totalAvg
+        ]
+          .map(function (v) {
+            return '"' + String(v).replace(/"/g, '""') + '"';
+          })
+          .join(",");
+        csv += totalLine + "\n";
+        csv += "\n";
+      });
+
+      if (!hasAnyData) {
+        alert("暂无数据可导出。");
+        return;
+      }
+
+      const blob = new Blob([csv], {
+        type: "text/csv;charset=utf-8;"
+      });
+      const link = document.createElement("a");
+      const today = new Date().toISOString().split("T")[0];
+      link.href = URL.createObjectURL(blob);
+      link.download = ym.year + "年" + ym.month + "月_数据总计_" + today + ".csv";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(link.href);
+    }
+
+    window.onload = function () {
+      loadProjectList();
+      const ym = getCurrentYearMonth();
+      document.getElementById("yearInput").value = ym.year;
+      document.getElementById("monthSelect").value = String(ym.month);
+      document.getElementById("ymInfo").textContent =
+        "当前统计范围为：" + ym.year + " 年 " + ym.month + " 月。";
+      renderTable();
+    };
+  </script>
+</body>
+</html>
+
+
