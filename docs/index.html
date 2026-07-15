@@ -34,7 +34,7 @@
       <div class="top-nav__tabs">
         <button class="top-nav__tab active" data-page="workflow">工作流</button>
         <button class="top-nav__tab" data-page="skill">Skill</button>
-        <button class="top-nav__tab" data-page="entp">ENTP·性格走廊</button>
+        <button class="top-nav__tab" data-page="entp">性格走廊</button>
       </div>
     </div>
   </nav>
@@ -54,67 +54,205 @@
       </div>
     </section>
 
-    <!-- Workflow Projects -->
+    <!-- Projects -->
     <section class="section" id="workflow">
       <div class="container">
-        <div class="section-header">
-          <span class="section-header__flourish">—</span>
-          <h2 class="section-header__title">Workflow</h2>
-          <span class="section-header__flourish">—</span>
-        </div>
+        <div class="workflow-sections">
+          <div class="workflow-group reveal">
+            <div class="workflow-group__header">
+              <h3 class="workflow-group__title">L3 · 决策型智能体</h3>
+              <p class="workflow-group__desc">面向需要判断、推荐和研究表达的场景，把事实源、规则校验和推理步骤组织成可解释的 AI 产品。</p>
+            </div>
+            <div class="project-grid workflow-grid">
+              <a href="#project-detail" data-project="minmin" data-github="https://github.com/1024205457-boop/ai-product-skills/tree/main/RAG%E5%AF%BC%E8%B4%AD" class="project-card reveal">
+                <div class="project-card__info">
+                  <h3 class="project-card__title">敏敏肌选品导购智能体</h3>
+                </div>
+                <div class="project-card__media project-card__media--minmin">
+                  <span>护肤导购 Demo</span>
+                </div>
+                <div class="project-card__body">
+                  <div class="project-card__field">
+                    <span class="project-card__label">目标人群</span>
+                    <p>敏感肌用户、护肤导购、成分安全关注者</p>
+                  </div>
+                  <div class="project-card__field">
+                    <span class="project-card__label">产品定位</span>
+                    <p>解决用户不会看成分、导购难解释风险的问题，用知识库和风险规则把选品推荐变成可追溯的安全筛查报告。</p>
+                  </div>
+                </div>
+              </a>
 
-        <div class="project-grid">
-          <a href="#" class="project-card reveal">
-            <div class="project-card__image">
-              <img src="assets/images/converted/IMG_1024.jpg" alt="AI图像消除评测体系">
-            </div>
-            <div class="project-card__info">
-              <h3 class="project-card__title">AI图像消除评测体系</h3>
-              <div class="project-card__tags">
-                <span class="tag">凯度</span>
-                <span class="tag">OPPO</span>
-              </div>
-            </div>
-          </a>
+              <article class="project-card reveal" data-project="zebra" tabindex="0" role="button">
+                <div class="project-card__info">
+                  <h3 class="project-card__title">某头部教育品牌智能学习顾问</h3>
+                </div>
+                <div class="project-card__media project-card__media--advisor">
+                  <span>学习顾问流程</span>
+                </div>
+                <div class="project-card__body">
+                  <div class="project-card__field">
+                    <span class="project-card__label">目标人群</span>
+                    <p>体验会员、家长、学习顾问和转化运营团队</p>
+                  </div>
+                  <div class="project-card__field">
+                    <span class="project-card__label">产品定位</span>
+                    <p>解决体验课后跟进断点多、顾问回复不稳定的问题，用 AI 学习顾问串联提醒、学情反馈、课程推荐和购买答疑。</p>
+                  </div>
+                </div>
+              </article>
 
-          <a href="#" class="project-card reveal">
-            <div class="project-card__image">
-              <img src="assets/images/converted/IMG_1024.jpg" alt="多模态内容生成质量评估">
-            </div>
-            <div class="project-card__info">
-              <h3 class="project-card__title">多模态内容生成质量评估</h3>
-              <div class="project-card__tags">
-                <span class="tag">斑马百科</span>
-                <span class="tag">Agent</span>
-              </div>
-            </div>
-          </a>
+              <article class="project-card reveal" data-project="chart" tabindex="0" role="button">
+                <div class="project-card__info">
+                  <h3 class="project-card__title">可视化桌面研究智能体</h3>
+                </div>
+                <div class="project-card__media project-card__media--research">
+                  <span>研究可视化</span>
+                </div>
+                <div class="project-card__body">
+                  <div class="project-card__field">
+                    <span class="project-card__label">目标人群</span>
+                    <p>咨询分析师、产品经理、行业研究和竞品研究使用者</p>
+                  </div>
+                  <div class="project-card__field">
+                    <span class="project-card__label">产品定位</span>
+                    <p>解决桌面研究信息散、结论难表达的问题，用智能体把材料提炼成可视化研究结构，让图形成为观点载体而不是装饰。</p>
+                  </div>
+                </div>
+              </article>
 
-          <a href="#" class="project-card reveal">
-            <div class="project-card__image">
-              <img src="assets/images/converted/IMG_0540.jpg" alt="消费者旅程触点研究">
             </div>
-            <div class="project-card__info">
-              <h3 class="project-card__title">消费者旅程触点研究</h3>
-              <div class="project-card__tags">
-                <span class="tag">凯度</span>
-                <span class="tag">定性研究</span>
-              </div>
-            </div>
-          </a>
+          </div>
 
-          <a href="#" class="project-card reveal">
-            <div class="project-card__image">
-              <img src="assets/images/converted/IMG_5211.jpg" alt="宠物智能产品概念测试">
+          <div class="workflow-group reveal">
+            <div class="workflow-group__header">
+              <h3 class="workflow-group__title">L2 · 业务流程自动化</h3>
+              <p class="workflow-group__desc">把高频运营任务拆成输入、生成、审核、写入和回读校验，让 AI 稳定嵌入真实业务流程。</p>
             </div>
-            <div class="project-card__info">
-              <h3 class="project-card__title">宠物智能产品概念测试</h3>
-              <div class="project-card__tags">
-                <span class="tag">Dyson</span>
-                <span class="tag">问卷设计</span>
-              </div>
+            <div class="project-grid workflow-grid">
+              <a href="#project-detail" data-project="content" data-github="https://github.com/1024205457-boop/ai-product-skills/tree/main/%E7%A7%81%E5%9F%9F%E5%86%85%E5%AE%B9%E7%94%9F%E4%BA%A7" class="project-card reveal">
+                <div class="project-card__info">
+                  <h3 class="project-card__title">私域内容生产</h3>
+                </div>
+                <div class="project-card__media project-card__media--content">
+                  <span>内容生产看板</span>
+                </div>
+                <div class="project-card__body">
+                  <div class="project-card__field">
+                    <span class="project-card__label">目标人群</span>
+                    <p>私域运营、品牌内容团队、社群转化负责人</p>
+                  </div>
+                  <div class="project-card__field">
+                    <span class="project-card__label">产品定位</span>
+                    <p>解决私域内容生产慢、风格不稳和重复投放的问题，把事实输入、批量生成、审核、去重和渠道适配做成自动化流程。</p>
+                  </div>
+                </div>
+              </a>
+
+              <a href="#project-detail" data-project="training" data-github="https://github.com/1024205457-boop/training" class="project-card reveal">
+                <div class="project-card__info">
+                  <h3 class="project-card__title">小捞陪练｜海底捞服务话术陪练</h3>
+                </div>
+                <div class="project-card__media project-card__media--training">
+                  <span>移动端陪练</span>
+                </div>
+                <div class="project-card__body">
+                  <div class="project-card__field">
+                    <span class="project-card__label">目标人群</span>
+                    <p>餐饮新人、门店培训负责人、一线服务团队</p>
+                  </div>
+                  <div class="project-card__field">
+                    <span class="project-card__label">产品定位</span>
+                    <p>解决新人服务话术训练依赖人工带教的问题，用移动端角色扮演陪练覆盖服务场景、顾客反馈和即时纠偏。</p>
+                  </div>
+                </div>
+              </a>
+
+              <a href="#project-detail" data-project="dataops" data-github="https://github.com/1024205457-boop/ai-product-skills/tree/main/%E6%95%B0%E6%8D%AE%E6%9B%B4%E6%96%B0%E5%B7%A5%E4%BD%9C%E6%B5%81" class="project-card reveal">
+                <div class="project-card__info">
+                  <h3 class="project-card__title">数据更新工作流</h3>
+                </div>
+                <div class="project-card__media project-card__media--dataops">
+                  <span>数据更新链路</span>
+                </div>
+                <div class="project-card__body">
+                  <div class="project-card__field">
+                    <span class="project-card__label">目标人群</span>
+                    <p>运营分析、数据看板维护者、周期报表负责人</p>
+                  </div>
+                  <div class="project-card__field">
+                    <span class="project-card__label">产品定位</span>
+                    <p>解决报表更新依赖手工搬运、容易出错的问题，用来源校验、字段清洗、受控写入和回读检查稳定更新数据。</p>
+                  </div>
+                </div>
+              </a>
             </div>
-          </a>
+          </div>
+
+          <div class="workflow-group reveal">
+            <div class="workflow-group__header">
+              <h3 class="workflow-group__title">L4 · 陪伴与社区体验</h3>
+              <p class="workflow-group__desc">从单次工具走向长期互动，围绕情绪、兴趣和社交关系设计更有持续性的智能体验。</p>
+            </div>
+            <div class="project-grid workflow-grid">
+              <a href="#project-detail" data-project="frame" data-github="https://github.com/1024205457-boop/alcheme3.0" class="project-card reveal">
+                <div class="project-card__info">
+                  <h3 class="project-card__title">帧我：多模态情绪陪伴</h3>
+                </div>
+                <div class="project-card__media project-card__media--frame">
+                  <span>情绪识别体验</span>
+                </div>
+                <div class="project-card__body">
+                  <div class="project-card__field">
+                    <span class="project-card__label">目标人群</span>
+                    <p>需要情绪记录、情绪卸载和轻陪伴体验的年轻用户</p>
+                  </div>
+                  <div class="project-card__field">
+                    <span class="project-card__label">产品定位</span>
+                    <p>解决用户情绪难表达、难被即时接住的问题，用表情、语音和文本识别构建多模态情绪陪伴反馈。</p>
+                  </div>
+                </div>
+              </a>
+
+              <a href="#project-detail" data-project="birdcircle" data-github="https://github.com/1024205457-boop/birdcircle" class="project-card reveal">
+                <div class="project-card__info">
+                  <h3 class="project-card__title">鸟有圈：观鸟兴趣社区</h3>
+                </div>
+                <div class="project-card__media project-card__media--bird">
+                  <span>观鸟社区原型</span>
+                </div>
+                <div class="project-card__body">
+                  <div class="project-card__field">
+                    <span class="project-card__label">目标人群</span>
+                    <p>观鸟爱好者、自然观察用户、兴趣社群成员</p>
+                  </div>
+                  <div class="project-card__field">
+                    <span class="project-card__label">产品定位</span>
+                    <p>解决小众兴趣用户记录分散、交流弱的问题，用观鸟记录、社群互动和 AI 陪伴形成持续参与的兴趣社区。</p>
+                  </div>
+                </div>
+              </a>
+
+              <article class="project-card reveal" data-project="busycall" tabindex="0" role="button">
+                <div class="project-card__info">
+                  <h3 class="project-card__title">真的很忙</h3>
+                </div>
+                <div class="project-card__media project-card__media--busycall">
+                  <span>来电模拟 Demo</span>
+                </div>
+                <div class="project-card__body">
+                  <div class="project-card__field">
+                    <span class="project-card__label">目标人群</span>
+                    <p>远程办公用户、会议高频用户、需要轻量脱身场景的人</p>
+                  </div>
+                  <div class="project-card__field">
+                    <span class="project-card__label">产品定位</span>
+                    <p>解决线上会议难以自然离场的尴尬痛点，用高仿真来电模拟提供一个低成本、快速触发的社交缓冲工具。</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -133,7 +271,76 @@
           <h2 class="section-header__title">Skill</h2>
           <span class="section-header__flourish">—</span>
         </div>
-        <p class="section-header__sub">待补充内容</p>
+        <p class="section-header__sub">把真实 AI 产品工作沉淀为可复用、可公开的方法库</p>
+
+        <a href="https://github.com/1024205457-boop/ai-product-skills" target="_blank" class="method-library reveal">
+          <div class="method-library__label">Method Library</div>
+          <h3 class="method-library__title">AI Product Skills</h3>
+          <p class="method-library__desc">这些 skills 来自真实 AI 产品、运营和数据自动化项目，已脱敏为公开方法库。网站展示摘要与能力地图，完整规则、清单和脚本保留在 GitHub。</p>
+          <span class="method-library__link">View Repository →</span>
+        </a>
+
+        <div class="skill-grid">
+          <a href="https://github.com/1024205457-boop/ai-product-skills/tree/main/RAG%E5%AF%BC%E8%B4%AD" target="_blank" class="skill-card reveal">
+            <div class="skill-card__icon">🛒</div>
+            <h3 class="skill-card__title">RAG 导购</h3>
+            <p class="skill-card__desc">把模糊消费需求转成决策标准，基于知识库和商品事实做推荐、对比与风险检查。</p>
+            <div class="skill-card__points">
+              <span>需求解析</span>
+              <span>事实检索</span>
+              <span>风险召回</span>
+            </div>
+            <span class="skill-card__link">Open Skill →</span>
+          </a>
+
+          <a href="https://github.com/1024205457-boop/ai-product-skills/tree/main/%E5%8D%95Agent%E5%B7%A5%E4%BD%9C%E6%B5%81" target="_blank" class="skill-card reveal">
+            <div class="skill-card__icon">🤖</div>
+            <h3 class="skill-card__title">单 Agent 工作流</h3>
+            <p class="skill-card__desc">用阶段、事件、工具契约、TODO、记忆边界和红线转人工规则约束 Agent。</p>
+            <div class="skill-card__points">
+              <span>事件驱动</span>
+              <span>工具契约</span>
+              <span>红线兜底</span>
+            </div>
+            <span class="skill-card__link">Open Skill →</span>
+          </a>
+
+          <a href="https://github.com/1024205457-boop/ai-product-skills/tree/main/%E6%95%B0%E6%8D%AE%E6%9B%B4%E6%96%B0%E5%B7%A5%E4%BD%9C%E6%B5%81" target="_blank" class="skill-card reveal">
+            <div class="skill-card__icon">📊</div>
+            <h3 class="skill-card__title">数据更新工作流</h3>
+            <p class="skill-card__desc">面向周期报表和看板更新，建立来源校验、字段清洗、受控写入和回读校验。</p>
+            <div class="skill-card__points">
+              <span>来源校验</span>
+              <span>受控写入</span>
+              <span>异常说明</span>
+            </div>
+            <span class="skill-card__link">Open Skill →</span>
+          </a>
+
+          <a href="https://github.com/1024205457-boop/ai-product-skills/tree/main/%E7%A7%81%E5%9F%9F%E5%86%85%E5%AE%B9%E7%94%9F%E4%BA%A7" target="_blank" class="skill-card reveal">
+            <div class="skill-card__icon">✍️</div>
+            <h3 class="skill-card__title">私域内容生产</h3>
+            <p class="skill-card__desc">将私域文案和图片生成拆成事实输入、批量生成、审核、去重、渠道适配和频控。</p>
+            <div class="skill-card__points">
+              <span>批量生成</span>
+              <span>审核门</span>
+              <span>频控去重</span>
+            </div>
+            <span class="skill-card__link">Open Skill →</span>
+          </a>
+
+          <a href="https://github.com/1024205457-boop/ai-product-skills/tree/main/API%E4%B8%8EPlaywright%E8%87%AA%E5%8A%A8%E5%8C%96" target="_blank" class="skill-card reveal">
+            <div class="skill-card__icon">⚙️</div>
+            <h3 class="skill-card__title">API 与 Playwright 自动化</h3>
+            <p class="skill-card__desc">判断数据导出、报表刷新和内部工具操作应该用 API/Cookie、Playwright 或混合方案。</p>
+            <div class="skill-card__points">
+              <span>路径判断</span>
+              <span>导出自动化</span>
+              <span>失败兜底</span>
+            </div>
+            <span class="skill-card__link">Open Skill →</span>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -312,6 +519,42 @@
       </div>
     </div>
   </footer>
+
+  <div class="project-modal" id="project-detail" aria-hidden="true">
+    <div class="project-modal__backdrop" data-project-close></div>
+    <article class="project-modal__panel" role="dialog" aria-modal="true" aria-labelledby="project-detail-title">
+      <button class="project-modal__close" type="button" data-project-close aria-label="关闭项目介绍">×</button>
+      <div class="project-modal__media" id="project-detail-media">
+        <div class="project-modal__media-fallback">项目展示</div>
+      </div>
+      <div class="project-modal__content">
+        <p class="project-modal__eyebrow" id="project-detail-category">项目介绍</p>
+        <h2 class="project-modal__title" id="project-detail-title"></h2>
+        <p class="project-modal__summary" id="project-detail-summary"></p>
+        <div class="project-modal__grid">
+          <div>
+            <span class="project-modal__label">目标人群</span>
+            <p id="project-detail-audience"></p>
+          </div>
+          <div>
+            <span class="project-modal__label">我的工作</span>
+            <p id="project-detail-role"></p>
+          </div>
+        </div>
+        <div class="project-modal__section">
+          <span class="project-modal__label">项目介绍</span>
+          <p id="project-detail-intro"></p>
+        </div>
+        <div class="project-modal__section">
+          <span class="project-modal__label">Demo 展示</span>
+          <p id="project-detail-demo"></p>
+        </div>
+        <div class="project-modal__footer">
+          <a class="project-modal__github" id="project-detail-github" href="#" target="_blank" rel="noreferrer">查看 GitHub</a>
+        </div>
+      </div>
+    </article>
+  </div>
 
   <script src="js/home.js"></script>
 </body>
