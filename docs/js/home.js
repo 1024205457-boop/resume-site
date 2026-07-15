@@ -31,7 +31,7 @@
 
   const projects = {
     minmin: {
-      category: 'L3 · 决策与研究智能体',
+      category: 'AI Agent 产品',
       title: '敏敏肌选品｜护肤搜索导购 Agent',
       media: { label: '成分安全筛查' },
       audience: '有功效诉求的护肤用户、敏感肌/痘肌/孕期等需避险人群、导购顾问',
@@ -41,7 +41,7 @@
       demo: 'Demo 展示位适合放 Prompt 配置、知识库字段、成分表筛查截图，或“美白 + 敏感肌 / 孕期 / 不要酒精香精”等多轮对比录屏；当前保留镏金封面，便于后续替换真实素材。'
     },
     zebra: {
-      category: 'L3 · 决策与研究智能体',
+      category: 'AI Agent 产品',
       title: '某头部教育品牌智能学习顾问',
       media: { label: '学习顾问流程' },
       audience: '体验会员、家长、学习顾问和转化运营团队',
@@ -51,7 +51,7 @@
       demo: '展示位支持上传用户旅程图、顾问对话样例、意图分类表或服务流程图；对外只保留脱敏项目名，不出现真实品牌。'
     },
     chart: {
-      category: 'L3 · 决策与研究智能体',
+      category: 'AI Agent 产品',
       title: '可视化桌面研究智能体',
       media: { label: '研究可视化' },
       audience: '咨询分析师、产品经理、行业研究和竞品研究使用者',
@@ -61,7 +61,7 @@
       demo: '已有本地 Demo 和样例报告：assets/demos/mrw-demo.html、assets/reports/mrw-sample-report.html；展示位后续可替换为运行录屏或报告截图。'
     },
     content: {
-      category: 'L2 · 业务流程自动化',
+      category: 'AI 工作流自动化',
       title: '私域内容生产',
       media: { label: '内容生产看板' },
       audience: '私域运营、品牌内容团队、社群转化负责人',
@@ -71,7 +71,7 @@
       demo: '展示位支持上传内容生产表格、生成结果对比、审核规则和批量处理录屏。'
     },
     training: {
-      category: 'L2 · 业务流程自动化',
+      category: 'AI 工作流自动化',
       title: '小捞陪练｜海底捞服务话术陪练',
       media: { label: '移动端陪练' },
       audience: '餐饮新人、门店培训负责人、一线服务团队',
@@ -81,7 +81,7 @@
       demo: '已有在线 Demo；展示位支持上传移动端操作录屏、服务场景截图和反馈页截图。'
     },
     dataops: {
-      category: 'L2 · 业务流程自动化',
+      category: 'AI 工作流自动化',
       title: '数据更新工作流',
       media: { label: '数据更新链路' },
       audience: '运营分析、数据看板维护者、周期报表负责人',
@@ -91,7 +91,7 @@
       demo: '展示位支持上传数据源示例、更新前后对比、异常提示和自动化运行截图。'
     },
     frame: {
-      category: 'L4 · 陪伴与社区体验',
+      category: 'AI 陪伴与社区产品',
       title: '帧我：多模态情绪发泄与记录',
       media: { label: '情绪识别体验' },
       audience: '需要情绪卸载、情绪记录和低门槛自我观察的年轻用户',
@@ -101,7 +101,7 @@
       demo: '展示位支持上传 App 页面截图、情绪识别流程图、输入输出对比和短视频演示。'
     },
     birdcircle: {
-      category: 'L4 · 陪伴与社区体验',
+      category: 'AI 陪伴与社区产品',
       title: '鸟有圈：AI 观鸟记录工具',
       media: { label: '地图鸟讯 + AI 识鸟' },
       audience: '观鸟新人、自然观察用户、拍鸟和记录型兴趣用户',
@@ -111,7 +111,7 @@
       demo: 'GitHub 已包含 birdcircle.html、app.py、proxy.py、鸟种图片和 README；展示位后续可上传地图页、上传识别页、相册归档页和保护机制截图。'
     },
     busycall: {
-      category: 'L4 · 陪伴与社区体验',
+      category: 'AI 陪伴与社区产品',
       title: '真的很忙',
       media: { label: '来电模拟 Demo' },
       audience: '远程办公用户、会议高频用户、需要轻量脱身场景的人',
