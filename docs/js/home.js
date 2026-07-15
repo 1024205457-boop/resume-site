@@ -42,7 +42,10 @@
       background: '用户常以“美白、祛痘、抗老、修护”等功效表达需求，但真实购买决策还受肤质、过敏史、孕期/刷酸期和成分禁忌影响，普通导购很难同时解释推荐理由和风险。',
       action: '设计护肤搜索导购 Agent 的 Prompt、知识库字段和输出格式，把需求解析、核心功效成分匹配、产品检索、完整成分表风险召回、推荐排序和多轮追问规则串成闭环。',
       goal: '让用户无需先懂成分，也能拿到 3-5 个候选产品的优先级、推荐理由、风险成分提示、适用建议和下一步对比方向。',
-      result: '已接入电商导购体验短链接，可直接演示从消费需求到商品推荐、对比和风险提示的完整流程。'
+      result: '已接入电商导购体验短链接，可直接演示从消费需求到商品推荐、对比和风险提示的完整流程。',
+      trialUrl: 'https://yfdurl14.com/Cus1rC',
+      trialLabel: '试用电商导购',
+      githubUrl: 'https://github.com/1024205457-boop/ai-product-skills/tree/main/RAG%E5%AF%BC%E8%B4%AD'
     },
     zebra: {
       category: 'AI Agent 产品',
@@ -84,7 +87,8 @@
       background: '私域运营每周需要持续产出社群、朋友圈和导购触达内容，人工写稿耗时长，且容易出现主题重复、风格不稳定和审核成本高的问题。',
       action: '设计主题循环、时令感知、历史去重和风险审核规则，接入大模型生成 7 天 × 3 渠道文案，并对接图生图工具批量生成导购卡和配图。',
       goal: '把“临时写稿”变成可复用内容生产线，让运营按固定输入获得可审核、可推送、可复盘的内容包。',
-      result: '实现 63 条渠道文案批量生成，并打通“生成 → 审核 → 推送”的内容生产闭环。'
+      result: '实现 63 条渠道文案批量生成，并打通“生成 → 审核 → 推送”的内容生产闭环。',
+      githubUrl: 'https://github.com/1024205457-boop/ai-product-skills/tree/main/%E7%A7%81%E5%9F%9F%E5%86%85%E5%AE%B9%E7%94%9F%E4%BA%A7'
     },
     training: {
       category: 'AI 工作流自动化',
@@ -98,7 +102,8 @@
       background: '餐饮新人服务训练依赖人工带教，真实顾客提问和冲突场景很难高频复现，培训效果也不容易标准化评估。',
       action: '设计移动端角色扮演陪练，拆分服务场景、顾客角色、话术回应、即时反馈和纠偏建议，让新人可以重复练习。',
       goal: '把一次性讲解式培训改造成可反复使用的服务话术练习工具，降低门店培训负责人对人工陪练的依赖。',
-      result: '已有在线 Demo，可展示移动端服务场景、对话练习和反馈页。'
+      result: '已有在线 Demo，可展示移动端服务场景、对话练习和反馈页。',
+      githubUrl: 'https://github.com/1024205457-boop/training'
     },
     dataops: {
       category: 'AI 工作流自动化',
@@ -112,7 +117,8 @@
       background: '增长周报数据分散在多套业务后台和数据看板，人工复制、清洗和汇总耗时 2-3 小时，且容易出现漏字段和口径不一致。',
       action: '梳理 4 大业务模块和 15 个功能的数据流向，设计字段映射、来源校验、清洗规则、异常提示、漏斗口径和回读检查。',
       goal: '把周期性周报更新标准化为加微 UV → 领取 UV → 激活 UV → 购买的转化漏斗，让运营能用同一套口径分析流失。',
-      result: '将单次周报更新从 2-3 小时压缩到分钟级，并沉淀为可复用的数据更新工作流。'
+      result: '将单次周报更新从 2-3 小时压缩到分钟级，并沉淀为可复用的数据更新工作流。',
+      githubUrl: 'https://github.com/1024205457-boop/ai-product-skills/tree/main/%E6%95%B0%E6%8D%AE%E6%9B%B4%E6%96%B0%E5%B7%A5%E4%BD%9C%E6%B5%81'
     },
     frame: {
       category: 'AI 陪伴与社区产品',
@@ -126,7 +132,8 @@
       background: '年轻用户有即时情绪卸载和低门槛情绪记录需求，但纯聊天陪伴容易停留在安慰层面，缺少可互动的释放动作和可回看的记录结果。',
       action: '定义“情绪发泄 + 情绪记录”双模式，设计多模态情绪识别、Prompt 引导、memory 管理、发泄对象生成和游戏化释放体验。',
       goal: '让用户可以把模糊情绪转成可互动的发泄对象，并通过语音、表情和文本形成情绪手账。',
-      result: '路演时获得 2 家孵化器支持，200+ 观众中 69 人愿意试用。'
+      result: '路演时获得 2 家孵化器支持，200+ 观众中 69 人愿意试用。',
+      githubUrl: 'https://github.com/1024205457-boop/alcheme3.0'
     },
     birdcircle: {
       category: 'AI 陪伴与社区产品',
@@ -140,7 +147,8 @@
       background: '观鸟新人常遇到找鸟难、识鸟难、照片散落和鸟讯整理割裂的问题，兴趣行为没有形成完整记录闭环。',
       action: '设计地图鸟点发现、照片上传识别、鸟讯生成、按鸟种归档、积分激励和敏感物种保护机制。',
       goal: '让用户从发现附近鸟点到上传照片、AI 初步识鸟、生成鸟讯、同步相册和获得积分形成一条闭环。',
-      result: '最新版本已在 GitHub，包含地图页、上传识别、相册导出和敏感物种坐标模糊等核心能力。'
+      result: '最新版本已在 GitHub，包含地图页、上传识别、相册导出和敏感物种坐标模糊等核心能力。',
+      githubUrl: 'https://github.com/1024205457-boop/birdcircle'
     },
     busycall: {
       category: 'AI 陪伴与社区产品',
@@ -168,7 +176,9 @@
       background: '多个供应商按项目填报发票金额时，月度统计容易散落在表格中，按用餐类别、食材、数量、金额和均价汇总很繁琐。',
       action: '梳理项目列表、食材维护、发票录入、日期筛选、用餐类别汇总、发票夹总览、历史保存和 CSV 导出流程。',
       goal: '把分散表格操作收敛到一个无需后端的本地网页，让负责人能快速录入、汇总和导出。',
-      result: 'Demo 已复制到 assets/demos/history/，可直接打开体验项目维护、金额录入、统计汇总和 CSV 导出。'
+      result: 'Demo 已复制到 assets/demos/history/，可直接打开体验项目维护、金额录入、统计汇总和 CSV 导出。',
+      trialUrl: 'assets/demos/history/index.html',
+      trialLabel: '打开 Demo'
     }
   };
 
@@ -181,6 +191,8 @@
     action: modal.querySelector('#project-detail-action'),
     goal: modal.querySelector('#project-detail-goal'),
     result: modal.querySelector('#project-detail-result'),
+    footer: modal.querySelector('.project-modal__footer'),
+    trial: modal.querySelector('#project-detail-trial'),
     github: modal.querySelector('#project-detail-github')
   };
 
@@ -226,15 +238,25 @@
     fields.goal.textContent = project.goal || project.summary;
     fields.result.textContent = project.result || project.demo;
 
-    const github = card.dataset.github;
-    if (github) {
-      fields.github.href = github;
-      fields.github.textContent = card.dataset.linkLabel || '查看 GitHub';
-      fields.github.classList.remove('is-disabled');
-    } else {
-      fields.github.href = '#';
-      fields.github.textContent = '项目资料整理中';
-      fields.github.classList.add('is-disabled');
+    const trialUrl = project.trialUrl || card.dataset.trial;
+    const githubUrl = project.githubUrl || (!card.dataset.linkLabel ? card.dataset.github : '');
+
+    function updateLink(link, url, label) {
+      if (url) {
+        link.href = url;
+        link.textContent = label;
+        link.hidden = false;
+        return;
+      }
+      link.href = '#';
+      link.hidden = true;
+    }
+
+    updateLink(fields.trial, trialUrl, project.trialLabel || card.dataset.trialLabel || '试用链接');
+    updateLink(fields.github, githubUrl, 'GitHub');
+
+    if (fields.footer) {
+      fields.footer.hidden = !trialUrl && !githubUrl;
     }
 
     modal.classList.add('active');

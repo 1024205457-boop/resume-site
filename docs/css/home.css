@@ -987,32 +987,29 @@ body {
 .project-modal__footer {
   display: flex;
   justify-content: flex-end;
-  padding-top: 0.4rem;
+  gap: 1rem;
+  padding-top: 0.25rem;
+  color: var(--color-text-muted);
 }
 
-.project-modal__github {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 2.5rem;
-  padding: 0 1rem;
-  border: 0;
-  border-radius: 999px;
-  background: rgba(201, 168, 76, 0.1);
+.project-modal__link {
+  display: inline;
+  padding-bottom: 0.12rem;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.45);
   color: var(--color-accent);
   font-size: 0.85rem;
-  transition: all 0.3s ease;
+  line-height: 1.5;
+  transition: color 0.25s ease, border-color 0.25s ease;
 }
 
-.project-modal__github:hover {
-  background: var(--color-accent);
-  color: var(--color-bg);
+.project-modal__link:hover {
+  color: var(--color-text);
+  border-color: currentColor;
 }
 
-.project-modal__github.is-disabled {
-  pointer-events: none;
-  color: var(--color-text-muted);
-  border-color: var(--color-border);
+.project-modal__link[hidden],
+.project-modal__footer[hidden] {
+  display: none;
 }
 
 /* ============================================================
