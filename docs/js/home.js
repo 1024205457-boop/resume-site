@@ -52,13 +52,13 @@
     },
     chart: {
       category: 'AI Agent 产品',
-      title: '可视化桌面研究智能体',
-      media: { label: '研究可视化' },
+      title: 'AI 市场研究 Agent｜可视化洞察工作流',
+      media: { label: 'Brief → 洞察报告' },
       audience: '咨询分析师、产品经理、行业研究和竞品研究使用者',
-      summary: '把桌面研究从“手工整理材料”改造成“Brief 解析 + 数据采集 + 框架分析 + 三元校验 + HTML 报告”的可运行 Pipeline。',
-      role: '设计 6 阶段研究 Pipeline、三元校验规则、黄金评测集和 Jinja2 可视化洞察报告模板。',
-      intro: '项目不是图表生成工具，而是 AI 辅助市场研究工作流。系统读取研究 Brief 和样例舆情数据后，完成研究设计、数据加载、框架化分析、源/交叉/逻辑三元校验，并生成含用户画像、痛点、决策路径和策略建议的 HTML 报告。Demo 指标包括洞察有源率 100%、平均 MOS 3.9+，适合展示“研究产出如何可追溯、可评测”。',
-      demo: '已有本地 Demo 和样例报告：assets/demos/mrw-demo.html、assets/reports/mrw-sample-report.html；展示位后续可替换为运行录屏或报告截图。'
+      summary: '把 Research Flow 的桌面研究主链路和 Chart-AI 的可视化表达层合并为一个从 Brief 到洞察报告的可运行 Agent。',
+      role: '设计研究 Pipeline、三元校验规则、黄金评测集、报告结构和可视化洞察表达模块。',
+      intro: '这个项目不是单独的图表生成工具，而是 AI 辅助市场研究工作流 + 可视化报告层的一体化产品。系统读取研究 Brief 和样例舆情数据后，完成研究设计、数据加载、框架化分析、源/交叉/逻辑三元校验，再把用户画像、痛点、决策路径和策略建议组织成可视化 HTML 洞察报告。Research Flow 负责“研究如何可信地产生”，Chart-AI 负责“洞察如何被清晰表达和复用”。',
+      demo: '已有本地 Demo 和样例报告：assets/demos/mrw-demo.html、assets/reports/mrw-sample-report.html；后续可继续补充可视化面板截图或运行录屏。'
     },
     content: {
       category: 'AI 工作流自动化',
