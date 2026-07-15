@@ -375,11 +375,36 @@ body {
 .workflow-sections {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 3.4rem;
+}
+
+.workflow-group {
+  position: relative;
+  padding: 1.35rem;
+  border: 1px solid var(--color-border);
+  background:
+    linear-gradient(135deg, rgba(201, 168, 76, 0.055), transparent 34%),
+    linear-gradient(180deg, rgba(255,255,255,0.018), transparent 48%);
+}
+
+.workflow-group::before {
+  content: "";
+  position: absolute;
+  left: 1.35rem;
+  right: 1.35rem;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--color-accent), transparent 70%);
+  opacity: 0.45;
 }
 
 .workflow-group__header {
-  margin-bottom: 1.1rem;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(180px, 0.32fr) minmax(0, 1fr);
+  gap: 1.6rem;
+  align-items: baseline;
+  margin-bottom: 1.25rem;
 }
 
 .workflow-group__title {
@@ -390,7 +415,7 @@ body {
 }
 
 .workflow-group__desc {
-  max-width: 680px;
+  max-width: 760px;
   color: var(--color-text-secondary);
   font-size: 0.9rem;
   line-height: 1.7;
@@ -403,6 +428,47 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
+}
+
+.workflow-grid {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.workflow-grid .project-card {
+  min-height: 100%;
+}
+
+.workflow-grid .project-card:first-child {
+  grid-column: span 5;
+  grid-row: span 2;
+}
+
+.workflow-grid .project-card:not(:first-child) {
+  grid-column: span 7;
+  display: grid;
+  grid-template-columns: minmax(190px, 0.42fr) minmax(0, 1fr);
+  grid-template-areas:
+    "media info"
+    "media body";
+}
+
+.workflow-grid .project-card:not(:first-child) .project-card__info {
+  grid-area: info;
+  padding: 1.1rem 1.25rem 0.55rem;
+}
+
+.workflow-grid .project-card:not(:first-child) .project-card__media {
+  grid-area: media;
+  aspect-ratio: auto;
+  min-height: 100%;
+}
+
+.workflow-grid .project-card:not(:first-child) .project-card__body {
+  grid-area: body;
+  align-content: start;
+  padding: 0.55rem 1.25rem 1.15rem;
 }
 
 .project-card {
@@ -599,6 +665,11 @@ body {
   color: var(--color-text-secondary);
   font-size: 0.86rem;
   line-height: 1.7;
+}
+
+.workflow-grid .project-card:not(:first-child) .project-card__field p {
+  font-size: 0.82rem;
+  line-height: 1.62;
 }
 
 .project-card__tags {
@@ -1144,8 +1215,48 @@ body {
 @media (max-width: 768px) {
   .hero__name { font-size: 3rem; }
 
+  .workflow-group {
+    padding: 1rem;
+  }
+
+  .workflow-group::before {
+    left: 1rem;
+    right: 1rem;
+  }
+
+  .workflow-group__header {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
   .project-grid {
     grid-template-columns: 1fr;
+  }
+
+  .workflow-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .workflow-grid .project-card:first-child,
+  .workflow-grid .project-card:not(:first-child) {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .workflow-grid .project-card:not(:first-child) {
+    display: flex;
+  }
+
+  .workflow-grid .project-card:not(:first-child) .project-card__info,
+  .workflow-grid .project-card:not(:first-child) .project-card__body {
+    padding-left: 1.4rem;
+    padding-right: 1.4rem;
+  }
+
+  .workflow-grid .project-card:not(:first-child) .project-card__media {
+    aspect-ratio: 16/10;
+    min-height: 170px;
   }
 
   .project-modal {
