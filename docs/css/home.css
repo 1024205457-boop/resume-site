@@ -52,6 +52,8 @@
   --font-sans: 'Noto Sans SC', -apple-system, "PingFang SC", sans-serif;
   --max-width: 1100px;
   --radius: 4px;
+  --shadow-soft: 0 18px 54px rgba(0, 0, 0, 0.22);
+  --shadow-lift: 0 26px 72px rgba(0, 0, 0, 0.34);
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -375,27 +377,32 @@ body {
 .workflow-sections {
   display: flex;
   flex-direction: column;
-  gap: 3.4rem;
+  gap: 3rem;
 }
 
 .workflow-group {
   position: relative;
-  padding: 1.35rem;
-  border: 1px solid var(--color-border);
+  padding: 1.45rem;
+  border: 0;
+  border-radius: calc(var(--radius) + 2px);
   background:
-    linear-gradient(135deg, rgba(201, 168, 76, 0.055), transparent 34%),
-    linear-gradient(180deg, rgba(255,255,255,0.018), transparent 48%);
+    linear-gradient(135deg, rgba(201, 168, 76, 0.07), transparent 32%),
+    linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.012) 48%, transparent);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.035);
+  overflow: hidden;
 }
 
 .workflow-group::before {
   content: "";
   position: absolute;
-  left: 1.35rem;
-  right: 1.35rem;
-  top: 0;
-  height: 1px;
-  background: linear-gradient(90deg, var(--color-accent), transparent 70%);
-  opacity: 0.45;
+  inset: 0;
+  background:
+    radial-gradient(circle at 0 0, rgba(201, 168, 76, 0.12), transparent 34%),
+    linear-gradient(90deg, rgba(255,255,255,0.035), transparent 28%);
+  opacity: 0.9;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(180deg, #000, transparent 78%);
+  mask-image: linear-gradient(180deg, #000, transparent 78%);
 }
 
 .workflow-group__header {
@@ -408,7 +415,7 @@ body {
 }
 
 .workflow-group__title {
-  font-size: 1.15rem;
+  font-size: 1.12rem;
   color: var(--color-text);
   margin-bottom: 0.35rem;
   font-weight: 600;
@@ -417,8 +424,8 @@ body {
 .workflow-group__desc {
   max-width: 760px;
   color: var(--color-text-secondary);
-  font-size: 0.9rem;
-  line-height: 1.7;
+  font-size: 0.86rem;
+  line-height: 1.65;
 }
 
 /* ============================================================
@@ -473,20 +480,22 @@ body {
 
 .project-card {
   position: relative;
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.012)),
+    var(--color-bg-card);
+  border: 0;
   border-radius: var(--radius);
   overflow: hidden;
   transition: all 0.4s ease;
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  box-shadow: var(--shadow-soft);
 }
 
 .project-card:hover {
-  border-color: var(--color-border-hover);
   transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  box-shadow: var(--shadow-lift);
 }
 
 .project-card__image,
@@ -541,8 +550,11 @@ body {
 .project-card__media::before {
   content: "";
   position: absolute;
-  inset: 18px;
-  border: 1px solid rgba(201, 168, 76, 0.18);
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.05), transparent 42%),
+    radial-gradient(circle at 18% 12%, rgba(255,255,255,0.09), transparent 26%);
+  opacity: 0.8;
   pointer-events: none;
 }
 
@@ -698,13 +710,14 @@ body {
    MORE PROJECTS
    ============================================================ */
 .more-projects {
-  margin-top: 2.4rem;
-  padding: 1.05rem 1.15rem;
-  border: 1px solid rgba(201, 168, 76, 0.16);
+  margin-top: 2.2rem;
+  padding: 1.1rem 1.2rem;
+  border: 0;
   border-radius: var(--radius);
   background:
     linear-gradient(90deg, rgba(201, 168, 76, 0.08), transparent 44%),
     rgba(255, 255, 255, 0.025);
+  box-shadow: inset 0 1px 0 rgba(201, 168, 76, 0.1), 0 18px 45px rgba(0,0,0,0.16);
   display: grid;
   grid-template-columns: minmax(180px, 0.28fr) minmax(0, 1fr);
   gap: 1.5rem;
@@ -748,15 +761,31 @@ body {
     "desc link";
   column-gap: 1.2rem;
   row-gap: 0.35rem;
+  position: relative;
   padding: 0.15rem 0 0.15rem 1rem;
-  border-left: 1px solid rgba(201, 168, 76, 0.28);
+  border-left: 0;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
+.more-project-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+  bottom: 0.25rem;
+  width: 2px;
+  background: linear-gradient(180deg, var(--color-accent), transparent);
+  opacity: 0.42;
+  transition: opacity 0.3s ease;
+}
+
 .more-project-card:hover {
-  border-left-color: var(--color-accent);
   transform: translateX(4px);
+}
+
+.more-project-card:hover::before {
+  opacity: 0.9;
 }
 
 .more-project-card__meta {
@@ -843,8 +872,10 @@ body {
   max-height: min(820px, calc(100vh - 4rem));
   display: grid;
   grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border-hover);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.035), transparent 42%),
+    var(--color-bg-card);
+  border: 0;
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: 0 28px 90px rgba(0, 0, 0, 0.45);
@@ -857,9 +888,9 @@ body {
   z-index: 2;
   width: 2.2rem;
   height: 2.2rem;
-  border: 1px solid var(--color-border);
+  border: 0;
   border-radius: 50%;
-  background: var(--color-bg);
+  background: rgba(10, 10, 10, 0.72);
   color: var(--color-text);
   font-size: 1.4rem;
   line-height: 1;
@@ -938,9 +969,12 @@ body {
 .project-modal__grid > div,
 .project-modal__section {
   padding: 1rem;
-  background: var(--color-bg-section);
-  border: 1px solid var(--color-border);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.03), transparent 70%),
+    rgba(255, 255, 255, 0.025);
+  border: 0;
   border-radius: var(--radius);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.035);
 }
 
 .project-modal__grid p,
@@ -967,8 +1001,9 @@ body {
   justify-content: center;
   min-height: 2.5rem;
   padding: 0 1rem;
-  border: 1px solid var(--color-border-hover);
+  border: 0;
   border-radius: 999px;
+  background: rgba(201, 168, 76, 0.1);
   color: var(--color-accent);
   font-size: 0.85rem;
   transition: all 0.3s ease;
@@ -1086,11 +1121,14 @@ body {
   display: block;
   margin: 0 0 1.5rem;
   padding: 2rem;
-  background: linear-gradient(135deg, var(--color-bg-card), var(--color-accent-light));
-  border: 1px solid var(--color-border-hover);
+  background:
+    radial-gradient(circle at 10% 0, rgba(201, 168, 76, 0.14), transparent 36%),
+    linear-gradient(135deg, var(--color-bg-card), rgba(201, 168, 76, 0.06));
+  border: 0;
   border-radius: var(--radius);
   text-decoration: none;
   transition: all 0.4s ease;
+  box-shadow: var(--shadow-soft);
 }
 
 .method-library:hover {
@@ -1137,18 +1175,20 @@ body {
 .skill-card {
   display: flex;
   flex-direction: column;
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.03), transparent 62%),
+    var(--color-bg-card);
+  border: 0;
   border-radius: var(--radius);
   padding: 2rem 1.5rem;
   transition: all 0.4s ease;
   text-decoration: none;
+  box-shadow: var(--shadow-soft);
 }
 
 .skill-card:hover {
-  border-color: var(--color-border-hover);
   transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  box-shadow: var(--shadow-lift);
 }
 
 .skill-card__icon {
@@ -1182,8 +1222,8 @@ body {
   align-items: center;
   min-height: 1.6rem;
   padding: 0.2rem 0.55rem;
-  border: 1px solid var(--color-border);
   border-radius: 999px;
+  background: rgba(255, 255, 255, 0.035);
   color: var(--color-text-secondary);
   font-size: 0.72rem;
   line-height: 1;
