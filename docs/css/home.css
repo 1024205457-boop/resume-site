@@ -2,7 +2,7 @@
    姜慧男个人网站 — 多风格切换
    ============================================================ */
 
-/* --- 镏金风格（默认） --- */
+/* --- 鎏金夜间模式（默认） --- */
 [data-theme="gold"] {
   --color-bg: #0A0A0A;
   --color-bg-section: #0F0F0F;
@@ -17,7 +17,7 @@
   --color-border-hover: rgba(201, 168, 76, 0.3);
 }
 
-/* --- 风格2 占位（待定义） --- */
+/* --- 日间模式 --- */
 [data-theme="theme2"] {
   --color-bg: #F5F5F0;
   --color-bg-section: #EAEAE5;
@@ -32,19 +32,19 @@
   --color-border-hover: rgba(0, 0, 0, 0.2);
 }
 
-/* --- 风格3 占位（待定义） --- */
-[data-theme="theme3"] {
-  --color-bg: #0B1628;
-  --color-bg-section: #0E1B30;
-  --color-bg-card: #132240;
-  --color-text: #E8EDF5;
-  --color-text-secondary: #8899B0;
-  --color-text-muted: #4A5D78;
-  --color-accent: #4DA8DA;
-  --color-accent-light: rgba(77, 168, 218, 0.12);
-  --color-accent-glow: rgba(77, 168, 218, 0.3);
-  --color-border: rgba(255, 255, 255, 0.06);
-  --color-border-hover: rgba(77, 168, 218, 0.3);
+/* --- 护眼模式 --- */
+[data-theme="eye"] {
+  --color-bg: #EEF4E8;
+  --color-bg-section: #E2EAD8;
+  --color-bg-card: #FAFCF6;
+  --color-text: #243126;
+  --color-text-secondary: #59685B;
+  --color-text-muted: #8A9788;
+  --color-accent: #5F8D62;
+  --color-accent-light: rgba(95, 141, 98, 0.13);
+  --color-accent-glow: rgba(95, 141, 98, 0.24);
+  --color-border: rgba(36, 49, 38, 0.08);
+  --color-border-hover: rgba(95, 141, 98, 0.28);
 }
 
 :root {
@@ -119,7 +119,7 @@ a { color: inherit; text-decoration: none; }
 
 .theme-btn__dot--gold { background: #C9A84C; }
 .theme-btn__dot--theme2 { background: #333333; }
-.theme-btn__dot--theme3 { background: #4DA8DA; }
+.theme-btn__dot--eye { background: #5F8D62; }
 
 .theme-btn__label {
   font-size: 0.7rem;
@@ -235,6 +235,10 @@ body {
 
 [data-theme="theme2"] .hero__overlay {
   background: linear-gradient(180deg, rgba(245,245,240,0.3) 0%, rgba(245,245,240,0.9) 100%);
+}
+
+[data-theme="eye"] .hero__overlay {
+  background: linear-gradient(180deg, rgba(238,244,232,0.28) 0%, rgba(238,244,232,0.92) 100%);
 }
 
 .hero__inner {

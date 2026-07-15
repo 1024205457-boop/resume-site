@@ -237,15 +237,18 @@
 // ============================================================
 (function () {
   const btns = document.querySelectorAll('.theme-btn');
-  const saved = localStorage.getItem('theme');
-  if (saved) {
-    document.documentElement.setAttribute('data-theme', saved);
-    btns.forEach(b => b.classList.toggle('active', b.dataset.theme === saved));
-  }
+  const allowedThemes = new Set(['gold', 'theme2', 'eye']);
+  const stored = localStorage.getItem('theme');
+  const saved = stored === 'theme3' ? 'eye' : stored;
+  const initialTheme = allowedThemes.has(saved) ? saved : 'gold';
+
+  document.documentElement.setAttribute('data-theme', initialTheme);
+  btns.forEach(b => b.classList.toggle('active', b.dataset.theme === initialTheme));
 
   btns.forEach(btn => {
     btn.addEventListener('click', () => {
       const theme = btn.dataset.theme;
+      if (!allowedThemes.has(theme)) return;
       document.documentElement.setAttribute('data-theme', theme);
       localStorage.setItem('theme', theme);
       btns.forEach(b => b.classList.remove('active'));
