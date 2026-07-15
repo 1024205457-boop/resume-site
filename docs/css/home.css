@@ -954,6 +954,13 @@ body {
   margin-bottom: 1.3rem;
 }
 
+.project-modal__case-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.3rem;
+}
+
 .project-modal__grid > div,
 .project-modal__section {
   padding: 1rem;
@@ -1421,6 +1428,10 @@ body {
 
   .project-modal__panel {
     max-height: calc(100vh - 2rem);
+    grid-template-columns: 1fr;
+  }
+
+  .project-modal__case-grid {
     grid-template-columns: 1fr;
   }
 
