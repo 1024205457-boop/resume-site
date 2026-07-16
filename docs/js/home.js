@@ -195,16 +195,40 @@
     github: modal.querySelector('#project-detail-github')
   };
 
+  function renderPoints(element, content) {
+    const points = Array.isArray(content)
+      ? content
+      : String(content || '')
+        .split(/[。；]/)
+        .map(point => point.trim())
+        .filter(Boolean);
+
+    element.innerHTML = '';
+
+    if (!points.length) return;
+
+    const list = document.createElement('ul');
+    list.className = 'project-modal__point-list';
+
+    points.forEach(point => {
+      const item = document.createElement('li');
+      item.textContent = point;
+      list.appendChild(item);
+    });
+
+    element.appendChild(list);
+  }
+
   function openProject(card) {
     const project = projects[card.dataset.project];
     if (!project) return;
     fields.category.textContent = project.category;
     fields.title.textContent = project.title;
     fields.summary.textContent = project.summary;
-    fields.background.textContent = project.background || project.intro;
-    fields.action.textContent = project.goalMetrics || project.goal || project.summary;
-    fields.goal.textContent = project.action || project.role;
-    fields.result.textContent = project.evidence || project.result || project.demo;
+    renderPoints(fields.background, project.background || project.intro);
+    renderPoints(fields.action, project.goalMetrics || project.goal || project.summary);
+    renderPoints(fields.goal, project.action || project.role);
+    renderPoints(fields.result, project.evidence || project.result || project.demo);
 
     const trialUrl = project.trialUrl || card.dataset.trial;
     const githubUrl = project.githubUrl || (!card.dataset.linkLabel ? card.dataset.github : '');

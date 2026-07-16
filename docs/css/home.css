@@ -945,6 +945,38 @@ body {
   line-height: 1.75;
 }
 
+.project-modal__points {
+  margin-top: 0.55rem;
+}
+
+.project-modal__point-list {
+  display: grid;
+  gap: 0.48rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-modal__point-list li {
+  position: relative;
+  padding-left: 1rem;
+  color: var(--color-text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.72;
+}
+
+.project-modal__point-list li::before {
+  content: "";
+  position: absolute;
+  top: 0.72em;
+  left: 0;
+  width: 0.34rem;
+  height: 0.34rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 10px rgba(201, 168, 76, 0.28);
+}
+
 .project-modal__section {
   margin-bottom: 0;
 }
