@@ -730,6 +730,25 @@ section[id] {
   line-height: 1.7;
 }
 
+.workflow-grid .project-card {
+  grid-template-rows: auto 8.25rem 1fr;
+}
+
+.workflow-grid .project-card__info {
+  min-height: 0;
+  padding-bottom: 0.85rem;
+}
+
+.workflow-grid .project-card__media {
+  height: 8.25rem;
+  min-height: 8.25rem;
+  aspect-ratio: auto;
+}
+
+.workflow-grid .project-card__media span {
+  font-size: 1rem;
+}
+
 .project-card__tags {
   display: flex;
   flex-wrap: wrap;
