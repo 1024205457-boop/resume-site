@@ -1137,6 +1137,24 @@ section[id] {
   gap: 1rem;
 }
 
+.project-modal__pair-axis {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  color: var(--color-accent);
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.project-modal__pair-axis span:first-child {
+  text-align: center;
+}
+
+.project-modal__pair-axis span:last-child {
+  text-align: center;
+}
+
 .project-modal__pair {
   display: grid;
   gap: 0.75rem;
@@ -1188,46 +1206,30 @@ section[id] {
   background: var(--color-bg-card);
 }
 
-.project-modal__pair-media > span {
-  position: absolute;
-  top: 0.55rem;
-  left: 0.55rem;
-  z-index: 2;
-  padding: 0.16rem 0.48rem;
-  background: rgba(17,17,17,0.72);
-  color: var(--color-text);
-  border-radius: 999px;
-  font-size: 0.68rem;
-  font-weight: 700;
-  line-height: 1.4;
-}
-
 .project-modal__carousel {
-  position: relative;
   display: flex;
   width: 100%;
   height: 100%;
   min-height: inherit;
-  animation: projectCarouselSlide calc(var(--slide-count) * 3s) linear infinite;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
 }
 
 .project-modal__carousel img {
-  position: relative;
   flex: 0 0 100%;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: top center;
   opacity: 1;
+  scroll-snap-align: start;
 }
 
 .project-modal__carousel--single {
-  animation: none;
-}
-
-@keyframes projectCarouselSlide {
-  0%, 20% { transform: translateX(0); }
-  100% { transform: translateX(calc((1 - var(--slide-count)) * 100%)); }
+  overflow-x: hidden;
 }
 
 .project-modal__screens {

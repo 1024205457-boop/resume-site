@@ -377,7 +377,7 @@
             text: '📷而拍鸟则是摄影基于对象的一个分支，鸟只是拍摄对象的一种，所以不拘什么鸟类都可以，就像在北京公园里经常出现的“长枪短炮”的摄影师，这类群体的需求偏向于捕捉瞬间的美丽。'
           }
         ],
-        comparisonTitle: '具体版本：左侧 V1 / 右侧 V2',
+        comparisonTitle: '四组迭代对照',
         comparisons: [
           {
             title: '入口',
@@ -701,6 +701,17 @@
       const list = document.createElement('div');
       list.className = 'project-modal__pair-list';
 
+      const axis = document.createElement('div');
+      axis.className = 'project-modal__pair-axis';
+
+      const leftAxis = document.createElement('span');
+      leftAxis.textContent = 'V1';
+
+      const rightAxis = document.createElement('span');
+      rightAxis.textContent = 'V2';
+
+      axis.append(leftAxis, rightAxis);
+
       function createVersionMedia(version, side) {
         const images = Array.isArray(version.images) && version.images.length
           ? version.images
@@ -709,21 +720,15 @@
         const wrap = document.createElement('div');
         wrap.className = `project-modal__pair-media project-modal__pair-media--${side}`;
 
-        const badge = document.createElement('span');
-        badge.textContent = version.label;
-        wrap.appendChild(badge);
-
         const carousel = document.createElement('div');
         carousel.className = 'project-modal__carousel';
-        carousel.style.setProperty('--slide-count', String(images.length || 1));
         if (images.length <= 1) carousel.classList.add('project-modal__carousel--single');
 
-        images.forEach((src, index) => {
+        images.forEach(src => {
           const image = document.createElement('img');
           image.src = src;
           image.alt = version.label;
           image.loading = 'lazy';
-          image.style.animationDelay = `${index * 3}s`;
           carousel.appendChild(image);
         });
 
@@ -766,7 +771,7 @@
         list.appendChild(item);
       });
 
-      compareSection.append(heading, list);
+      compareSection.append(heading, axis, list);
       element.appendChild(compareSection);
     } else if (Array.isArray(caseStudy.versions) && caseStudy.versions.length) {
       const versionSection = document.createElement('section');
