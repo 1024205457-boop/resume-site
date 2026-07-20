@@ -1175,6 +1175,64 @@ section[id] {
   text-align: center;
 }
 
+.project-modal__version-lanes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.project-modal__version-lane {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+  padding: 3.2rem 1rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.project-modal__version-lane--left {
+  background:
+    linear-gradient(180deg, rgba(201, 168, 76, 0.08), rgba(255,255,255,0.025));
+}
+
+.project-modal__version-lane--right {
+  background:
+    linear-gradient(180deg, rgba(74, 137, 112, 0.12), rgba(255,255,255,0.025));
+}
+
+.project-modal__version-lane-label {
+  position: absolute;
+  top: 0.9rem;
+  color: var(--color-accent);
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.project-modal__version-lane--left .project-modal__version-lane-label {
+  left: 1rem;
+}
+
+.project-modal__version-lane--right .project-modal__version-lane-label {
+  right: 1rem;
+}
+
+.project-modal__version-lane-item {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0.85rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: calc(var(--radius) - 2px);
+  background: rgba(255,255,255,0.035);
+}
+
+.project-modal__version-lane-title {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
 .project-modal__pair {
   display: grid;
   gap: 0.75rem;
@@ -1232,6 +1290,10 @@ section[id] {
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: calc(var(--radius) - 4px);
   background: var(--color-bg-card);
+}
+
+.project-modal__version-lane .project-modal__pair-media {
+  min-height: 330px;
 }
 
 .project-modal__carousel {
@@ -1741,6 +1803,10 @@ section[id] {
   }
 
   .project-modal__version {
+    grid-template-columns: 1fr;
+  }
+
+  .project-modal__version-lanes {
     grid-template-columns: 1fr;
   }
 

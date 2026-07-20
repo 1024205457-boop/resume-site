@@ -711,19 +711,8 @@
       heading.className = 'project-modal__deep-title';
       heading.textContent = caseStudy.comparisonTitle || '版本迭代对照';
 
-      const list = document.createElement('div');
-      list.className = 'project-modal__pair-list';
-
-      const axis = document.createElement('div');
-      axis.className = 'project-modal__pair-axis';
-
-      const leftAxis = document.createElement('span');
-      leftAxis.textContent = 'V1';
-
-      const rightAxis = document.createElement('span');
-      rightAxis.textContent = 'V2';
-
-      axis.append(leftAxis, rightAxis);
+      const lanes = document.createElement('div');
+      lanes.className = 'project-modal__version-lanes';
 
       function createVersionMedia(version, side) {
         const images = Array.isArray(version.images) && version.images.length
@@ -771,28 +760,41 @@
         return wrap;
       }
 
-      caseStudy.comparisons.forEach(pair => {
-        const item = document.createElement('article');
-        item.className = 'project-modal__pair';
+      function createLane(side, label) {
+        const lane = document.createElement('article');
+        lane.className = `project-modal__version-lane project-modal__version-lane--${side}`;
 
-        const title = document.createElement('h4');
-        title.className = 'project-modal__pair-title';
-        title.textContent = pair.title;
+        const laneLabel = document.createElement('div');
+        laneLabel.className = 'project-modal__version-lane-label';
+        laneLabel.textContent = label;
+        lane.appendChild(laneLabel);
 
-        const body = document.createElement('div');
-        body.className = 'project-modal__pair-body';
-        body.append(
-          createVersionText(pair.left, 'left'),
-          createVersionMedia(pair.left, 'left'),
-          createVersionMedia(pair.right, 'right'),
-          createVersionText(pair.right, 'right')
-        );
+        caseStudy.comparisons.forEach(pair => {
+          const version = pair[side];
+          const item = document.createElement('section');
+          item.className = 'project-modal__version-lane-item';
 
-        item.append(title, body);
-        list.appendChild(item);
-      });
+          const title = document.createElement('h4');
+          title.className = 'project-modal__version-lane-title';
+          title.textContent = pair.title;
 
-      compareSection.append(heading, axis, list);
+          item.append(
+            title,
+            createVersionMedia(version, side),
+            createVersionText(version, side)
+          );
+          lane.appendChild(item);
+        });
+
+        return lane;
+      }
+
+      lanes.append(
+        createLane('left', 'V1'),
+        createLane('right', 'V2')
+      );
+
+      compareSection.append(heading, lanes);
       element.appendChild(compareSection);
     } else if (Array.isArray(caseStudy.versions) && caseStudy.versions.length) {
       const versionSection = document.createElement('section');
