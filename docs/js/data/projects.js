@@ -37,8 +37,8 @@ const PROJECT_DETAILS = {
         type: "links",
         heading: "相关链接",
         items: [
-          { label: "GitHub 源码", url: "https://github.com/1024205457-boop/intership1-marking-consulting", icon: "github" },
-          { label: "方法论文档", url: "https://github.com/1024205457-boop/intership1-marking-consulting/blob/main/docs/methodology.md", icon: "external" }
+          { label: "GitHub 源码", url: "https://github.com/huinan-jiang/intership1-marking-consulting", icon: "github" },
+          { label: "方法论文档", url: "https://github.com/huinan-jiang/intership1-marking-consulting/blob/main/docs/methodology.md", icon: "external" }
         ]
       }
     ]
@@ -81,8 +81,8 @@ const PROJECT_DETAILS = {
         type: "links",
         heading: "相关链接",
         items: [
-          { label: "GitHub 源码", url: "https://github.com/1024205457-boop/intership2-marking-consulting", icon: "github" },
-          { label: "方法论文档", url: "https://github.com/1024205457-boop/intership2-marking-consulting/blob/main/docs/methodology.md", icon: "external" }
+          { label: "GitHub 源码", url: "https://github.com/huinan-jiang/intership2-marking-consulting", icon: "github" },
+          { label: "方法论文档", url: "https://github.com/huinan-jiang/intership2-marking-consulting/blob/main/docs/methodology.md", icon: "external" }
         ]
       }
     ]
@@ -178,7 +178,7 @@ const PROJECT_DETAILS = {
         type: "links",
         heading: "相关链接",
         items: [
-          { label: "GitHub 源码", url: "https://github.com/1024205457-boop/alcheme3.0", icon: "github" },
+          { label: "GitHub 源码", url: "https://github.com/huinan-jiang/alcheme3.0", icon: "github" },
           { label: "项目文档", url: "#", icon: "document" }
         ]
       }

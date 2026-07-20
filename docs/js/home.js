@@ -62,7 +62,7 @@
       ],
       trialUrl: 'https://yfdurl14.com/Cus1rC',
       trialLabel: '试用电商导购',
-      githubUrl: 'https://github.com/1024205457-boop/ai-product-skills/tree/main/RAG%E5%AF%BC%E8%B4%AD'
+      githubUrl: 'https://github.com/huinan-jiang/ai-product-skills/tree/main/RAG%E5%AF%BC%E8%B4%AD'
     },
     zebra: {
       category: 'AI Agent 产品',
@@ -157,7 +157,7 @@
         '可展示 7 天排期、63 条文案样例、去重规则、审核流程和素材生成链路',
         '案例说明运营工作流自动化能力，不绑定具体公司或内部系统'
       ],
-      githubUrl: 'https://github.com/1024205457-boop/ai-product-skills/tree/main/%E7%A7%81%E5%9F%9F%E5%86%85%E5%AE%B9%E7%94%9F%E4%BA%A7'
+      githubUrl: 'https://github.com/huinan-jiang/ai-product-skills/tree/main/%E7%A7%81%E5%9F%9F%E5%86%85%E5%AE%B9%E7%94%9F%E4%BA%A7'
     },
     training: {
       category: 'AI 工作流自动化',
@@ -189,7 +189,7 @@
         '可展示移动端场景选择、对话练习、即时反馈页和训练链路',
         '案例证明把线下培训经验拆成可执行 AI 工作流的产品能力'
       ],
-      githubUrl: 'https://github.com/1024205457-boop/training'
+      githubUrl: 'https://github.com/huinan-jiang/training'
     },
     dataops: {
       category: 'AI 工作流自动化',
@@ -221,7 +221,7 @@
         '形成可复用字段映射、漏斗口径和标准化输出',
         '案例证明的是“线索转化漏斗数据看板”的数据产品能力，而不是单纯周报自动化'
       ],
-      githubUrl: 'https://github.com/1024205457-boop/ai-product-skills/tree/main/%E6%95%B0%E6%8D%AE%E6%9B%B4%E6%96%B0%E5%B7%A5%E4%BD%9C%E6%B5%81'
+      githubUrl: 'https://github.com/huinan-jiang/ai-product-skills/tree/main/%E6%95%B0%E6%8D%AE%E6%9B%B4%E6%96%B0%E5%B7%A5%E4%BD%9C%E6%B5%81'
     },
     frame: {
       category: 'AI 陪伴与社区产品',
@@ -253,7 +253,7 @@
         '200+ 观众中 69 人愿意试用',
         'GitHub 中保留原型代码，可展示情绪识别、输入输出对比、手账生成和游戏化发泄链路'
       ],
-      githubUrl: 'https://github.com/1024205457-boop/alcheme3.0'
+      githubUrl: 'https://github.com/huinan-jiang/alcheme3.0'
     },
     birdcircle: {
       category: 'AI 陪伴与社区产品',
@@ -285,7 +285,7 @@
         '仓库包含 birdcircle.html、app.py、proxy.py、鸟种图片和 README',
         '可直接看到地图页、上传识别、相册导出和敏感物种坐标模糊等核心能力'
       ],
-      githubUrl: 'https://github.com/1024205457-boop/birdcircle'
+      githubUrl: 'https://github.com/huinan-jiang/birdcircle'
     },
     busycall: {
       category: 'AI 陪伴与社区产品',
