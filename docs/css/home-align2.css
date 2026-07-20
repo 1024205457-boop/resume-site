@@ -402,11 +402,31 @@ section[id] {
   font-weight: 600;
 }
 
+.workflow-group__copy {
+  display: grid;
+  gap: 0.55rem;
+}
+
 .workflow-group__desc {
   max-width: 760px;
   color: var(--color-text-secondary);
   font-size: 0.86rem;
   line-height: 1.65;
+}
+
+.workflow-group__relation {
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0;
+  padding: 0.38rem 0.65rem;
+  border: 1px solid rgba(201, 168, 76, 0.22);
+  border-radius: 999px;
+  background: rgba(201, 168, 76, 0.08);
+  color: var(--color-accent);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.35;
 }
 
 /* ============================================================
@@ -429,7 +449,7 @@ section[id] {
   height: 100%;
   min-width: 0;
   display: grid;
-  grid-template-rows: minmax(7.2rem, auto) 10rem 1fr;
+  grid-template-rows: 7.2rem 10rem 1fr;
 }
 
 .workflow-grid .project-card__info {
@@ -731,7 +751,7 @@ section[id] {
 }
 
 .workflow-grid .project-card {
-  grid-template-rows: auto 8.25rem 1fr;
+  grid-template-rows: 7.2rem 8.25rem 1fr;
 }
 
 .workflow-grid .project-card__info {
