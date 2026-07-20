@@ -1,25 +1,38 @@
 // ============================================================
-// 0. 页面导航切换
+// 0. 单页锚点导航
 // ============================================================
 (function () {
-  const tabs = document.querySelectorAll('.top-nav__tab');
-  const pages = document.querySelectorAll('.page');
+  const tabs = Array.from(document.querySelectorAll('.top-nav__tab'));
+  const sections = tabs
+    .map(tab => document.getElementById(tab.dataset.target))
+    .filter(Boolean);
+
+  function setActive(targetId) {
+    tabs.forEach(tab => {
+      tab.classList.toggle('active', tab.dataset.target === targetId);
+    });
+  }
 
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      const target = tab.dataset.page;
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      pages.forEach(p => {
-        p.classList.toggle('active', p.id === 'page-' + target);
-      });
-      window.scrollTo(0, 0);
-      // Directly show all reveal elements on the active page
-      document.querySelectorAll('#page-' + target + ' .reveal').forEach(el => {
-        el.classList.add('visible');
-      });
+      const section = document.getElementById(tab.dataset.target);
+      if (!section) return;
+      setActive(tab.dataset.target);
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
+
+  const observer = new IntersectionObserver((entries) => {
+    const visible = entries
+      .filter(entry => entry.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (visible) setActive(visible.target.id);
+  }, {
+    rootMargin: '-30% 0px -55% 0px',
+    threshold: [0.1, 0.3, 0.6]
+  });
+
+  sections.forEach(section => observer.observe(section));
 })();
 
 // ============================================================
