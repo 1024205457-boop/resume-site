@@ -936,7 +936,7 @@
     document.body.style.overflow = '';
   }
 
-  document.querySelectorAll('.project-card[data-project], .more-project-card[data-project]').forEach(card => {
+  document.querySelectorAll('.project-card[data-project], .project-feature-card[data-project], .more-project-card[data-project]').forEach(card => {
     card.addEventListener('click', event => {
       event.preventDefault();
       openProject(card);
