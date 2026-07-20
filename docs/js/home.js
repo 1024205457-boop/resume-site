@@ -377,17 +377,66 @@
             text: '📷而拍鸟则是摄影基于对象的一个分支，鸟只是拍摄对象的一种，所以不拘什么鸟类都可以，就像在北京公园里经常出现的“长枪短炮”的摄影师，这类群体的需求偏向于捕捉瞬间的美丽。'
           }
         ],
-        versionTitle: '具体版本',
-        versions: [
+        comparisonTitle: '具体版本：左侧 V1 / 右侧 V2',
+        comparisons: [
           {
-            label: 'V1',
-            image: 'assets/images/projects/birdcircle-v1/community-photos.png',
-            text: '先验证社区入口价值：用鸟有照片、活动、问答、来信、图鉴和装备，把观鸟拆成“看、聊、问、收集、准备装备”的兴趣社区结构。它解决的是新人如何进入圈子、如何找到同好、如何开始积累鸟类知识的问题。'
+            title: '入口',
+            left: {
+              label: '照片 / 活动',
+              images: [
+                'assets/images/projects/birdcircle-v1/community-photos.png',
+                'assets/images/projects/birdcircle-v1/community-events.png'
+              ],
+              text: '用鸟有照片和鸟有活动，把观鸟拆成可浏览、可参与的社区入口。'
+            },
+            right: {
+              label: '首页决策',
+              images: ['assets/images/projects/birdcircle-v2/home.png'],
+              text: '把位置、天气、最佳观鸟时间、附近鸟点、任务和同城动态集中到首页。'
+            }
           },
           {
-            label: 'V2',
-            image: 'assets/images/projects/birdcircle/cover.jpg',
-            text: '把社区入口扩展成完整工具闭环：用户从首页获得观鸟决策，到鸟点页判断是否前往，再通过上传识别、相册归档和积分激励完成长期记录。AI 被放进真实路径里，而不是孤立功能。'
+            title: '信息',
+            left: {
+              label: '问答 / 来信',
+              images: [
+                'assets/images/projects/birdcircle-v1/community-qa.png',
+                'assets/images/projects/birdcircle-v1/mail-chat.png',
+                'assets/images/projects/birdcircle-v1/mail-inbox.png'
+              ],
+              text: '承接鸟种识别、路线、装备和观察经验交流。'
+            },
+            right: {
+              label: '鸟点地图',
+              images: ['assets/images/projects/birdcircle-v2/map.png'],
+              text: '用鸟讯时效、鸟种标签、确认人数、导航和保护规则帮助出发前判断。'
+            }
+          },
+          {
+            title: '收集',
+            left: {
+              label: '图鉴',
+              images: ['assets/images/projects/birdcircle-v1/field-guide.png'],
+              text: '按地点、纲目、季节收集鸟类知识。'
+            },
+            right: {
+              label: '相册',
+              images: ['assets/images/projects/birdcircle-v2/album.png'],
+              text: '按鸟种和科目自动归档照片，支持搜索、筛选和导出。'
+            }
+          },
+          {
+            title: '激励',
+            left: {
+              label: '装备',
+              images: ['assets/images/projects/birdcircle-v1/gear.png'],
+              text: '围绕望远镜、相机等装备做准备。'
+            },
+            right: {
+              label: '积分',
+              images: ['assets/images/projects/birdcircle-v2/points.png'],
+              text: '把上传鸟点、补充照片、加入同城群等行为转成即时反馈和长期目标。'
+            }
           }
         ]
       },
