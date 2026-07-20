@@ -31,7 +31,7 @@
 
   const projects = {
     minmin: {
-      category: 'AI Agent 产品',
+      category: '导购决策迭代',
       title: '敏敏肌选品｜护肤搜索导购 Agent',
       media: { label: '成分安全筛查' },
       audience: '有功效诉求的护肤用户、敏感肌/痘肌/孕期等需避险人群、导购顾问',
@@ -65,7 +65,7 @@
       githubUrl: 'https://github.com/huinan-jiang/ai-product-skills/tree/main/RAG%E5%AF%BC%E8%B4%AD'
     },
     zebra: {
-      category: 'AI Agent 产品',
+      category: '导购决策迭代',
       title: '某头部教育品牌智能学习顾问',
       media: { label: '学习顾问流程' },
       audience: '体验会员、家长、学习顾问和转化运营团队',
@@ -97,7 +97,7 @@
       ],
     },
     chart: {
-      category: 'AI Agent 产品',
+      category: '研究表达迭代',
       title: 'Chart AI｜桌面研究可视化智能体',
       media: { label: '研究 → 图表' },
       audience: '咨询分析师、产品经理、行业研究和竞品研究使用者',
@@ -126,6 +126,39 @@
         '相关研究工作流已有 65 条样例舆情、100% 洞察有源率、MOS 3.9+ 等评测口径',
         '案例证明的是“研究证据链 + 可视化表达”的 Agent 产品能力，不是简单图表生成'
       ],
+    },
+    mrw: {
+      category: '研究表达迭代',
+      title: '桌面研究洞察报告工作流',
+      media: { label: '材料 → 洞察报告' },
+      audience: '产品经理、咨询分析师、行业研究和竞品研究使用者',
+      summary: '把分散研究材料整理成有来源、有聚类、有结论的桌面研究报告。',
+      role: '设计从 Brief、样本整理、主题聚类、证据引用到报告输出的研究工作流。',
+      intro: '这个项目是 Chart AI 的前置迭代：先解决“研究材料怎么变成可信洞察”的问题，再进入“洞察怎么被可视化表达”。流程从研究 Brief 出发，整理样本材料和事实来源，做主题聚类、用户画像、痛点 Top、需求机会和策略建议，并要求关键洞察能回溯证据。',
+      demo: '已准备样例报告页面，可展示从敏感肌护肤品类消费者洞察到用户画像、痛点排序和机会判断的完整报告形态。',
+      background: [
+        '用户侧：产品经理和咨询分析师常常面对大量访谈、评论、社媒和竞品材料，但很难快速抽成清晰洞察',
+        '业务侧：如果洞察没有证据来源，报告很难进入评审、汇报和后续产品决策',
+        '系统侧：桌面研究需要先建立 Brief、样本、主题、证据和结论之间的可追溯关系'
+      ],
+      goalMetrics: [
+        '研究指标：样本材料能被聚类成用户画像、核心动机、典型行为和关键痛点',
+        '证据指标：关键洞察需要有来源支撑，避免只输出主观总结',
+        '交付指标：最终产出能直接进入汇报页或作为 Chart AI 的可视化输入'
+      ],
+      action: [
+        '研究拆解：把桌面研究拆成 Brief 理解、样本整理、主题聚类、洞察提炼和报告生成',
+        '证据设计：要求洞察、痛点和建议都能对应原始材料或样例来源',
+        '报告结构：输出用户画像、痛点 Top、行为路径、机会判断和下一步建议',
+        '迭代连接：把这个工作流作为 Chart AI 的上游，让研究结论继续进入图表表达'
+      ],
+      evidence: [
+        '已生成敏感肌护肤品类消费者洞察样例报告',
+        '报告中包含用户画像、痛点排序、典型引述和策略建议',
+        '这个项目证明的是桌面研究到结构化交付的能力，为 Chart AI 的可视化表达提供上游输入'
+      ],
+      trialUrl: 'assets/reports/mrw-sample-report.html',
+      trialLabel: '查看样例报告'
     },
     content: {
       category: 'AI 工作流自动化',
@@ -160,7 +193,7 @@
       githubUrl: 'https://github.com/huinan-jiang/ai-product-skills/tree/main/%E7%A7%81%E5%9F%9F%E5%86%85%E5%AE%B9%E7%94%9F%E4%BA%A7'
     },
     training: {
-      category: 'AI 工作流自动化',
+      category: '场景陪练迭代',
       title: '餐饮服务话术陪练 Agent',
       media: { label: '移动端陪练' },
       audience: '餐饮新人、门店培训负责人、一线服务团队',
@@ -224,7 +257,7 @@
       githubUrl: 'https://github.com/huinan-jiang/ai-product-skills/tree/main/%E6%95%B0%E6%8D%AE%E6%9B%B4%E6%96%B0%E5%B7%A5%E4%BD%9C%E6%B5%81'
     },
     frame: {
-      category: 'AI 陪伴与社区产品',
+      category: '场景陪练迭代',
       title: '帧我：多模态情绪发泄与记录',
       media: { label: '情绪识别体验' },
       audience: '需要情绪卸载、情绪记录和低门槛自我观察的年轻用户',
@@ -256,7 +289,7 @@
       githubUrl: 'https://github.com/huinan-jiang/alcheme3.0'
     },
     birdcircle: {
-      category: 'AI 陪伴与社区产品',
+      category: '兴趣社区迭代',
       title: '鸟有圈：AI 观鸟记录工具',
       media: { label: '地图鸟讯 + AI 识鸟' },
       audience: '观鸟新人、自然观察用户、拍鸟和记录型兴趣用户',
