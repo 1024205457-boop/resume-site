@@ -754,7 +754,7 @@
         wrap.className = `project-modal__pair-text project-modal__pair-text--${side}`;
 
         const label = document.createElement('h4');
-        label.textContent = version.label;
+        label.textContent = version.label.replace(/^V[12]\s*/, '');
 
         const text = document.createElement('p');
         text.textContent = version.text;
