@@ -432,6 +432,10 @@ section[id] {
   flex-direction: column;
 }
 
+.workflow-grid .project-card__info {
+  min-height: 11.25rem;
+}
+
 .project-feature-grid {
   display: grid;
   grid-template-columns: 1fr;
