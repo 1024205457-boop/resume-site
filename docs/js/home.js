@@ -319,35 +319,86 @@
       ],
       githubUrl: 'https://github.com/huinan-jiang/alcheme3.0'
     },
-    birdcircle: {
+    'birdcircle-v1': {
       category: '兴趣社区迭代',
-      title: '鸟有圈：AI 观鸟记录工具',
-      media: { label: '地图鸟讯 + AI 识鸟' },
-      audience: '观鸟新人、自然观察用户、拍鸟和记录型兴趣用户',
-      summary: '把找鸟、识鸟、生成鸟讯和照片归档串成一条观鸟记录闭环。',
-      role: '设计地图鸟点发现、照片上传识别、鸟讯生成、按鸟种归档、积分激励和敏感物种保护机制。',
-      intro: '项目最新版本在 GitHub birdcircle。产品基于地图鸟讯与 AI 相册解决四个痛点：新人不知道附近哪里能看鸟、遇到鸟不会识别、照片散落在手机相册里、鸟讯和照片整理割裂。核心链路是发现附近鸟点 → 上传照片和位置 → AI 初步识鸟 → 生成鸟讯 → 同步到相册 → 获得积分。技术上使用 Leaflet + 高德地图瓦片、百度 AI 图像识别代理、JSZip 相册导出，并为敏感物种、夜行鸟类和繁殖地设计坐标模糊与导航限制。',
-      demo: 'GitHub 已包含 birdcircle.html、app.py、proxy.py、鸟种图片和 README；展示位后续可上传地图页、上传识别页、相册归档页和保护机制截图。',
+      title: '鸟有圈 V1｜地图鸟讯社区',
+      media: { label: '附近鸟点 + 鸟讯分享' },
+      audience: '观鸟新人、自然观察用户、城市户外兴趣用户',
+      summary: '用地图鸟点和同城鸟讯，先验证观鸟兴趣社区的信息发现与分享价值。',
+      role: '设计附近鸟点、鸟讯动态、鸟种标签、同城分享和兴趣社区的基础链路。',
+      intro: 'V1 更关注“观鸟从哪里开始”：新人不知道附近哪里能看鸟，也缺少低门槛加入同城观鸟圈的入口。因此第一版先把地图鸟点、鸟种标签和动态分享串起来，让用户从地点发现进入兴趣社区，而不是一上来就做复杂工具。',
       background: [
-        '用户侧：观鸟新人不知道附近哪里能看鸟，遇到鸟也不一定能识别',
-        '业务侧：兴趣社区如果只做发帖，无法解决照片散落、鸟讯整理割裂和持续记录的问题',
-        '系统侧：观鸟产品需要把地图、识别、相册、鸟讯和保护机制串成闭环'
+        '用户侧：观鸟新人不知道附近哪里能看鸟，容易卡在兴趣入门第一步',
+        '社区侧：鸟讯依赖熟人传播，缺少围绕地点和鸟种组织的信息入口',
+        '产品侧：第一版需要先验证“地图发现 + 同城动态”是否能承接兴趣社区'
       ],
       goalMetrics: [
-        '用户指标：从发现附近鸟点到上传照片、AI 初步识别、生成鸟讯和同步相册要连贯',
-        '社区指标：用积分激励和按鸟种归档提升持续记录意愿',
-        '安全指标：敏感物种、夜行鸟类和繁殖地坐标需要模糊和导航限制'
+        '发现指标：用户能从当前位置看到附近鸟点和常见鸟种',
+        '参与指标：用户能基于一次观察发布鸟讯，形成同城动态',
+        '迭代指标：从社区分享中识别下一版应补足的识鸟、相册和激励需求'
       ],
       action: [
-        '产品链路：设计地图鸟点发现、照片上传识别、鸟讯生成、按鸟种归档和积分激励',
-        '技术实现：使用 Leaflet + 高德地图瓦片、百度 AI 图像识别代理和 JSZip 相册导出',
-        '保护机制：把敏感物种保护前置到定位、展示和导航环节，而不是事后提醒',
-        '社区闭环：让找鸟、识鸟、记录和归档都服务于长期兴趣社区'
+        '入口设计：用附近鸟点降低新人寻找观鸟地点的成本',
+        '内容结构：围绕地点、鸟种、时间和用户动态组织鸟讯',
+        '社区验证：用轻量发布和同城动态观察用户是否愿意持续贡献记录'
       ],
       evidence: [
-        '最新版本已在 GitHub birdcircle',
-        '仓库包含 birdcircle.html、app.py、proxy.py、鸟种图片和 README',
-        '可直接看到地图页、上传识别、相册导出和敏感物种坐标模糊等核心能力'
+        '旧版页面保留在 GitHub deferred 目录，可作为 V1 参考',
+        'V1 证明的是从兴趣入口到社区内容组织的产品判断',
+        'V2 在此基础上补齐 AI 识鸟、相册归档、积分和保护机制'
+      ],
+      githubUrl: 'https://github.com/huinan-jiang/birdcircle/tree/main/deferred'
+    },
+    'birdcircle-v2': {
+      category: '兴趣社区迭代',
+      title: '鸟有圈 V2｜AI 观鸟记录工具',
+      media: { label: 'AI 识鸟 + 相册归档' },
+      audience: '观鸟新人、拍鸟用户、需要长期记录和归档的自然观察者',
+      summary: '把找鸟、识鸟、生成鸟讯、相册归档和积分激励串成一条观鸟记录闭环。',
+      role: '设计首页任务入口、地图鸟点发现、照片上传识别、按鸟种归档、积分激励和敏感物种保护机制。',
+      intro: 'V2 从社区发现继续迭代到工具闭环：用户先在首页看到附近鸟点、天气和任务，再到地图确认鸟点信息，上传照片后通过 AI 初步识鸟并同步到相册，最后用积分和兑换体系鼓励持续记录。这个版本的重点不是单点识别，而是把“发现、确认、记录、归档、激励”连成完整体验。',
+      background: [
+        '用户侧：观鸟新人找得到鸟点后，仍会遇到不会识别、照片散乱、记录难沉淀的问题',
+        '社区侧：只靠动态分享不足以形成长期留存，需要把每次观察转成可累计资产',
+        '系统侧：地图、识别、相册、积分和保护机制必须串成一条闭环，而不是孤立功能'
+      ],
+      goalMetrics: [
+        '路径指标：从首页推荐到地图鸟点、上传识别、相册归档和积分反馈要连贯',
+        '留存指标：用任务和积分把一次性拍照转成持续记录行为',
+        '保护指标：敏感物种、夜行鸟类和繁殖地坐标需要模糊和导航限制'
+      ],
+      action: [
+        '首页设计：把天气、最佳观鸟时间、附近鸟点、任务和同城动态聚合，减少新人决策成本',
+        '地图设计：用颜色区分鸟讯时效，并把保护规则前置，避免用户为了追热点打扰敏感鸟类',
+        '积分设计：把上传、补充照片、加入同城群等行为转成可见奖励，推动内容贡献',
+        '相册设计：按鸟种和科目自动归档，解决拍摄之后难以整理和复盘的问题'
+      ],
+      evidence: [
+        'GitHub 最新版本包含 birdcircle.html、proxy.py、鸟种图片、相册导出和 README',
+        '四张 V2 截图分别覆盖首页、鸟点地图、积分体系和相册归档',
+        '案例证明的是兴趣社区产品从“内容发现”到“AI 工具闭环”的迭代能力'
+      ],
+      screens: [
+        {
+          src: 'assets/images/projects/birdcircle-v2/home.png',
+          title: '首页：把观鸟决策前置',
+          text: '首页不是信息流堆叠，而是把位置、天气、最佳观鸟时间、附近鸟点、当季明星和积分任务放在同一屏，让新人不用先学习规则，也能知道“现在去哪、看什么、下一步做什么”。'
+        },
+        {
+          src: 'assets/images/projects/birdcircle-v2/map.png',
+          title: '鸟点：地图发现与生态保护并重',
+          text: '鸟点页用颜色表达鸟讯时效，用底部卡片承载鸟种、活跃度、确认人数和导航入口；顶部保护条把敏感物种、繁殖地和夜行鸟类限制前置，避免产品只追求打卡效率。'
+        },
+        {
+          src: 'assets/images/projects/birdcircle-v2/points.png',
+          title: '积分：把贡献行为游戏化',
+          text: '积分页把上传鸟点、补充鸟种照片、加入同城观鸟群等贡献行为显性化，并用观鸟装备兑换承接激励，目的是让用户从“拍完即走”转向持续贡献和复访。'
+        },
+        {
+          src: 'assets/images/projects/birdcircle-v2/album.png',
+          title: '相册：把照片变成个人鸟种资产',
+          text: '相册按鸟种和科目自动归档，并用堆叠卡片表达同一鸟种的多张照片，解决手机相册里照片散乱的问题；筛选、搜索和导出让记录结果能被复盘和迁移。'
+        }
       ],
       githubUrl: 'https://github.com/huinan-jiang/birdcircle'
     },
@@ -425,6 +476,7 @@
     action: modal.querySelector('#project-detail-action'),
     goal: modal.querySelector('#project-detail-goal'),
     result: modal.querySelector('#project-detail-result'),
+    screens: modal.querySelector('#project-detail-screens'),
     footer: modal.querySelector('.project-modal__footer'),
     trial: modal.querySelector('#project-detail-trial'),
     github: modal.querySelector('#project-detail-github')
@@ -454,6 +506,50 @@
     element.appendChild(list);
   }
 
+  function renderScreens(element, screens) {
+    if (!element) return;
+    element.innerHTML = '';
+
+    if (!Array.isArray(screens) || !screens.length) {
+      element.hidden = true;
+      return;
+    }
+
+    const heading = document.createElement('div');
+    heading.className = 'project-modal__screens-heading';
+    heading.textContent = 'V2 截图与设计思路';
+    element.appendChild(heading);
+
+    const grid = document.createElement('div');
+    grid.className = 'project-modal__screen-grid';
+
+    screens.forEach(screen => {
+      const item = document.createElement('article');
+      item.className = 'project-modal__screen';
+
+      const image = document.createElement('img');
+      image.src = screen.src;
+      image.alt = screen.title;
+      image.loading = 'lazy';
+
+      const body = document.createElement('div');
+      body.className = 'project-modal__screen-body';
+
+      const title = document.createElement('h3');
+      title.textContent = screen.title;
+
+      const text = document.createElement('p');
+      text.textContent = screen.text;
+
+      body.append(title, text);
+      item.append(image, body);
+      grid.appendChild(item);
+    });
+
+    element.appendChild(grid);
+    element.hidden = false;
+  }
+
   function openProject(card) {
     const project = projects[card.dataset.project];
     if (!project) return;
@@ -464,6 +560,7 @@
     renderPoints(fields.action, project.goalMetrics || project.goal || project.summary);
     renderPoints(fields.goal, project.action || project.role);
     renderPoints(fields.result, project.evidence || project.result || project.demo);
+    renderScreens(fields.screens, project.screens);
 
     const trialUrl = project.trialUrl || card.dataset.trial;
     const githubUrl = project.githubUrl || (!card.dataset.linkLabel ? card.dataset.github : '');
