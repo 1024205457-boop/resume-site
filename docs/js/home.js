@@ -385,12 +385,87 @@
             text: '观鸟不是普通打卡，产品必须主动约束敏感物种、繁殖地和夜行鸟类的坐标与导航规则。'
           }
         ],
+        comparisonTitle: 'V1 / V2 四组迭代对照',
+        comparisons: [
+          {
+            title: '入口迭代：从兴趣社区到观鸟决策',
+            left: {
+              label: 'V1 社区入口',
+              images: [
+                'assets/images/projects/birdcircle-v1/community-photos.png',
+                'assets/images/projects/birdcircle-v1/community-events.png'
+              ],
+              text: 'V1 先做“鸟有照片”和“鸟有活动”，把观鸟拆成可浏览、可参与的社区入口，让新人先看到同好、活动和内容氛围。'
+            },
+            right: {
+              label: 'V2 首页决策',
+              images: ['assets/images/projects/birdcircle-v2/home.png'],
+              text: 'V2 把入口前移到决策场景：位置、天气、最佳观鸟时间、附近鸟点、任务和同城动态集中到首页，直接回答“现在去哪、看什么、下一步做什么”。'
+            }
+          },
+          {
+            title: '信息迭代：从问答交流到鸟点判断',
+            left: {
+              label: 'V1 问答 / 来信',
+              images: [
+                'assets/images/projects/birdcircle-v1/community-qa.png',
+                'assets/images/projects/birdcircle-v1/mail-chat.png',
+                'assets/images/projects/birdcircle-v1/mail-inbox.png'
+              ],
+              text: 'V1 用问答和拟鸟来信承接交流需求，让用户可以围绕鸟种识别、路线、装备和观察经验发问，社区关系更轻、更有趣。'
+            },
+            right: {
+              label: 'V2 鸟点地图',
+              images: ['assets/images/projects/birdcircle-v2/map.png'],
+              text: 'V2 把交流中的“去哪里看”沉淀成地图判断：用鸟讯时效、鸟种标签、确认人数、导航和保护规则，帮助用户在出发前判断是否值得去。'
+            }
+          },
+          {
+            title: '成长迭代：从图鉴装备到贡献激励',
+            left: {
+              label: 'V1 图鉴 / 装备',
+              images: [
+                'assets/images/projects/birdcircle-v1/field-guide.png',
+                'assets/images/projects/birdcircle-v1/gear.png'
+              ],
+              text: 'V1 通过图鉴和装备建立兴趣成长路径：用户既可以按地点、纲目、季节收集鸟类知识，也能围绕望远镜、相机等装备做准备。'
+            },
+            right: {
+              label: 'V2 积分体系',
+              images: ['assets/images/projects/birdcircle-v2/points.png'],
+              text: 'V2 把成长路径转成行为激励：上传鸟点、补充鸟种照片、加入同城群都会获得积分，让内容贡献有即时反馈和长期目标。'
+            }
+          },
+          {
+            title: '资产迭代：从社区照片到个人记录',
+            left: {
+              label: 'V1 照片墙 / 鸟点记录',
+              images: [
+                'assets/images/projects/birdcircle-v1/community-photos.png',
+                'assets/images/projects/birdcircle-v1/location-wall.png'
+              ],
+              text: 'V1 的照片更多是社区内容，重点在展示和互动；用户能看到同好拍了什么、在哪拍，但个人资产沉淀还不够强。'
+            },
+            right: {
+              label: 'V2 相册归档',
+              images: ['assets/images/projects/birdcircle-v2/album.png'],
+              text: 'V2 把照片沉淀为个人鸟种资产：按鸟种和科目自动归档，用堆叠卡片表达多张记录，支持搜索、筛选和导出。'
+            }
+          }
+        ],
         versionTitle: '版本迭代对照',
         versions: [
           {
             label: 'V1 地图鸟讯社区',
-            image: 'assets/images/projects/birdcircle-v2/map.png',
-            text: '第一版先验证入口价值：把附近鸟点、鸟种标签和同城鸟讯组织起来，解决新人不知道从哪里开始的问题。核心判断是“观鸟社区不能先从发帖开始，而要从地点发现开始”。'
+            images: [
+              'assets/images/projects/birdcircle-v1/community-photos.png',
+              'assets/images/projects/birdcircle-v1/community-events.png',
+              'assets/images/projects/birdcircle-v1/community-qa.png',
+              'assets/images/projects/birdcircle-v1/mail-inbox.png',
+              'assets/images/projects/birdcircle-v1/field-guide.png',
+              'assets/images/projects/birdcircle-v1/gear.png'
+            ],
+            text: '第一版先验证社区入口价值：用鸟有照片、活动、问答、来信、图鉴和装备，把观鸟拆成“看、聊、问、收集、准备装备”的兴趣社区结构。它解决的是新人如何进入圈子、如何找到同好、如何开始积累鸟类知识的问题。'
           },
           {
             label: 'V2 AI 观鸟记录工具',
@@ -649,7 +724,85 @@
       element.appendChild(insightSection);
     }
 
-    if (Array.isArray(caseStudy.versions) && caseStudy.versions.length) {
+    if (Array.isArray(caseStudy.comparisons) && caseStudy.comparisons.length) {
+      const compareSection = document.createElement('section');
+      compareSection.className = 'project-modal__deep-section';
+
+      const heading = document.createElement('h3');
+      heading.className = 'project-modal__deep-title';
+      heading.textContent = caseStudy.comparisonTitle || '版本迭代对照';
+
+      const list = document.createElement('div');
+      list.className = 'project-modal__pair-list';
+
+      function createVersionMedia(version, side) {
+        const images = Array.isArray(version.images) && version.images.length
+          ? version.images
+          : [version.image].filter(Boolean);
+
+        const wrap = document.createElement('div');
+        wrap.className = `project-modal__pair-media project-modal__pair-media--${side}`;
+
+        const badge = document.createElement('span');
+        badge.textContent = version.label;
+        wrap.appendChild(badge);
+
+        const carousel = document.createElement('div');
+        carousel.className = 'project-modal__carousel';
+        carousel.style.setProperty('--slide-count', String(images.length || 1));
+        if (images.length <= 1) carousel.classList.add('project-modal__carousel--single');
+
+        images.forEach((src, index) => {
+          const image = document.createElement('img');
+          image.src = src;
+          image.alt = version.label;
+          image.loading = 'lazy';
+          image.style.animationDelay = `${index * 3}s`;
+          carousel.appendChild(image);
+        });
+
+        wrap.appendChild(carousel);
+        return wrap;
+      }
+
+      function createVersionText(version, side) {
+        const wrap = document.createElement('div');
+        wrap.className = `project-modal__pair-text project-modal__pair-text--${side}`;
+
+        const label = document.createElement('h4');
+        label.textContent = version.label;
+
+        const text = document.createElement('p');
+        text.textContent = version.text;
+
+        wrap.append(label, text);
+        return wrap;
+      }
+
+      caseStudy.comparisons.forEach(pair => {
+        const item = document.createElement('article');
+        item.className = 'project-modal__pair';
+
+        const title = document.createElement('h4');
+        title.className = 'project-modal__pair-title';
+        title.textContent = pair.title;
+
+        const body = document.createElement('div');
+        body.className = 'project-modal__pair-body';
+        body.append(
+          createVersionText(pair.left, 'left'),
+          createVersionMedia(pair.left, 'left'),
+          createVersionMedia(pair.right, 'right'),
+          createVersionText(pair.right, 'right')
+        );
+
+        item.append(title, body);
+        list.appendChild(item);
+      });
+
+      compareSection.append(heading, list);
+      element.appendChild(compareSection);
+    } else if (Array.isArray(caseStudy.versions) && caseStudy.versions.length) {
       const versionSection = document.createElement('section');
       versionSection.className = 'project-modal__deep-section';
 
