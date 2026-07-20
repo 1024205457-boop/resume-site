@@ -422,6 +422,7 @@
             right: {
               label: '相册',
               images: ['assets/images/projects/birdcircle-v2/album.png'],
+              note: 'drag/swipe interaction +循环轮播栈',
               text: '按鸟种和科目自动归档照片，支持搜索、筛选和导出。'
             }
           },
@@ -747,6 +748,14 @@
         text.textContent = version.text;
 
         wrap.append(label, text);
+
+        if (version.note) {
+          const note = document.createElement('p');
+          note.className = 'project-modal__pair-note';
+          note.textContent = version.note;
+          wrap.appendChild(note);
+        }
+
         return wrap;
       }
 

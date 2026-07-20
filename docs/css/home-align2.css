@@ -1212,6 +1212,14 @@ section[id] {
   line-height: 1.68;
 }
 
+.project-modal__pair-text .project-modal__pair-note {
+  margin-top: 0.6rem;
+  color: var(--color-accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
 .project-modal__pair-media {
   position: relative;
   min-height: 270px;
