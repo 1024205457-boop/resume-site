@@ -662,13 +662,13 @@ section[id] {
 .project-card__iteration {
   display: inline-flex;
   align-items: center;
-  min-height: 1.35rem;
-  margin-bottom: 0.55rem;
-  padding: 0.1rem 0.5rem;
+  min-height: 1.7rem;
+  margin-bottom: 0.65rem;
+  padding: 0.18rem 0.68rem;
   border: 1px solid rgba(201, 168, 76, 0.36);
   border-radius: 999px;
   color: var(--color-accent);
-  font-size: 0.68rem;
+  font-size: 0.82rem;
   font-weight: 700;
   line-height: 1;
   letter-spacing: 0.08em;
