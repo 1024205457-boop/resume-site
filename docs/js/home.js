@@ -332,6 +332,96 @@
       ],
       githubUrl: 'https://github.com/huinan-jiang/alcheme3.0'
     },
+    birdcircle: {
+      category: '兴趣社区迭代',
+      title: '鸟有圈｜从观鸟社区到 AI 记录工具',
+      media: { label: 'V1 社区入口 → V2 工具闭环' },
+      audience: '观鸟新人、自然观察用户、拍鸟和记录型兴趣用户',
+      summary: '面向观鸟新人和自然观察用户，先验证地图鸟讯社区，再迭代到 AI 识鸟、相册归档、积分激励和生态保护机制。',
+      role: '从用户入门路径出发，设计 V1 地图鸟讯社区，并在 V2 补齐首页决策、鸟点地图、AI 识鸟、相册归档、积分激励和保护规则。',
+      intro: '鸟有圈的迭代重点不是“加一个 AI 识别功能”，而是把观鸟从一次性兴趣行为变成可持续记录和社区贡献：V1 先解决新人不知道去哪看鸟、鸟讯依赖熟人传播的问题；V2 再补齐识别、归档、激励和保护机制，形成发现鸟点 → 判断前往 → 上传识别 → 相册沉淀 → 积分反馈的完整闭环。',
+      background: [
+        '新人门槛：观鸟新人最先卡在“附近哪里能看、什么时候适合看、可能看到什么鸟”',
+        '记录断点：拍到鸟后，用户仍会遇到不会识别、照片散乱、观察记录难复盘的问题',
+        '社区断点：只做同城动态无法形成长期留存，需要把每次观察转成用户资产和社区贡献',
+        '生态边界：观鸟产品不能只追求打卡效率，敏感物种、繁殖地和夜行鸟类需要被产品规则保护'
+      ],
+      goalMetrics: [
+        '入门指标：让新人打开首页就知道去哪、何时去、看什么和下一步做什么',
+        '闭环指标：从地图发现、鸟点判断、上传识别、相册归档到积分反馈形成连续路径',
+        '贡献指标：用任务和积分把一次拍照转成持续上传、补充照片和社区参与',
+        '保护指标：把敏感物种坐标模糊、繁殖地禁用导航、夜行鸟类勿靠近前置到核心界面'
+      ],
+      action: [
+        'V1：先做地图鸟点、鸟讯动态和鸟种标签，验证“地点发现 + 社区分享”的入口价值',
+        'V2：首页聚合天气、最佳观鸟时间、附近鸟点、当季明星、积分任务和同城动态，降低首次决策成本',
+        'V2：鸟点页用时效颜色、鸟种标签、确认人数和导航入口帮助用户判断是否前往',
+        'V2：积分和相册分别承接贡献激励与个人资产沉淀，让工具能力服务长期留存'
+      ],
+      evidence: [
+        '首页大图展示 V2 的首页、鸟点、积分和相册四个核心界面',
+        'GitHub 最新版本包含 birdcircle.html、proxy.py、鸟种图片、相册导出和 README',
+        '旧版保留在 deferred 目录，可说明从 V1 社区入口到 V2 工具闭环的迭代路径',
+        '案例证明的是从兴趣场景洞察到 AI 产品闭环设计的能力，而不是单点图像识别'
+      ],
+      caseStudy: {
+        insightTitle: '人群洞察',
+        insights: [
+          {
+            label: '观鸟新人',
+            text: '兴趣强但路径不清楚，最需要的是“附近去哪看、现在适不适合看、可能看到什么鸟”的低门槛指引。'
+          },
+          {
+            label: '拍鸟用户',
+            text: '愿意持续拍摄，但照片容易散落在手机相册里，需要按鸟种、科目和观察地点沉淀成可复盘资产。'
+          },
+          {
+            label: '同城自然观察者',
+            text: '愿意贡献鸟讯，但需要可见反馈和社区连接；积分、任务和同城动态能把一次上传转成持续参与。'
+          },
+          {
+            label: '生态保护边界',
+            text: '观鸟不是普通打卡，产品必须主动约束敏感物种、繁殖地和夜行鸟类的坐标与导航规则。'
+          }
+        ],
+        versionTitle: '版本迭代对照',
+        versions: [
+          {
+            label: 'V1 地图鸟讯社区',
+            image: 'assets/images/projects/birdcircle-v2/map.png',
+            text: '第一版先验证入口价值：把附近鸟点、鸟种标签和同城鸟讯组织起来，解决新人不知道从哪里开始的问题。核心判断是“观鸟社区不能先从发帖开始，而要从地点发现开始”。'
+          },
+          {
+            label: 'V2 AI 观鸟记录工具',
+            image: 'assets/images/projects/birdcircle/cover.jpg',
+            text: '第二版把社区入口扩展成完整工具闭环：用户从首页获得观鸟决策，到鸟点页判断是否前往，再通过上传识别、相册归档和积分激励完成长期记录。AI 被放进真实路径里，而不是孤立功能。'
+          }
+        ]
+      },
+      screens: [
+        {
+          src: 'assets/images/projects/birdcircle-v2/home.png',
+          title: '首页：把观鸟决策前置',
+          text: '首页不是信息流堆叠，而是把位置、天气、最佳观鸟时间、附近鸟点、当季明星和积分任务放在同一屏，让新人不用先学习规则，也能知道“现在去哪、看什么、下一步做什么”。'
+        },
+        {
+          src: 'assets/images/projects/birdcircle-v2/map.png',
+          title: '鸟点：地图发现与生态保护并重',
+          text: '鸟点页用颜色表达鸟讯时效，用底部卡片承载鸟种、活跃度、确认人数和导航入口；顶部保护条把敏感物种、繁殖地和夜行鸟类限制前置，避免产品只追求打卡效率。'
+        },
+        {
+          src: 'assets/images/projects/birdcircle-v2/points.png',
+          title: '积分：把贡献行为游戏化',
+          text: '积分页把上传鸟点、补充鸟种照片、加入同城观鸟群等贡献行为显性化，并用观鸟装备兑换承接激励，目的是让用户从“拍完即走”转向持续贡献和复访。'
+        },
+        {
+          src: 'assets/images/projects/birdcircle-v2/album.png',
+          title: '相册：把照片变成个人鸟种资产',
+          text: '相册按鸟种和科目自动归档，并用堆叠卡片表达同一鸟种的多张照片，解决手机相册里照片散乱的问题；筛选、搜索和导出让记录结果能被复盘和迁移。'
+        }
+      ],
+      githubUrl: 'https://github.com/huinan-jiang/birdcircle'
+    },
     'birdcircle-v1': {
       category: '兴趣社区迭代',
       title: '鸟有圈 V1｜地图鸟讯社区',
@@ -489,6 +579,7 @@
     action: modal.querySelector('#project-detail-action'),
     goal: modal.querySelector('#project-detail-goal'),
     result: modal.querySelector('#project-detail-result'),
+    caseStudy: modal.querySelector('#project-detail-case-study'),
     screens: modal.querySelector('#project-detail-screens'),
     footer: modal.querySelector('.project-modal__footer'),
     trial: modal.querySelector('#project-detail-trial'),
@@ -517,6 +608,89 @@
     });
 
     element.appendChild(list);
+  }
+
+  function renderCaseStudy(element, caseStudy) {
+    if (!element) return;
+    element.innerHTML = '';
+
+    if (!caseStudy) {
+      element.hidden = true;
+      return;
+    }
+
+    if (Array.isArray(caseStudy.insights) && caseStudy.insights.length) {
+      const insightSection = document.createElement('section');
+      insightSection.className = 'project-modal__deep-section';
+
+      const heading = document.createElement('h3');
+      heading.className = 'project-modal__deep-title';
+      heading.textContent = caseStudy.insightTitle || '人群洞察';
+
+      const grid = document.createElement('div');
+      grid.className = 'project-modal__insight-grid';
+
+      caseStudy.insights.forEach(insight => {
+        const item = document.createElement('article');
+        item.className = 'project-modal__insight';
+
+        const label = document.createElement('h4');
+        label.textContent = insight.label;
+
+        const text = document.createElement('p');
+        text.textContent = insight.text;
+
+        item.append(label, text);
+        grid.appendChild(item);
+      });
+
+      insightSection.append(heading, grid);
+      element.appendChild(insightSection);
+    }
+
+    if (Array.isArray(caseStudy.versions) && caseStudy.versions.length) {
+      const versionSection = document.createElement('section');
+      versionSection.className = 'project-modal__deep-section';
+
+      const heading = document.createElement('h3');
+      heading.className = 'project-modal__deep-title';
+      heading.textContent = caseStudy.versionTitle || '版本迭代对照';
+
+      const compare = document.createElement('div');
+      compare.className = 'project-modal__version-compare';
+
+      caseStudy.versions.forEach(version => {
+        const item = document.createElement('article');
+        item.className = 'project-modal__version';
+
+        const textWrap = document.createElement('div');
+        textWrap.className = 'project-modal__version-text';
+
+        const label = document.createElement('h4');
+        label.textContent = version.label;
+
+        const text = document.createElement('p');
+        text.textContent = version.text;
+
+        const imageWrap = document.createElement('div');
+        imageWrap.className = 'project-modal__version-image';
+
+        const image = document.createElement('img');
+        image.src = version.image;
+        image.alt = version.label;
+        image.loading = 'lazy';
+
+        imageWrap.appendChild(image);
+        textWrap.append(label, text);
+        item.append(textWrap, imageWrap);
+        compare.appendChild(item);
+      });
+
+      versionSection.append(heading, compare);
+      element.appendChild(versionSection);
+    }
+
+    element.hidden = !element.childElementCount;
   }
 
   function renderScreens(element, screens) {
@@ -573,6 +747,7 @@
     renderPoints(fields.action, project.goalMetrics || project.goal || project.summary);
     renderPoints(fields.goal, project.action || project.role);
     renderPoints(fields.result, project.evidence || project.result || project.demo);
+    renderCaseStudy(fields.caseStudy, project.caseStudy);
     renderScreens(fields.screens, project.screens);
 
     const trialUrl = project.trialUrl || card.dataset.trial;
