@@ -377,92 +377,17 @@
             text: '📷而拍鸟则是摄影基于对象的一个分支，鸟只是拍摄对象的一种，所以不拘什么鸟类都可以，就像在北京公园里经常出现的“长枪短炮”的摄影师，这类群体的需求偏向于捕捉瞬间的美丽。'
           }
         ],
-        comparisonTitle: 'V1 / V2 四组迭代对照',
-        comparisons: [
-          {
-            title: '入口迭代：从兴趣社区到观鸟决策',
-            left: {
-              label: 'V1 社区入口',
-              images: [
-                'assets/images/projects/birdcircle-v1/community-photos.png',
-                'assets/images/projects/birdcircle-v1/community-events.png'
-              ],
-              text: 'V1 先做“鸟有照片”和“鸟有活动”，把观鸟拆成可浏览、可参与的社区入口，让新人先看到同好、活动和内容氛围。'
-            },
-            right: {
-              label: 'V2 首页决策',
-              images: ['assets/images/projects/birdcircle-v2/home.png'],
-              text: 'V2 把入口前移到决策场景：位置、天气、最佳观鸟时间、附近鸟点、任务和同城动态集中到首页，直接回答“现在去哪、看什么、下一步做什么”。'
-            }
-          },
-          {
-            title: '信息迭代：从问答交流到鸟点判断',
-            left: {
-              label: 'V1 问答 / 来信',
-              images: [
-                'assets/images/projects/birdcircle-v1/community-qa.png',
-                'assets/images/projects/birdcircle-v1/mail-chat.png',
-                'assets/images/projects/birdcircle-v1/mail-inbox.png'
-              ],
-              text: 'V1 用问答和拟鸟来信承接交流需求，让用户可以围绕鸟种识别、路线、装备和观察经验发问，社区关系更轻、更有趣。'
-            },
-            right: {
-              label: 'V2 鸟点地图',
-              images: ['assets/images/projects/birdcircle-v2/map.png'],
-              text: 'V2 把交流中的“去哪里看”沉淀成地图判断：用鸟讯时效、鸟种标签、确认人数、导航和保护规则，帮助用户在出发前判断是否值得去。'
-            }
-          },
-          {
-            title: '成长迭代：从图鉴装备到贡献激励',
-            left: {
-              label: 'V1 图鉴 / 装备',
-              images: [
-                'assets/images/projects/birdcircle-v1/field-guide.png',
-                'assets/images/projects/birdcircle-v1/gear.png'
-              ],
-              text: 'V1 通过图鉴和装备建立兴趣成长路径：用户既可以按地点、纲目、季节收集鸟类知识，也能围绕望远镜、相机等装备做准备。'
-            },
-            right: {
-              label: 'V2 积分体系',
-              images: ['assets/images/projects/birdcircle-v2/points.png'],
-              text: 'V2 把成长路径转成行为激励：上传鸟点、补充鸟种照片、加入同城群都会获得积分，让内容贡献有即时反馈和长期目标。'
-            }
-          },
-          {
-            title: '资产迭代：从社区照片到个人记录',
-            left: {
-              label: 'V1 照片墙 / 鸟点记录',
-              images: [
-                'assets/images/projects/birdcircle-v1/community-photos.png',
-                'assets/images/projects/birdcircle-v1/location-wall.png'
-              ],
-              text: 'V1 的照片更多是社区内容，重点在展示和互动；用户能看到同好拍了什么、在哪拍，但个人资产沉淀还不够强。'
-            },
-            right: {
-              label: 'V2 相册归档',
-              images: ['assets/images/projects/birdcircle-v2/album.png'],
-              text: 'V2 把照片沉淀为个人鸟种资产：按鸟种和科目自动归档，用堆叠卡片表达多张记录，支持搜索、筛选和导出。'
-            }
-          }
-        ],
-        versionTitle: '版本迭代对照',
+        versionTitle: '具体版本',
         versions: [
           {
-            label: 'V1 地图鸟讯社区',
-            images: [
-              'assets/images/projects/birdcircle-v1/community-photos.png',
-              'assets/images/projects/birdcircle-v1/community-events.png',
-              'assets/images/projects/birdcircle-v1/community-qa.png',
-              'assets/images/projects/birdcircle-v1/mail-inbox.png',
-              'assets/images/projects/birdcircle-v1/field-guide.png',
-              'assets/images/projects/birdcircle-v1/gear.png'
-            ],
-            text: '第一版先验证社区入口价值：用鸟有照片、活动、问答、来信、图鉴和装备，把观鸟拆成“看、聊、问、收集、准备装备”的兴趣社区结构。它解决的是新人如何进入圈子、如何找到同好、如何开始积累鸟类知识的问题。'
+            label: 'V1',
+            image: 'assets/images/projects/birdcircle-v1/community-photos.png',
+            text: '先验证社区入口价值：用鸟有照片、活动、问答、来信、图鉴和装备，把观鸟拆成“看、聊、问、收集、准备装备”的兴趣社区结构。它解决的是新人如何进入圈子、如何找到同好、如何开始积累鸟类知识的问题。'
           },
           {
-            label: 'V2 AI 观鸟记录工具',
+            label: 'V2',
             image: 'assets/images/projects/birdcircle/cover.jpg',
-            text: '第二版把社区入口扩展成完整工具闭环：用户从首页获得观鸟决策，到鸟点页判断是否前往，再通过上传识别、相册归档和积分激励完成长期记录。AI 被放进真实路径里，而不是孤立功能。'
+            text: '把社区入口扩展成完整工具闭环：用户从首页获得观鸟决策，到鸟点页判断是否前往，再通过上传识别、相册归档和积分激励完成长期记录。AI 被放进真实路径里，而不是孤立功能。'
           }
         ]
       },
