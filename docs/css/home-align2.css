@@ -1203,6 +1203,7 @@ section[id] {
   padding: 3.2rem 1rem 1rem;
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
+  align-content: start;
 }
 
 .project-modal__version-lane--left {
@@ -1235,10 +1236,13 @@ section[id] {
 .project-modal__version-lane-item {
   display: grid;
   gap: 0.75rem;
-  padding: 0.85rem;
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: calc(var(--radius) - 2px);
-  background: rgba(255,255,255,0.035);
+  padding: 0.95rem 0;
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+.project-modal__version-lane-item:first-of-type {
+  border-top: 0;
+  padding-top: 0;
 }
 
 .project-modal__version-lane-title {
@@ -1246,6 +1250,17 @@ section[id] {
   color: var(--color-text);
   font-size: 0.95rem;
   line-height: 1.4;
+}
+
+.project-modal__version-lane-body {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(180px, 1fr);
+  gap: 0.9rem;
+  align-items: center;
+}
+
+.project-modal__version-lane--right .project-modal__version-lane-body {
+  grid-template-columns: minmax(180px, 1fr) minmax(0, 0.8fr);
 }
 
 .project-modal__pair {
@@ -1823,6 +1838,27 @@ section[id] {
 
   .project-modal__version-lanes {
     grid-template-columns: 1fr;
+  }
+
+  .project-modal__version-lane-body,
+  .project-modal__version-lane--right .project-modal__version-lane-body {
+    grid-template-columns: 1fr;
+  }
+
+  .project-modal__version-lane-body .project-modal__pair-text--left {
+    order: 1;
+  }
+
+  .project-modal__version-lane-body .project-modal__pair-media--left {
+    order: 2;
+  }
+
+  .project-modal__version-lane-body .project-modal__pair-media--right {
+    order: 1;
+  }
+
+  .project-modal__version-lane-body .project-modal__pair-text--right {
+    order: 2;
   }
 
   .project-modal__version-image {

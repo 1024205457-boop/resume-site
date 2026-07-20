@@ -350,31 +350,10 @@
       summary: '区分观鸟与拍鸟两类兴趣人群，先验证地图鸟讯社区，再迭代到 AI 识鸟、相册归档、积分激励和生态保护机制。',
       role: '从用户入门路径出发，设计 V1 地图鸟讯社区，并在 V2 补齐首页决策、鸟点地图、AI 识鸟、相册归档、积分激励和保护规则。',
       intro: '鸟有圈的迭代重点不是“加一个 AI 识别功能”，而是先看清两类人群：观鸟者用望远镜也能开始，更在意鸟种、习性和收集体系，偏博物学；拍鸟者更像以鸟为对象的摄影用户，更在意出现位置、瞬间捕捉和作品沉淀。V1 先解决新人不知道去哪看鸟、鸟讯依赖熟人传播的问题；V2 再补齐识别、归档、激励和保护机制，形成发现鸟点 → 判断前往 → 上传识别 → 相册沉淀 → 积分反馈的完整闭环。',
-      background: [
-        '用户侧：自然观察新人从“想去看鸟”到“完成一次记录”会连续卡在地点不知道、鸟种不会认、照片难归档和下一步不知道做什么',
-        '业务侧：只做地图鸟讯或同城动态，容易停留在一次性浏览，无法把观察行为沉淀为个人资产、社区贡献和复访动机',
-        '系统侧：这个问题适合 AI 介入，因为它需要把位置、时间、鸟种、照片、任务和保护规则拆成可路由、可校验、可兜底的产品链路',
-        '风险侧：观鸟不能只追求打卡效率，敏感物种、繁殖地和夜行鸟类必须在导航、展示和推荐环节被规则保护'
-      ],
-      goalMetrics: [
-        '用户侧指标：新人打开首页后能完成“去哪、何时去、看什么、下一步做什么”的决策，并能把照片归档到可复盘相册',
-        '业务侧指标：用鸟讯发布、补充照片、加入同城群和积分任务，把一次观察转成持续贡献和复访行为',
-        '系统侧指标：路由链路覆盖首页推荐、鸟点判断、上传识别、相册归档、积分反馈和保护规则触发',
-        '安全侧指标：敏感物种坐标模糊、繁殖地禁用导航、夜行鸟类勿靠近等规则能在核心路径前置生效'
-      ],
-      action: [
-        '数据层：把地点、时间、天气、鸟种、照片、确认人数、任务状态和保护规则整理成首页、地图、识别、相册和积分都能复用的字段',
-        '场景层：把完整路径拆成“发现鸟点 → 判断是否前往 → 上传照片 → AI 初步识鸟 → 相册归档 → 积分反馈 → 保护兜底”',
-        '系统层：用固定路由承接首页决策、鸟点地图、上传识别、相册归档和积分任务，避免功能孤立堆叠',
-        '工具层：地图负责位置和时效判断，识别工具负责鸟种初筛，相册负责按鸟种/科目归档，积分工具负责把贡献行为转成即时反馈',
-        '评测与兜底：用鸟讯时效、识别置信度、归档成功率、任务完成率和保护规则触发率检查链路；低置信识别和敏感鸟点进入提示或限制'
-      ],
-      evidence: [
-        '量化口径：首页入口点击率、鸟点查看率、上传识别完成率、相册归档成功率、积分任务完成率和保护规则触发率可作为验证指标',
-        '过程证据：保留 V1 地图鸟讯社区和 V2 首页、鸟点、积分、相册四类截图，可展示从入口验证到工具闭环的迭代路径',
-        '过程证据：GitHub 最新版本包含 birdcircle.html、proxy.py、鸟种图片、相册导出和 README，旧版保留在 deferred 目录',
-        '结果判断：案例证明的是把兴趣社区问题拆成可路由、可校验、可兜底的 AI 观鸟记录系统，而不是单点图像识别功能'
-      ],
+      background: [],
+      goalMetrics: [],
+      action: [],
+      evidence: [],
       caseStudy: {
         insightTitle: '人群洞察',
         insights: [
@@ -653,8 +632,10 @@
         .split(/[。；]/)
         .map(point => point.trim())
         .filter(Boolean);
+    const section = element.closest('.project-modal__section');
 
     element.innerHTML = '';
+    if (section) section.hidden = !points.length;
 
     if (!points.length) return;
 
@@ -783,11 +764,22 @@
           title.className = 'project-modal__version-lane-title';
           title.textContent = pair.title;
 
-          item.append(
-            title,
-            createVersionMedia(version, side),
-            createVersionText(version, side)
-          );
+          const body = document.createElement('div');
+          body.className = 'project-modal__version-lane-body';
+
+          if (side === 'left') {
+            body.append(
+              createVersionText(version, side),
+              createVersionMedia(version, side)
+            );
+          } else {
+            body.append(
+              createVersionMedia(version, side),
+              createVersionText(version, side)
+            );
+          }
+
+          item.append(title, body);
           lane.appendChild(item);
         });
 
