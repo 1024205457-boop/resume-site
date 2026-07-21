@@ -281,6 +281,23 @@
         '过程证据：可展示移动端场景选择、对话练习、即时反馈页和训练链路',
         '结果判断：案例证明把线下培训经验拆成可执行 AI 工作流的产品能力'
       ],
+      screens: [
+        {
+          src: 'assets/images/projects/training/screen-1.png',
+          title: '服务场景',
+          text: '移动端进入服务话术陪练。'
+        },
+        {
+          src: 'assets/images/projects/training/screen-2.png',
+          title: '对话练习',
+          text: '模拟真实顾客问题，进行逐轮回应。'
+        },
+        {
+          src: 'assets/images/projects/training/screen-3.png',
+          title: '反馈建议',
+          text: '根据回答给出服务话术反馈。'
+        }
+      ],
       githubUrl: 'https://github.com/huinan-jiang/training'
     },
     dataops: {
@@ -1042,7 +1059,7 @@
 
     const heading = document.createElement('div');
     heading.className = 'project-modal__screens-heading';
-    heading.textContent = 'V2 截图与设计思路';
+    heading.textContent = '截图与设计思路';
     element.appendChild(heading);
 
     const grid = document.createElement('div');
