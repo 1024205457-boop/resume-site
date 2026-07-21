@@ -2286,6 +2286,23 @@ section[id] {
   grid-auto-rows: 280px;
 }
 
+.gallery--single {
+  max-width: 980px;
+  margin: 0 auto;
+  grid-template-columns: minmax(0, 1fr);
+  grid-auto-rows: auto;
+}
+
+.gallery--single .gallery__item {
+  border-radius: calc(var(--radius) + 0.25rem);
+}
+
+.gallery--single .gallery__item img {
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
+}
+
 /* ============================================================
    SKILL CARDS
    ============================================================ */
