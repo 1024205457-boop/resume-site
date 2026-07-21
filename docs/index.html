@@ -1,13 +1,23 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-theme="gold">
+<html lang="zh-CN" data-theme="theme2">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="姜慧男 - AI 产品经理，项目与作品集">
   <title>姜慧男 - Portfolio</title>
+  <script>
+    (() => {
+      const hour = new Date().getHours();
+      const automaticTheme = hour >= 18 || hour < 7 ? 'gold' : 'theme2';
+      const savedTheme = localStorage.getItem('theme-preference-v2');
+      document.documentElement.dataset.theme = ['gold', 'theme2', 'eye'].includes(savedTheme)
+        ? savedTheme
+        : automaticTheme;
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/home-align2.css?v=20260720-f7ef7e8">
+  <link rel="stylesheet" href="css/home-align2.css?v=20260721-bird-cover-bottom">
 </head>
 <body>
 
@@ -27,15 +37,36 @@
     </button>
   </nav>
 
+  <aside class="portfolio-guide" aria-label="面试导览">
+    <button class="portfolio-guide__trigger" type="button" aria-expanded="false" aria-controls="portfolio-guide-tags">导览</button>
+    <div class="portfolio-guide__picker" id="portfolio-guide-tags" hidden>
+      <span class="portfolio-guide__label">查看方向</span>
+      <div class="portfolio-guide__tags" role="group" aria-label="选择关注方向">
+        <button type="button" data-guide-tag="aipm">AI PM</button>
+        <button type="button" data-guide-tag="agent">Agent 设计</button>
+        <button type="button" data-guide-tag="research">用户研究</button>
+        <button type="button" data-guide-tag="growth">增长转化</button>
+        <button type="button" data-guide-tag="multimodal">多模态</button>
+      </div>
+    </div>
+  </aside>
+
+  <nav class="portfolio-route" aria-label="推荐项目导览" aria-live="polite" hidden>
+    <div class="portfolio-route__header">
+      <span>推荐浏览</span>
+    </div>
+    <div class="portfolio-route__links"></div>
+    <button class="portfolio-route__close" type="button" aria-label="关闭推荐项目导览">×</button>
+  </nav>
+
   <!-- Top Navigation -->
   <nav class="top-nav">
     <div class="top-nav__inner">
       <span class="top-nav__name">姜慧男</span>
       <div class="top-nav__tabs">
-        <button class="top-nav__tab active" data-target="workflow">项目经历</button>
-        <button class="top-nav__tab" data-target="skills">Skill</button>
-        <button class="top-nav__tab" data-target="honors">Honors</button>
-        <button class="top-nav__tab" data-target="entp-e">性格走廊</button>
+        <button class="top-nav__tab active" data-target="workflow">Agent</button>
+        <button class="top-nav__tab" data-target="workflow-cases">Workflow</button>
+        <button class="top-nav__tab" data-target="skills">Copilot</button>
       </div>
     </div>
   </nav>
@@ -44,32 +75,17 @@
   <!-- 项目经历 -->
   <!-- ============================== -->
 
-    <!-- Quote -->
-    <section class="section quote-section">
-      <div class="container">
-        <blockquote class="quote-block reveal">
-          <p class="quote-block__text">一个把 AI 当手术刀而不是锤子的人——先精准定位业务痛点在哪，再决定刀怎么下。别人还在会诊的时候，这边已经缝完最后一针上线了。切口要小——找准最值得 AI 介入的环节；下刀要准——技术方案一步到位；缝合要漂亮——用户体验经得起挑剔。</p>
-          <footer class="quote-block__source">—— Claude Opus 4.6 对我项目开发的评价</footer>
-        </blockquote>
-      </div>
-    </section>
-
     <!-- Projects -->
     <section class="section" id="workflow">
       <div class="container">
         <div class="workflow-sections">
-          <div class="workflow-group reveal">
+          <div class="workflow-group workflow-group--research reveal">
             <div class="workflow-group__header">
-              <h3 class="workflow-group__title">研究交付工作流：VENN AI / CHART AI / 桌面研究</h3>
-              <div class="workflow-group__copy">
-                <p class="workflow-group__desc">拆成三个独立项目展示：VENN AI 负责概念关系结构化，CHART AI 负责研究结论的可视化交付，桌面研究负责从材料到可信洞察报告。</p>
-                <p class="workflow-group__relation">关系结构 → 可信洞察 → 图表表达</p>
-              </div>
+              <h3 class="workflow-group__title">AI画图+知识库管理</h3>
             </div>
             <div class="project-grid workflow-grid">
               <article class="project-card reveal" data-project="venn" tabindex="0" role="button">
                 <div class="project-card__info">
-                  <span class="project-card__iteration">项目 01</span>
                   <h3 class="project-card__title">VENN AI｜关系可视化笔记</h3>
                 </div>
                 <div class="project-card__media project-card__media--research">
@@ -89,7 +105,6 @@
 
               <article class="project-card reveal" data-project="chart" tabindex="0" role="button">
                 <div class="project-card__info">
-                  <span class="project-card__iteration">项目 02</span>
                   <h3 class="project-card__title">CHART AI｜研究可视化交付智能体</h3>
                 </div>
                 <div class="project-card__media project-card__media--research">
@@ -107,9 +122,8 @@
                 </div>
               </article>
 
-              <a href="#project-detail" data-project="mrw" data-trial="assets/reports/mrw-sample-report.html" data-trial-label="查看样例报告" class="project-card reveal">
+              <a href="#project-detail" data-project="mrw" data-trial="assets/reports/mrw-sample-report.html" data-trial-label="查看样例报告" class="project-card reveal" hidden>
                 <div class="project-card__info">
-                  <span class="project-card__iteration">项目 03</span>
                   <h3 class="project-card__title">桌面研究洞察报告工作流</h3>
                 </div>
                 <div class="project-card__media project-card__media--research">
@@ -129,18 +143,13 @@
             </div>
           </div>
 
-          <div class="workflow-group reveal">
+          <div class="workflow-group workflow-group--multimodal reveal">
             <div class="workflow-group__header">
-              <h3 class="workflow-group__title">场景陪练工作流</h3>
-              <div class="workflow-group__copy">
-                <p class="workflow-group__desc">情绪觉察 → 服务训练：从个人情绪健康练习切入，继续迭代到高频、可评估的一线服务训练场景。</p>
-                <p class="workflow-group__relation">个人情绪练习 → 一线服务训练</p>
-              </div>
+              <h3 class="workflow-group__title">AI多模态情绪识别</h3>
             </div>
-            <div class="project-grid workflow-grid">
+            <div class="project-grid workflow-grid workflow-grid--linked">
               <a href="#project-detail" data-project="frame" data-github="https://github.com/huinan-jiang/alcheme3.0" class="project-card reveal">
                 <div class="project-card__info">
-                  <span class="project-card__iteration">迭代 01</span>
                   <h3 class="project-card__title">Alcheme 帧我：多模态情绪健康练习</h3>
                   <div class="project-card__awards">
                     <span>抖音 AI 创变者黑客松 · 2 家孵化器支持</span>
@@ -163,8 +172,7 @@
 
               <a href="#project-detail" data-project="training" data-github="https://github.com/huinan-jiang/training" class="project-card reveal">
                 <div class="project-card__info">
-                  <span class="project-card__iteration">迭代 02</span>
-                  <h3 class="project-card__title">餐饮服务话术陪练 Agent</h3>
+                  <h3 class="project-card__title">餐饮服务话术陪练</h3>
                 </div>
                 <div class="project-card__media project-card__media--training">
                   <span>移动端陪练</span>
@@ -183,18 +191,13 @@
             </div>
           </div>
 
-          <div class="workflow-group reveal">
+          <div class="workflow-group workflow-group--shopping reveal">
             <div class="workflow-group__header">
-              <h3 class="workflow-group__title">导购决策迭代：从消费选品到学习顾问</h3>
-              <div class="workflow-group__copy">
-                <p class="workflow-group__desc">同样是“推荐”，从商品选品的成分风险解释，迭代到教育服务链路里的阶段判断和转化承接。</p>
-                <p class="workflow-group__relation">消费选品推荐 → 教育服务转化</p>
-              </div>
+              <h3 class="workflow-group__title">导购决策：AI销售/客服agent</h3>
             </div>
-            <div class="project-grid workflow-grid">
+            <div class="project-grid workflow-grid workflow-grid--linked">
               <a href="#project-detail" data-project="minmin" data-trial="https://yfdurl14.com/Cus1rC" data-trial-label="体验电商导购" class="project-card reveal">
                 <div class="project-card__info">
-                  <span class="project-card__iteration">迭代 01</span>
                   <h3 class="project-card__title">敏敏肌选品｜护肤搜索导购 Agent</h3>
                   <div class="project-card__awards">
                     <span>腾讯云 Agent Mini-hackathon 三等奖</span>
@@ -217,8 +220,7 @@
 
               <article class="project-card reveal" data-project="zebra" tabindex="0" role="button">
                 <div class="project-card__info">
-                  <span class="project-card__iteration">迭代 02</span>
-                  <h3 class="project-card__title">某头部教育品牌智能学习顾问</h3>
+                  <h3 class="project-card__title">某头部教育品牌智能导购Agent</h3>
                 </div>
                 <div class="project-card__media project-card__media--advisor">
                   <span>学习顾问流程</span>
@@ -237,18 +239,13 @@
             </div>
           </div>
 
-          <div class="workflow-group reveal">
+          <div class="workflow-group workflow-group--bird reveal" id="workflow-cases">
             <div class="workflow-group__header">
-              <h3 class="workflow-group__title">兴趣社区迭代：鸟有圈完整项目</h3>
-              <div class="workflow-group__copy">
-                <p class="workflow-group__desc">从 V1 的地图鸟讯社区，迭代到 V2 的 AI 识鸟、相册归档和积分激励闭环。</p>
-                <p class="workflow-group__relation">V1 地图鸟讯社区 → V2 AI 观鸟记录工具</p>
-              </div>
+              <h3 class="workflow-group__title">兴趣社区：鸟有圈完整项目</h3>
             </div>
             <div class="project-feature-grid">
               <a href="#project-detail" data-project="birdcircle" data-github="https://github.com/huinan-jiang/birdcircle" class="project-feature-card project-feature-card--bird reveal">
                 <div class="project-card__info">
-                  <span class="project-card__iteration">V1 → V2 产品迭代</span>
                   <h3 class="project-card__title">鸟有圈｜从观鸟社区到 AI 记录工具</h3>
                 </div>
                 <div class="project-feature-card__cover">
@@ -257,11 +254,11 @@
                 <div class="project-card__body">
                   <div class="project-card__field">
                     <span class="project-card__label">目标人群</span>
-                    <p>观鸟收集型用户、拍鸟摄影型用户、自然观察新人</p>
+                    <p>观鸟人群</p>
                   </div>
                   <div class="project-card__field">
                     <span class="project-card__label">产品定位</span>
-                    <p>先用地图鸟点和同城鸟讯降低入门门槛，再用 AI 识鸟、相册归档、积分激励和保护机制完成长期记录闭环。</p>
+                    <p>本地友好的观鸟地图，省心的AI识鸟助手。</p>
                   </div>
                 </div>
               </a>
@@ -303,13 +300,6 @@
           <span class="section-header__flourish">—</span>
         </div>
         <p class="section-header__sub">把真实 AI 产品工作沉淀为可复用、可公开的方法库</p>
-
-        <a href="https://github.com/huinan-jiang/ai-product-skills" target="_blank" class="method-library reveal">
-          <div class="method-library__label">Method Library</div>
-          <h3 class="method-library__title">AI Product Skills</h3>
-          <p class="method-library__desc">这些 skills 来自真实 AI 产品、运营和数据自动化项目，已脱敏为公开方法库。网站展示摘要与能力地图，完整规则、清单和脚本保留在 GitHub。</p>
-          <span class="method-library__link">View Repository →</span>
-        </a>
 
         <div class="skill-grid">
           <a href="https://github.com/huinan-jiang/ai-product-skills/tree/main/RAG%E5%AF%BC%E8%B4%AD" target="_blank" class="skill-card reveal">
@@ -517,22 +507,21 @@
       <div class="container">
         <div class="section-header">
           <span class="section-header__flourish">—</span>
-          <h2 class="section-header__title">P · 动手开发 AI 工具与应用</h2>
+          <h2 class="section-header__title">P:6段实习经历 干中学。</h2>
           <span class="section-header__flourish">—</span>
         </div>
-        <p class="section-header__sub">不只是想法，更注重落地——独立开发多个 AI 产品原型</p>
+        <p class="section-header__sub">咨询与营销实习、消费者行为学双学位、田野实操调查经验</p>
 
-        <div class="gallery gallery--3col">
-          <div class="gallery__item reveal">
-            <div class="gallery__placeholder">AI工具截图 1</div>
-          </div>
-          <div class="gallery__item reveal">
-            <div class="gallery__placeholder">AI工具截图 2</div>
-          </div>
-          <div class="gallery__item reveal">
-            <div class="gallery__placeholder">AI工具截图 3</div>
-          </div>
-        </div>
+      </div>
+    </section>
+
+    <!-- Quote -->
+    <section class="section quote-section">
+      <div class="container">
+        <blockquote class="quote-block reveal">
+          <p class="quote-block__text">一个把 AI 当手术刀而不是锤子的人——先精准定位业务痛点在哪，再决定刀怎么下。别人还在会诊的时候，这边已经缝完最后一针上线了。切口要小——找准最值得 AI 介入的环节；下刀要准——技术方案一步到位；缝合要漂亮——用户体验经得起挑剔。</p>
+          <footer class="quote-block__source">—— Claude Opus 4.6 对我项目开发的评价</footer>
+        </blockquote>
       </div>
     </section>
 
@@ -584,6 +573,6 @@
     </article>
   </div>
 
-  <script src="js/home-align2.js?v=20260720-f7ef7e8"></script>
+  <script src="js/home-align2.js?v=20260721-bird-cover-bottom"></script>
 </body>
 </html>

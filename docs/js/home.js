@@ -44,7 +44,7 @@
 
   const projects = {
     minmin: {
-      category: '导购决策迭代',
+      category: '导购决策：AI销售/客服agent',
       title: '敏敏肌选品｜护肤搜索导购 Agent',
       media: { label: '成分安全筛查' },
       audience: '有功效诉求的护肤用户、敏感肌/痘肌/孕期等需避险人群、导购顾问',
@@ -55,12 +55,13 @@
       background: [
         '用户侧：护肤用户只说“美白/祛痘/抗老/修护”时，真实决策会卡在肤质、成分禁忌和风险判断上',
         '业务侧：传统导购容易停留在热门产品推荐，无法解释推荐依据，也难以稳定处理敏感肌、孕期、刷酸期等限制',
-        '系统侧：这个问题适合 AI 介入，因为它需要把自然语言需求拆成意图、约束、商品、成分和风险多层判断'
+        '系统侧：这个问题适合 AI 介入，因为它需要把自然语言需求拆成意图、约束、商品、成分和风险多层判断',
+        'AI 优势：能同时理解模糊功效诉求和个体禁忌，在多商品、多成分规则中稳定筛查并给出可解释推荐'
       ],
       goalMetrics: [
-        '用户侧指标：每轮输出 3-5 个候选产品，并给出推荐理由、风险提示和适用建议',
-        '业务侧指标：把模糊功效诉求转成可解释推荐，提升用户从咨询到商品对比的决策效率',
-        '系统侧指标：商品匹配、成分召回、风险筛查和事实约束均有固定口径；信息不足时明确标注，不编造价格、库存、销量和未披露成分'
+        '用户侧指标（候选商品数、推荐理由完整率、风险提示覆盖率）：每轮输出 3-5 个候选产品，并给出推荐理由、风险提示和适用建议',
+        '业务侧指标（商品对比完成率、推荐商品点击率）：把模糊功效诉求转成可解释推荐，提升用户从咨询到商品对比的决策效率',
+        '系统侧指标（商品匹配准确率、成分召回率、风险筛查准确率、事实约束违规率）：商品匹配、成分召回、风险筛查和事实约束均有固定口径；信息不足时明确标注，不编造价格、库存、销量和未披露成分'
       ],
       action: [
         '数据与规则：整理功效成分、风险成分、肤质禁忌和特殊人群限制，形成可召回的筛查规则',
@@ -79,8 +80,8 @@
       githubUrl: 'https://github.com/huinan-jiang/ai-product-skills/tree/main/RAG%E5%AF%BC%E8%B4%AD'
     },
     zebra: {
-      category: '导购决策迭代',
-      title: '某头部教育品牌智能学习顾问',
+      category: '导购决策：AI销售/客服agent',
+      title: '某头部教育品牌智能导购Agent',
       media: { label: '学习顾问流程' },
       audience: '体验会员、家长、学习顾问和转化运营团队',
       summary: '用 AI 顾问承接体验会员的学习跟进、答疑和转化线索，提高服务连续性。',
@@ -90,13 +91,14 @@
       background: [
         '用户侧：体验课后家长会持续询问到课、学情、课程选择和购买问题，卡点不在单个答案，而在服务是否连续',
         '业务侧：原链路依赖人工顾问经验，容易出现跟进断点、话术不一致、推荐时机不稳定和线索沉淀不完整',
-        '系统侧：这个场景适合 AI 介入，因为它需要在多阶段链路里判断用户阶段、识别意图并推进下一步动作'
+        '系统侧：这个场景适合 AI 介入，因为它需要在多阶段链路里判断用户阶段、识别意图并推进下一步动作',
+        'AI 优势：能保留多轮上下文并持续判断用户阶段，用统一口径承接高频咨询，把人工顾问集中到复杂转化节点'
       ],
       goalMetrics: [
-        '用户侧指标：家长问题能被归入明确意图，并获得符合当前阶段的回复和下一步建议',
-        '业务侧指标：体验会员从课后跟进到转化线索沉淀的关键节点要完整覆盖',
-        '系统侧指标：服务节点、触发条件、回复口径和转人工/兜底边界可配置、可复盘',
-        '合规指标：对外展示全程脱敏，不出现真实品牌名'
+        '用户侧指标（意图识别准确率、有效回复率、下一步建议覆盖率）：家长问题能被归入明确意图，并获得符合当前阶段的回复和下一步建议',
+        '业务侧指标（关键节点覆盖率、转化线索沉淀率）：体验会员从课后跟进到转化线索沉淀的关键节点要完整覆盖',
+        '系统侧指标（服务节点配置成功率、转人工触发准确率、兜底触发率）：服务节点、触发条件、回复口径和转人工/兜底边界可配置、可复盘',
+        '合规指标（脱敏合规率）：对外展示全程脱敏，不出现真实品牌名'
       ],
       action: [
         '数据与语料：抽取脱敏顾问对话、家长高频问题和课后跟进节点，归并成可复用服务场景',
@@ -112,7 +114,7 @@
       ],
     },
     chart: {
-      category: '研究交付工作流',
+      category: 'AI画图+知识库管理',
       title: 'CHART AI｜研究可视化交付智能体',
       media: { label: '洞察报告 → 图表表达' },
       audience: '咨询分析师、产品经理、行业研究和竞品研究使用者',
@@ -123,12 +125,13 @@
       background: [
         '用户侧：咨询分析师和产品经理已经有洞察结论，但常卡在该用什么图表达、缺哪些字段、口径是否自洽',
         '业务侧：只做图表生成容易停留在好看，无法保证字段来源、结论可靠和后续汇报可编辑',
-        '系统侧：这个问题适合 AI 介入，因为它需要把表达意图、图表模型、字段结构和校验规则串成可验证链路'
+        '系统侧：这个问题适合 AI 介入，因为它需要把表达意图、图表模型、字段结构和校验规则串成可验证链路',
+        'AI 优势：能把自然语言结论快速映射到图表模型和字段结构，并自动检查口径、范围与来源'
       ],
       goalMetrics: [
-        '用户侧指标：输入业务判断后，系统能推荐合适图表模型并生成可编辑可视化',
-        '业务侧指标：让研究结论更快进入汇报表达，减少从洞察到图表的反复沟通成本',
-        '系统侧指标：图表类型、字段映射、数值范围和结构完整性必须通过检查，关键字段能回溯来源'
+        '用户侧指标（图表推荐采纳率、可编辑结果生成成功率）：输入业务判断后，系统能推荐合适图表模型并生成可编辑可视化',
+        '业务侧指标（图表交付时长、返工次数）：让研究结论更快进入汇报表达，减少从洞察到图表的反复沟通成本',
+        '系统侧指标（字段映射准确率、规则校验通过率、来源可追溯率）：图表类型、字段映射、数值范围和结构完整性必须通过检查，关键字段能回溯来源'
       ],
       action: [
         '场景拆解：把用户输入拆成表达意图、分析对象、图表模型、字段结构和校验结果',
@@ -144,7 +147,7 @@
       ],
     },
     venn: {
-      category: '研究交付工作流',
+      category: 'AI画图+知识库管理',
       title: 'VENN AI｜关系可视化笔记',
       media: { label: '概念 → 关系结构' },
       audience: '学生、研究者、知识管理用户和需要做概念对比的人',
@@ -155,12 +158,13 @@
       background: [
         '用户侧：学习和研究过程中，用户常卡在多个概念之间的共性、差异和交叉关系，很难只靠线性笔记看清结构',
         '业务侧：如果知识整理缺少结构，后续讨论、复盘和迁移都会变慢，内容也难以复用到汇报或研究表达',
-        '系统侧：这个问题适合 AI 介入，因为它需要把概念输入、关系抽取、结构归类和可视化表达连接起来'
+        '系统侧：这个问题适合 AI 介入，因为它需要把概念输入、关系抽取、结构归类和可视化表达连接起来',
+        'AI 优势：能从非结构化概念描述中批量抽取关系，快速生成可编辑结构，减少人工反复归类'
       ],
       goalMetrics: [
-        '用户侧指标：让用户能快速看到多个概念之间的共同点、差异点和交叉区域',
-        '业务侧指标：把一次性概念整理转成可复用笔记结构，为后续研究表达和汇报复用提供基础',
-        '系统侧指标：输出结果不是静态图片，而是可继续编辑和复用的知识结构'
+        '用户侧指标（关系识别任务完成率、关系理解时长）：让用户能快速看到多个概念之间的共同点、差异点和交叉区域',
+        '业务侧指标（笔记复用率、汇报复用率）：把一次性概念整理转成可复用笔记结构，为后续研究表达和汇报复用提供基础',
+        '系统侧指标（可编辑结构生成成功率、二次编辑率）：输出结果不是静态图片，而是可继续编辑和复用的知识结构'
       ],
       action: [
         '数据输入：支持用户输入多个概念、材料或笔记片段，先抽取候选概念和关键描述',
@@ -177,7 +181,7 @@
       githubUrl: 'https://github.com/huinan-jiang/Venn'
     },
     mrw: {
-      category: '研究交付工作流',
+      category: 'AI画图+知识库管理',
       title: '桌面研究洞察报告工作流',
       media: { label: 'Brief / 材料 → 可信洞察' },
       audience: '产品经理、咨询分析师、行业研究和竞品研究使用者',
@@ -188,12 +192,13 @@
       background: [
         '用户侧：产品经理和咨询分析师常常面对大量访谈、评论、社媒和竞品材料，卡在材料分散、主题不清和洞察难提炼',
         '业务侧：如果洞察没有证据来源，报告很难进入评审、汇报和后续产品决策',
-        '系统侧：这个问题适合 AI 介入，因为桌面研究需要建立 Brief、样本、主题、证据和结论之间的可追溯关系'
+        '系统侧：这个问题适合 AI 介入，因为桌面研究需要建立 Brief、样本、主题、证据和结论之间的可追溯关系',
+        'AI 优势：能并行处理大量异构材料，聚类主题并保留证据链，把人工时间留给判断和结论'
       ],
       goalMetrics: [
-        '用户侧指标：样本材料能被聚类成用户画像、核心动机、典型行为和关键痛点',
-        '业务侧指标：最终产出能直接进入汇报页，支持评审和后续产品决策',
-        '系统侧指标：关键洞察需要有来源支撑，并通过来源校验、交叉校验和逻辑校验减少主观总结'
+        '用户侧指标（洞察要素覆盖率、材料聚类准确率）：样本材料能被聚类成用户画像、核心动机、典型行为和关键痛点',
+        '业务侧指标（汇报页可用率、洞察采纳率）：最终产出能直接进入汇报页，支持评审和后续产品决策',
+        '系统侧指标（来源可追溯率、三重校验通过率）：关键洞察需要有来源支撑，并通过来源校验、交叉校验和逻辑校验减少主观总结'
       ],
       action: [
         '数据处理：从 Brief、样本材料和事实来源开始，做材料整理、脱敏、主题归并和证据标注',
@@ -222,12 +227,13 @@
       background: [
         '用户侧：私域运营每周要持续产出社群、朋友圈和导购触达素材，卡在选题、改写、配图和审核都依赖人工',
         '业务侧：内容容易主题重复、渠道口径不稳定，图文素材与文案审核也常常割裂，导致推送节奏不稳定',
-        '系统侧：这个问题适合 AI 介入，因为它可以把文案生成、图片生成、历史去重和审核状态组织成稳定工作流'
+        '系统侧：这个问题适合 AI 介入，因为它可以把文案生成、图片生成、历史去重和审核状态组织成稳定工作流',
+        'AI 优势：能按渠道规则批量改写和生成素材，同时执行历史去重与风险审核'
       ],
       goalMetrics: [
-        '用户侧指标：运营一次性拿到 7 天 × 3 渠道 × 3 条内容，共 63 条文案',
-        '业务侧指标：主题循环可控、历史内容可去重、风险表达可审核，支撑稳定推送节奏',
-        '系统侧指标：文案、导购卡和配图能批量生成，并形成可复盘内容包'
+        '用户侧指标（单次内容产出量）：运营一次性拿到 7 天 × 3 渠道 × 3 条内容，共 63 条文案',
+        '业务侧指标（主题重复率、历史内容重复率、风险审核通过率）：主题循环可控、历史内容可去重、风险表达可审核，支撑稳定推送节奏',
+        '系统侧指标（批量生成成功率、内容包完整率）：文案、导购卡和配图能批量生成，并形成可复盘内容包'
       ],
       action: [
         '数据输入：定义事实输入、主题排期、渠道格式、利益点、禁用表达、历史内容和审核状态',
@@ -244,8 +250,8 @@
       githubUrl: 'https://github.com/huinan-jiang/ai-product-skills/tree/main/%E7%A7%81%E5%9F%9F%E5%86%85%E5%AE%B9%E7%94%9F%E4%BA%A7'
     },
     training: {
-      category: '场景陪练迭代',
-      title: '餐饮服务话术陪练 Agent',
+      category: 'AI多模态情绪识别',
+      title: '餐饮服务话术陪练',
       media: { label: '移动端陪练' },
       audience: '餐饮新人、门店培训负责人、一线服务团队',
       summary: '用移动端角色扮演陪练降低新人服务话术训练对人工带教的依赖。',
@@ -255,12 +261,13 @@
       background: [
         '用户侧：餐饮新人需要高频练习真实顾客提问、投诉、催促和特殊需求，但门店人工陪练时间有限',
         '业务侧：一次性讲解难以保证话术稳定，培训负责人也缺少对话过程和薄弱点记录',
-        '系统侧：这个问题适合 AI 介入，因为服务培训可以拆成场景、角色、回应、反馈和纠偏的任务型流程'
+        '系统侧：这个问题适合 AI 介入，因为服务培训可以拆成场景、角色、回应、反馈和纠偏的任务型流程',
+        'AI 优势：语音识别能即时记录练习回应，规则评分能低成本重复反馈，减少人工陪练占用'
       ],
       goalMetrics: [
-        '用户侧指标：新人能在移动端重复练习多个服务场景，并获得即时反馈',
-        '业务侧指标：降低人工带教依赖，让标准话术和服务动作更容易复用',
-        '系统侧指标：反馈能覆盖礼貌度、完整性、安抚能力和下一步动作，异常场景有兜底建议'
+        '用户侧指标（练习完成率、重复练习率、反馈获得率）：新人能在移动端重复练习多个服务场景，并获得即时反馈',
+        '业务侧指标（人工带教时长、标准话术覆盖率）：降低人工带教依赖，让标准话术和服务动作更容易复用',
+        '系统侧指标（反馈维度覆盖率、异常场景兜底率）：反馈能覆盖礼貌度、完整性、安抚能力和下一步动作，异常场景有兜底建议'
       ],
       action: [
         '语料处理：将服务场景、顾客角色、常见问题、标准动作和纠偏建议整理为可组合模块',
@@ -288,12 +295,13 @@
       background: [
         '用户侧：运营需要快速看清线索从触达到购买的转化损耗，但常卡在多源后台、字段分散和口径不一致',
         '业务侧：人工复制、清洗和汇总耗时 2-3 小时，容易出现字段漏取、口径不一致和历史覆盖错误',
-        '系统侧：这个问题不只是展示图表，而是要先解决字段映射、来源校验、漏斗口径和异常回读'
+        '系统侧：这个问题不只是展示图表，而是要先解决字段映射、来源校验、漏斗口径和异常回读',
+        'AI 优势：能辅助识别字段映射和异常模式，但业务口径、写入权限和回读校验仍由确定性规则约束'
       ],
       goalMetrics: [
-        '用户侧指标：运营能稳定看到加微 UV、领取 UV、激活 UV、购买等关键节点，快速定位漏斗流失',
-        '业务侧指标：把单次更新从 2-3 小时压缩到分钟级',
-        '系统侧指标：覆盖 4 大业务模块和 15 个功能的数据流向，支持异常提示和回读检查'
+        '用户侧指标（漏斗节点覆盖率、异常定位时长）：运营能稳定看到加微 UV、领取 UV、激活 UV、购买等关键节点，快速定位漏斗流失',
+        '业务侧指标（单次更新时间）：把单次更新从 2-3 小时压缩到分钟级',
+        '系统侧指标（业务模块覆盖数、功能覆盖数、回读校验通过率）：覆盖 4 大业务模块和 15 个功能的数据流向，支持异常提示和回读检查'
       ],
       action: [
         '数据处理：整理多源数据字段、来源口径、清洗规则、异常值和关键转化节点',
@@ -310,7 +318,7 @@
       githubUrl: 'https://github.com/huinan-jiang/ai-product-skills/tree/main/%E6%95%B0%E6%8D%AE%E6%9B%B4%E6%96%B0%E5%B7%A5%E4%BD%9C%E6%B5%81'
     },
     frame: {
-      category: '场景陪练迭代',
+      category: 'AI多模态情绪识别',
       title: 'Alcheme 帧我：多模态情绪健康练习',
       media: { label: '视频情绪记录' },
       audience: '需要情绪觉察、情绪记录和低门槛自我观察的年轻用户',
@@ -321,12 +329,13 @@
       background: [
         '用户侧：年轻用户需要低门槛表达和记录情绪，但纯聊天陪伴容易卡在表达发散、难复盘和建议不稳定',
         '业务侧：情绪产品需要把表达、分析和建议组织成一次可完成、可回看的练习流程',
-        '系统侧：这个问题适合 AI 介入，因为视频上传、音频转写、语音情绪、视频情绪识别和 LLM 生成需要被拆成稳定链路'
+        '系统侧：这个问题适合 AI 介入，因为视频上传、音频转写、语音情绪、视频情绪识别和 LLM 生成需要被拆成稳定链路',
+        'AI 优势：能联合分析文本、语音和画面中的情绪信号，并依据同一次记录生成个性化建议'
       ],
       goalMetrics: [
-        '用户侧指标：用户能通过三层引导完成一次情绪表达和记录',
-        '业务侧指标：路演现场验证试用意愿和孵化兴趣',
-        '系统侧指标：形成“视频记录 + 多模态分析 + 个性化建议”的核心原型'
+        '用户侧指标（情绪表达完成率、三层引导完成率）：用户能通过三层引导完成一次情绪表达和记录',
+        '业务侧指标（现场试用率、孵化意向数）：路演现场验证试用意愿和孵化兴趣',
+        '系统侧指标（多模态分析成功率、建议生成成功率）：形成“视频记录 + 多模态分析 + 个性化建议”的核心原型'
       ],
       action: [
         '数据处理：将用户视频拆成音频、画面和文本三路信号，分别用于转写、语音情绪和视频情绪识别',
@@ -347,23 +356,32 @@
       title: '鸟有圈｜从观鸟社区到 AI 记录工具',
       media: { label: 'V1 社区入口 → V2 工具闭环' },
       audience: '观鸟收集型用户、拍鸟摄影型用户、自然观察新人',
-      summary: '区分观鸟与拍鸟两类兴趣人群，先验证地图鸟讯社区，再迭代到 AI 识鸟、相册归档、积分激励和生态保护机制。',
+      summary: '',
       role: '从用户入门路径出发，设计 V1 地图鸟讯社区，并在 V2 补齐首页决策、鸟点地图、AI 识鸟、相册归档、积分激励和保护规则。',
       intro: '鸟有圈的迭代重点不是“加一个 AI 识别功能”，而是先看清两类人群：观鸟者用望远镜也能开始，更在意鸟种、习性和收集体系，偏博物学；拍鸟者更像以鸟为对象的摄影用户，更在意出现位置、瞬间捕捉和作品沉淀。V1 先解决新人不知道去哪看鸟、鸟讯依赖熟人传播的问题；V2 再补齐识别、归档、激励和保护机制，形成发现鸟点 → 判断前往 → 上传识别 → 相册沉淀 → 积分反馈的完整闭环。',
-      background: [],
+      background: [
+        'AI 优势：能把拍摄后的鸟种识别和批量相册分类自动化，减少新手识别门槛和老手整理成本'
+      ],
       goalMetrics: [],
       action: [],
       evidence: [],
       caseStudy: {
         insightTitle: '人群洞察',
+        insightIntro: '形成两种较为独立的群体认同。',
+        painImage: 'assets/images/projects/birdcircle/pain-points.jpg',
+        painPoints: [
+          '观鸟新手：ebird、懂鸟等APP需要科学上网，汉化程度低，使用困难',
+          '对于观鸟老手：目前的观鸟相册无法对鸟类进行批量分类和导出，P图困难。'
+        ],
         insights: [
           {
             label: '观鸟收集型用户',
-            text: '观鸟一个望远镜就可以开始，更多地关注鸟的珍稀种类和自己本身的行为，比如我的好朋友讲到，雄性翠鸟的嘴巴是纯黑的，雌性的嘴巴是上黑下黄，所以会说翠鸟会“涂口红”。\n\n这类群体的需求上偏向于收集，学科上偏向于博物学。'
+            badge: '本人喜欢博物学',
+            text: '• 需求：更多地关注鸟的珍稀种类和繁衍等行为，偏向于收集，拍鸟倾向于明亮、完整。\n• 学科：偏向于博物学。\n• 装备：一个望远镜就可以开始。'
           },
           {
             label: '拍鸟摄影型用户',
-            text: '拍鸟则是摄影基于对象的一个分支，鸟只是拍摄对象的一种，所以不拘什么鸟类都可以，就像在北京公园里经常出现的“长枪短炮”的摄影师，这类群体的需求偏向于捕捉瞬间的美丽。'
+            text: '• 需求：这类群体的需求偏向于捕捉瞬间的美丽。\n• 学科：拍鸟则是摄影基于对象的一个分支，鸟只是拍摄对象的一种，所以不拘什么鸟类都可以。\n• 装备：北京公园里经常出现的“长枪短炮”。'
           }
         ],
         comparisonTitle: '四组迭代对照',
@@ -372,86 +390,110 @@
             title: '入口',
             left: {
               label: '照片 / 活动',
+              imageLayout: 'stack',
               images: [
-                'assets/images/projects/birdcircle-v1/community-photos.png',
-                'assets/images/projects/birdcircle-v1/community-events.png'
+                'assets/images/projects/birdcircle-v1/entry-map.png',
+                'assets/images/projects/birdcircle-v1/entry-detail.png'
               ],
-              text: '用鸟有照片和鸟有活动，把观鸟拆成可浏览、可参与的社区入口。'
+              captions: [
+                [{ title: '标题和导航重复冗余', text: '应该有效利用页面资源' }],
+                [{ title: '决策链路长', text: '需反复点击退出才能比较各点位的天气和鸟类，而且观鸟决策的有效信息不足。' }]
+              ]
             },
             right: {
               label: '首页决策',
-              images: ['assets/images/projects/birdcircle-v2/home.png'],
-              text: '把位置、天气、最佳观鸟时间、附近鸟点、任务和同城动态集中到首页。'
+              imageLayout: 'stack',
+              images: [
+                'assets/images/projects/birdcircle-v2/entry-home.png',
+                'assets/images/projects/birdcircle-v2/entry-map-correct.png'
+              ],
+              captions: [
+                [
+                  { title: '提供详细的天气参数', text: '对于“看天吃饭”的户外运动，提供足够决策支持。' },
+                  { title: '鸟类和地点推荐', text: '带着明确的意愿和目的查看第二个地点的地图。' },
+                  { title: '商业化承接', text: '私域引流，积分互惠。' }
+                ],
+                [
+                  { title: '窗口概览', text: '快速对比不同鸟点的环境和种类，再进入导航。' },
+                  { title: '鸟点可搜', text: '适合目的性很强的观鸟人。' }
+                ]
+              ]
             }
           },
           {
             title: '信息',
             left: {
-              label: '问答 / 来信',
+              label: '定位不清',
               images: [
-                'assets/images/projects/birdcircle-v1/community-qa.png',
-                'assets/images/projects/birdcircle-v1/mail-chat.png',
-                'assets/images/projects/birdcircle-v1/mail-inbox.png'
+                'assets/images/projects/birdcircle-v1/info-activity.png?v=20260721',
+                'assets/images/projects/birdcircle-v1/info-qa.png?v=20260721',
+                'assets/images/projects/birdcircle-v1/info-photos.png?v=20260721'
               ],
-              text: '承接鸟种识别、路线、装备和观察经验交流。'
+              text: '混淆拍鸟与观鸟的界限，观鸟人反感摆拍鸟，破坏用户信任。',
+              details: [
+                { title: '无效社区', text: '观鸟群体更喜欢小群体出行或者“独行”，对社区不感冒。' }
+              ]
             },
             right: {
-              label: '鸟点地图',
-              images: ['assets/images/projects/birdcircle-v2/map.png'],
-              text: '用鸟讯时效、鸟种标签、确认人数、导航和保护规则帮助出发前判断。'
+              label: '生态友好',
+              images: ['assets/images/projects/birdcircle-v2/info-community.png?v=20260721'],
+              mediaAspect: '770 / 1466',
+              text: '仅保留少部分同城动态。'
             }
           },
           {
             title: '收集',
             left: {
-              label: '图鉴',
-              images: ['assets/images/projects/birdcircle-v1/field-guide.png'],
-              text: '按地点、纲目、季节收集鸟类知识。'
+              label: 'UI毫无特色',
+              images: ['assets/images/projects/birdcircle-v1/collection-guide.png?v=20260721'],
+              text: '没有贴近“真实鸟类”的用户需求。',
+              details: [
+                { title: '无竞争力', text: '文字百科不如AI，不如交给用户自由发挥。' }
+              ]
             },
             right: {
-              label: '相册',
-              images: ['assets/images/projects/birdcircle-v2/album.png'],
+              label: '专注赏鸟',
+              images: ['assets/images/projects/birdcircle-v2/collection-album.png?v=20260721'],
+              mediaAspect: '782 / 1462',
               note: 'drag/swipe interaction +循环轮播栈',
-              text: '按鸟种和科目自动归档照片，支持搜索、筛选和导出。'
+              text: '单一鸟类照片丝滑翻页，无需准备。',
+              details: [
+                { title: '一键分类导出', text: '百度 API 识别鸟种，按种类导出图片压缩包，相册瞬间瘦身' }
+              ]
             }
           },
           {
-            title: '激励',
+            title: '装备',
             left: {
-              label: '装备',
-              images: ['assets/images/projects/birdcircle-v1/gear.png'],
-              text: '围绕望远镜、相机等装备做准备。'
+              label: '定位不清晰',
+              images: ['assets/images/projects/birdcircle-v1/equipment-list.png?v=20260721'],
+              text: '观鸟群体装备轻量化'
             },
             right: {
-              label: '积分',
-              images: ['assets/images/projects/birdcircle-v2/points.png'],
-              text: '把上传鸟点、补充照片、加入同城群等行为转成即时反馈和长期目标。'
+              label: '新手入圈+店铺引流',
+              images: ['assets/images/projects/birdcircle-v2/equipment-points.png?v=20260721'],
+              mediaAspect: '772 / 1468',
+              text: ''
             }
+          }
+        ],
+        reflectionTitle: '心得总结',
+        reflectionImage: 'assets/images/projects/birdcircle/reflection-mail.png',
+        reflectionPoints: [
+          {
+            title: 'UX设计',
+            text: '页面与按钮的交互是物理位置，更埋藏着用户宝贵的注意力资源，了解用户的决策链路，功夫在开发之外。'
+          },
+          {
+            title: '不要“自嗨”',
+            text: '从评论区真实痛点出发，真实访谈用户，不要想象痛点。而且选择用户足够突出、足以流失的尖锐痛点入手。'
+          },
+          {
+            title: '更加聚焦',
+            text: '人群清晰、问题清晰。堆砌功能会模糊定位，给用户造成使用负担。不需要太“先锋”，能解决问题就好。'
           }
         ]
       },
-      screens: [
-        {
-          src: 'assets/images/projects/birdcircle-v2/home.png',
-          title: '首页：把观鸟决策前置',
-          text: '首页不是信息流堆叠，而是把位置、天气、最佳观鸟时间、附近鸟点、当季明星和积分任务放在同一屏，让新人不用先学习规则，也能知道“现在去哪、看什么、下一步做什么”。'
-        },
-        {
-          src: 'assets/images/projects/birdcircle-v2/map.png',
-          title: '鸟点：地图发现与生态保护并重',
-          text: '鸟点页用颜色表达鸟讯时效，用底部卡片承载鸟种、活跃度、确认人数和导航入口；顶部保护条把敏感物种、繁殖地和夜行鸟类限制前置，避免产品只追求打卡效率。'
-        },
-        {
-          src: 'assets/images/projects/birdcircle-v2/points.png',
-          title: '积分：把贡献行为游戏化',
-          text: '积分页把上传鸟点、补充鸟种照片、加入同城观鸟群等贡献行为显性化，并用观鸟装备兑换承接激励，目的是让用户从“拍完即走”转向持续贡献和复访。'
-        },
-        {
-          src: 'assets/images/projects/birdcircle-v2/album.png',
-          title: '相册：把照片变成个人鸟种资产',
-          text: '相册按鸟种和科目自动归档，并用堆叠卡片表达同一鸟种的多张照片，解决手机相册里照片散乱的问题；筛选、搜索和导出让记录结果能被复盘和迁移。'
-        }
-      ],
       githubUrl: 'https://github.com/huinan-jiang/birdcircle'
     },
     'birdcircle-v1': {
@@ -465,12 +507,13 @@
       background: [
         '用户侧：观鸟新人最先卡在“附近哪里能看鸟”和“这个地方最近有什么鸟”，兴趣入口不清晰',
         '业务侧：鸟讯如果只靠熟人传播，内容难被检索、复用和沉淀，社区贡献也缺少稳定入口',
-        '系统侧：第一版不先做复杂识别，而是验证地图鸟点、鸟种标签和同城动态能否承接发现与分享链路'
+        '系统侧：第一版不先做复杂识别，而是验证地图鸟点、鸟种标签和同城动态能否承接发现与分享链路',
+        'AI 优势：V1 先沉淀地点、鸟种和动态字段，为 V2 的鸟种识别和相册分类提供结构化输入'
       ],
       goalMetrics: [
-        '用户侧指标：用户能从当前位置看到附近鸟点、常见鸟种和同城鸟讯，降低第一次出发成本',
-        '业务侧指标：用户能围绕一次观察发布照片、活动、问答或装备内容，形成可浏览的社区动态',
-        '系统侧指标：地点、鸟种、时间和用户动态能被结构化组织，为下一版识鸟、相册和积分提供字段基础'
+        '用户侧指标（鸟点查看率、首次出发完成率）：用户能从当前位置看到附近鸟点、常见鸟种和同城鸟讯，降低第一次出发成本',
+        '业务侧指标（观察内容发布率、社区内容浏览率）：用户能围绕一次观察发布照片、活动、问答或装备内容，形成可浏览的社区动态',
+        '系统侧指标（地点字段完整率、鸟种字段完整率、动态结构化成功率）：地点、鸟种、时间和用户动态能被结构化组织，为下一版识鸟、相册和积分提供字段基础'
       ],
       action: [
         '数据层：把鸟点位置、鸟种标签、发布时间、用户动态和内容类型整理为社区入口字段',
@@ -497,13 +540,14 @@
       background: [
         '用户侧：找到鸟点后，用户仍会卡在出发前判断、拍到后不会识别、照片散在手机相册和记录难复盘',
         '业务侧：只靠动态分享难以带来长期留存，需要把一次拍照变成可累计的相册资产、积分反馈和社区贡献',
-        '系统侧：这个问题适合 AI 介入，因为识鸟不能孤立存在，必须和地图判断、归档、激励、保护规则组成闭环'
+        '系统侧：这个问题适合 AI 介入，因为识鸟不能孤立存在，必须和地图判断、归档、激励、保护规则组成闭环',
+        'AI 优势：能识别鸟种并批量归档照片，把一次拍摄直接转成可检索的个人鸟种资产'
       ],
       goalMetrics: [
-        '用户侧指标：用户能从首页推荐进入鸟点地图，完成上传识别、相册归档和积分反馈，不需要跳出流程整理照片',
-        '业务侧指标：任务和积分能把上传鸟点、补充照片、加入同城群等行为转成持续记录和贡献',
-        '系统侧指标：识别结果、鸟种字段、照片归档、任务状态和保护规则能在同一条链路里被调用和校验',
-        '安全侧指标：敏感物种、夜行鸟类和繁殖地坐标需要模糊展示、导航限制或提示退出'
+        '用户侧指标（首页到鸟点点击率、上传识别成功率、相册归档完成率）：用户能从首页推荐进入鸟点地图，完成上传识别、相册归档和积分反馈，不需要跳出流程整理照片',
+        '业务侧指标（任务完成率、重复上传率、同城群加入率）：任务和积分能把上传鸟点、补充照片、加入同城群等行为转成持续记录和贡献',
+        '系统侧指标（鸟种识别准确率、照片归档准确率、链路调用成功率）：识别结果、鸟种字段、照片归档、任务状态和保护规则能在同一条链路里被调用和校验',
+        '安全侧指标（敏感坐标模糊覆盖率、导航限制触发率）：敏感物种、夜行鸟类和繁殖地坐标需要模糊展示、导航限制或提示退出'
       ],
       action: [
         '数据层：复用 V1 的地点、鸟种和动态字段，并新增照片、识别结果、相册分类、积分任务和保护规则字段',
@@ -554,12 +598,13 @@
       background: [
         '用户侧：远程会议和线上沟通中，用户有时需要自然离场，但直接打断会造成社交压力',
         '业务侧：这是一个小但高频、即时触发的需求，适合用极轻量工具快速验证真实使用意愿',
-        '系统侧：产品成败不在功能复杂度，而在来电界面、触发流程和移动端可信度是否足够稳定'
+        '系统侧：产品成败不在功能复杂度，而在来电界面、触发流程和移动端可信度是否足够稳定',
+        'AI 边界：核心需求是即时触发和来电拟真，AI 的优势有限，不应为了使用 AI 增加操作成本'
       ],
       goalMetrics: [
-        '用户侧指标：交互足够接近真实来电，移动端视觉可信',
-        '业务侧指标：上线后能获得真实用户使用和社交传播',
-        '系统侧指标：用户能快速触发，不需要复杂设置'
+        '用户侧指标（来电触发成功率、通话完成率）：交互足够接近真实来电，移动端视觉可信',
+        '业务侧指标（活跃用户数、分享率）：上线后能获得真实用户使用和社交传播',
+        '系统侧指标（触发时延、启动成功率）：用户能快速触发，不需要复杂设置'
       ],
       action: [
         '用户调研：通过 4 场用户访谈确认“线上场景自然离场”的真实痛点',
@@ -586,12 +631,13 @@
       background: [
         '用户侧：多个供应商按项目填报发票金额时，金额、用餐类别、食材、数量和均价分散在表格里',
         '业务侧：月度汇总和历史留存容易出错，负责人需要一个比表格更稳定的轻量工具',
-        '系统侧：这不是 AI 项目，但能说明把真实业务表格流程拆成可录入、可汇总、可导出的产品工具'
+        '系统侧：这不是 AI 项目，但能说明把真实业务表格流程拆成可录入、可汇总、可导出的产品工具',
+        'AI 边界：核心需求是准确录入、汇总和导出，确定性规则优于生成式 AI；AI 只适合后续辅助识别票据和异常'
       ],
       goalMetrics: [
-        '用户侧指标：支持项目维护、食材维护、发票金额录入、按月统计和用餐类别汇总',
-        '业务侧指标：支持发票夹总览、历史保存和 CSV 导出，减少手工汇总',
-        '系统侧指标：无需后端，数据存在浏览器 localStorage，适合快速上线'
+        '用户侧指标（核心任务完成率、金额录入成功率、分类汇总准确率）：支持项目维护、食材维护、发票金额录入、按月统计和用餐类别汇总',
+        '业务侧指标（CSV 导出成功率、手工汇总时长）：支持发票夹总览、历史保存和 CSV 导出，减少手工汇总',
+        '系统侧指标（本地存储成功率、数据持久化完整率）：无需后端，数据存在浏览器 localStorage，适合快速上线'
       ],
       action: [
         '流程梳理：拆出项目列表、项目内食材维护、发票记录录入、日期筛选和统计汇总',
@@ -668,12 +714,24 @@
       heading.className = 'project-modal__deep-title';
       heading.textContent = caseStudy.insightTitle || '人群洞察';
 
+      const intro = document.createElement('p');
+      intro.className = 'project-modal__insight-intro';
+      intro.textContent = caseStudy.insightIntro || '';
+      intro.hidden = !caseStudy.insightIntro;
+
       const grid = document.createElement('div');
       grid.className = 'project-modal__insight-grid';
 
       caseStudy.insights.forEach(insight => {
         const item = document.createElement('article');
         item.className = 'project-modal__insight';
+
+        if (insight.badge) {
+          const badge = document.createElement('span');
+          badge.className = 'project-modal__insight-badge';
+          badge.textContent = insight.badge;
+          item.appendChild(badge);
+        }
 
         const label = document.createElement('h4');
         label.textContent = insight.label;
@@ -685,7 +743,34 @@
         grid.appendChild(item);
       });
 
-      insightSection.append(heading, grid);
+      insightSection.append(heading, intro, grid);
+
+      if (Array.isArray(caseStudy.painPoints) && caseStudy.painPoints.length) {
+        const pain = document.createElement('div');
+        pain.className = 'project-modal__pain-points';
+
+        if (caseStudy.painImage) {
+          const painImage = document.createElement('img');
+          painImage.src = caseStudy.painImage;
+          painImage.alt = '观鸟应用评分及评论';
+          painImage.loading = 'lazy';
+          pain.appendChild(painImage);
+        }
+
+        const painTitle = document.createElement('h4');
+        painTitle.className = 'project-modal__deep-title';
+        painTitle.textContent = '现有痛点';
+
+        const painList = document.createElement('ul');
+        caseStudy.painPoints.forEach(point => {
+          const item = document.createElement('li');
+          item.textContent = point;
+          painList.appendChild(item);
+        });
+
+        pain.append(painTitle, painList);
+        insightSection.appendChild(pain);
+      }
       element.appendChild(insightSection);
     }
 
@@ -707,10 +792,15 @@
 
         const wrap = document.createElement('div');
         wrap.className = `project-modal__pair-media project-modal__pair-media--${side}`;
+        if (version.mediaAspect) {
+          wrap.classList.add('project-modal__pair-media--matched');
+          wrap.style.aspectRatio = version.mediaAspect;
+        }
 
         const carousel = document.createElement('div');
         carousel.className = 'project-modal__carousel';
         if (images.length <= 1) carousel.classList.add('project-modal__carousel--single');
+        if (version.imageLayout === 'stack') carousel.classList.add('project-modal__carousel--stack');
 
         images.forEach(src => {
           const image = document.createElement('img');
@@ -728,6 +818,30 @@
         const wrap = document.createElement('div');
         wrap.className = `project-modal__pair-text project-modal__pair-text--${side}`;
 
+        if (Array.isArray(version.captions)) {
+          wrap.classList.add('project-modal__pair-text--stack');
+          wrap.style.setProperty('--caption-count', version.captions.length);
+
+          version.captions.forEach(captionGroup => {
+            const group = document.createElement('div');
+            group.className = 'project-modal__pair-caption';
+
+            captionGroup.forEach(caption => {
+              const title = document.createElement('h4');
+              title.textContent = caption.title;
+
+              const text = document.createElement('p');
+              text.textContent = caption.text;
+
+              group.append(title, text);
+            });
+
+            wrap.appendChild(group);
+          });
+
+          return wrap;
+        }
+
         const label = document.createElement('h4');
         label.textContent = version.label.replace(/^V[12]\s*/, '');
 
@@ -735,6 +849,19 @@
         text.textContent = version.text;
 
         wrap.append(label, text);
+
+        if (Array.isArray(version.details)) {
+          version.details.forEach(detail => {
+            const detailTitle = document.createElement('h4');
+            detailTitle.className = 'project-modal__pair-subtitle';
+            detailTitle.textContent = detail.title;
+
+            const detailText = document.createElement('p');
+            detailText.textContent = detail.text;
+
+            wrap.append(detailTitle, detailText);
+          });
+        }
 
         if (version.note) {
           const note = document.createElement('p');
@@ -746,23 +873,24 @@
         return wrap;
       }
 
-      function createLane(side, label) {
-        const lane = document.createElement('article');
-        lane.className = `project-modal__version-lane project-modal__version-lane--${side}`;
-
+      function createLaneLabel(side, label) {
         const laneLabel = document.createElement('div');
-        laneLabel.className = 'project-modal__version-lane-label';
+        laneLabel.className = `project-modal__version-lane-label project-modal__version-lane-label--${side}`;
         laneLabel.textContent = label;
-        lane.appendChild(laneLabel);
+        return laneLabel;
+      }
 
-        caseStudy.comparisons.forEach(pair => {
+      function createVersionItem(pair, side) {
           const version = pair[side];
           const item = document.createElement('section');
-          item.className = 'project-modal__version-lane-item';
+          item.className = `project-modal__version-lane-item project-modal__version-lane-item--${side}`;
 
           const title = document.createElement('h4');
           title.className = 'project-modal__version-lane-title';
-          title.textContent = pair.title;
+          const titleParts = Array.from(pair.title);
+          title.textContent = side === 'left'
+            ? titleParts[0]
+            : titleParts.slice(1).join('');
 
           const body = document.createElement('div');
           body.className = 'project-modal__version-lane-body';
@@ -780,16 +908,20 @@
           }
 
           item.append(title, body);
-          lane.appendChild(item);
-        });
-
-        return lane;
+          return item;
       }
 
       lanes.append(
-        createLane('left', 'V1'),
-        createLane('right', 'V2')
+        createLaneLabel('left', 'V1'),
+        createLaneLabel('right', 'V2')
       );
+
+      caseStudy.comparisons.forEach(pair => {
+        lanes.append(
+          createVersionItem(pair, 'left'),
+          createVersionItem(pair, 'right')
+        );
+      });
 
       compareSection.append(heading, lanes);
       element.appendChild(compareSection);
@@ -833,6 +965,41 @@
 
       versionSection.append(heading, compare);
       element.appendChild(versionSection);
+    }
+
+    if (Array.isArray(caseStudy.reflectionPoints) && caseStudy.reflectionPoints.length) {
+      const reflectionSection = document.createElement('section');
+      reflectionSection.className = 'project-modal__deep-section';
+
+      const heading = document.createElement('h3');
+      heading.className = 'project-modal__deep-title';
+      heading.textContent = caseStudy.reflectionTitle || '心得总结';
+
+      const reflection = document.createElement('div');
+      reflection.className = 'project-modal__reflection';
+
+      if (caseStudy.reflectionImage) {
+        const image = document.createElement('img');
+        image.src = caseStudy.reflectionImage;
+        image.alt = caseStudy.reflectionTitle || '心得总结';
+        image.loading = 'lazy';
+        reflection.appendChild(image);
+      }
+
+      const list = document.createElement('ul');
+      caseStudy.reflectionPoints.forEach(point => {
+        const item = document.createElement('li');
+        const title = document.createElement('h4');
+        title.textContent = point.title;
+        const text = document.createElement('p');
+        text.textContent = point.text;
+        item.append(title, text);
+        list.appendChild(item);
+      });
+
+      reflection.appendChild(list);
+      reflectionSection.append(heading, reflection);
+      element.appendChild(reflectionSection);
     }
 
     element.hidden = !element.childElementCount;
@@ -887,7 +1054,8 @@
     if (!project) return;
     fields.category.textContent = project.category;
     fields.title.textContent = project.title;
-    fields.summary.textContent = project.summary;
+    fields.summary.textContent = project.summary || '';
+    fields.summary.hidden = !project.summary;
     renderPoints(fields.background, project.background || project.intro);
     renderPoints(fields.action, project.goalMetrics || project.goal || project.summary);
     renderPoints(fields.goal, project.action || project.role);
@@ -952,14 +1120,123 @@
 })();
 
 // ============================================================
-// 2. 风格切换
+// 2. 面试导览
+// ============================================================
+(function () {
+  const guide = document.querySelector('.portfolio-guide');
+  const trigger = guide?.querySelector('.portfolio-guide__trigger');
+  const picker = guide?.querySelector('.portfolio-guide__picker');
+  const tagButtons = Array.from(guide?.querySelectorAll('[data-guide-tag]') || []);
+  const route = document.querySelector('.portfolio-route');
+  const routeTitle = route?.querySelector('.portfolio-route__header span');
+  const routeLinks = route?.querySelector('.portfolio-route__links');
+  const routeClose = route?.querySelector('.portfolio-route__close');
+
+  if (!guide || !trigger || !picker || !route || !routeTitle || !routeLinks || !routeClose) return;
+
+  const projectLabels = {
+    zebra: '智能导购 Agent',
+    minmin: '敏敏肌选品 Agent',
+    birdcircle: '鸟有圈',
+    chart: 'CHART AI',
+    venn: 'VENN AI',
+    frame: '帧我',
+    training: '餐饮话术陪练'
+  };
+
+  const guides = {
+    aipm: { label: 'AI PM', projects: ['zebra', 'minmin', 'birdcircle', 'chart'] },
+    agent: { label: 'Agent 设计', projects: ['zebra', 'minmin', 'chart'] },
+    research: { label: '用户研究', projects: ['birdcircle', 'venn', 'chart'] },
+    growth: { label: '增长转化', projects: ['zebra', 'minmin', 'birdcircle'] },
+    multimodal: { label: '多模态', projects: ['frame', 'training'] }
+  };
+
+  let spotlightTimer;
+
+  function setPicker(open) {
+    picker.hidden = !open;
+    trigger.setAttribute('aria-expanded', String(open));
+  }
+
+  function clearSpotlight() {
+    document.querySelectorAll('.project-card--spotlight, .project-feature-card--spotlight').forEach(card => {
+      card.classList.remove('project-card--spotlight', 'project-feature-card--spotlight');
+    });
+  }
+
+  function focusProject(projectId) {
+    const card = document.querySelector(`[data-project="${projectId}"]:not([hidden])`);
+    if (!card) return;
+
+    clearTimeout(spotlightTimer);
+    clearSpotlight();
+    card.classList.add(card.classList.contains('project-feature-card')
+      ? 'project-feature-card--spotlight'
+      : 'project-card--spotlight');
+    card.scrollIntoView({
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+      block: 'center'
+    });
+    spotlightTimer = window.setTimeout(clearSpotlight, 2200);
+  }
+
+  function showGuide(key) {
+    const selected = guides[key];
+    if (!selected) return;
+
+    tagButtons.forEach(button => {
+      const active = button.dataset.guideTag === key;
+      button.classList.toggle('active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+
+    routeTitle.textContent = `推荐浏览 · ${selected.label}`;
+    routeLinks.innerHTML = '';
+
+    selected.projects.forEach((projectId, index) => {
+      const card = document.querySelector(`[data-project="${projectId}"]:not([hidden])`);
+      if (!card) return;
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = `${index + 1}. ${projectLabels[projectId]}`;
+      button.addEventListener('click', () => focusProject(projectId));
+      routeLinks.appendChild(button);
+    });
+
+    route.hidden = !routeLinks.childElementCount;
+    setPicker(false);
+  }
+
+  trigger.addEventListener('click', () => setPicker(picker.hidden));
+  tagButtons.forEach(button => button.addEventListener('click', () => showGuide(button.dataset.guideTag)));
+  routeClose.addEventListener('click', () => {
+    route.hidden = true;
+    clearSpotlight();
+  });
+
+  document.addEventListener('click', event => {
+    if (!picker.hidden && !guide.contains(event.target)) setPicker(false);
+  });
+
+  window.addEventListener('keydown', event => {
+    if (event.key !== 'Escape') return;
+    setPicker(false);
+    route.hidden = true;
+    clearSpotlight();
+  });
+})();
+
+// ============================================================
+// 3. 风格切换
 // ============================================================
 (function () {
   const btns = document.querySelectorAll('.theme-btn');
   const allowedThemes = new Set(['gold', 'theme2', 'eye']);
-  const stored = localStorage.getItem('theme');
-  const saved = stored === 'theme3' ? 'eye' : stored;
-  const initialTheme = allowedThemes.has(saved) ? saved : 'gold';
+  const stored = localStorage.getItem('theme-preference-v2');
+  const hour = new Date().getHours();
+  const automaticTheme = hour >= 18 || hour < 7 ? 'gold' : 'theme2';
+  const initialTheme = allowedThemes.has(stored) ? stored : automaticTheme;
 
   document.documentElement.setAttribute('data-theme', initialTheme);
   btns.forEach(b => b.classList.toggle('active', b.dataset.theme === initialTheme));
@@ -969,7 +1246,7 @@
       const theme = btn.dataset.theme;
       if (!allowedThemes.has(theme)) return;
       document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
+      localStorage.setItem('theme-preference-v2', theme);
       btns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
     });
