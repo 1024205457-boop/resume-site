@@ -871,6 +871,15 @@ section[id] {
   line-height: 1.35;
 }
 
+.project-card__media--cover {
+  background: var(--color-bg-section);
+}
+
+.project-card__media--cover::before,
+.project-card__media--cover::after {
+  display: none;
+}
+
 .project-card__media--minmin {
   background:
     linear-gradient(135deg, rgba(201,168,76,0.2), transparent 32%),
