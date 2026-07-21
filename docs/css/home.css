@@ -643,10 +643,14 @@ section[id] {
   pointer-events: none;
 }
 
+.workflow-grid--linked .project-card--image-bg {
+  width: 100%;
+}
+
 .workflow-group--research .workflow-grid {
   position: relative;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2.5rem;
+  gap: 2rem;
 }
 
 .workflow-group--research .workflow-grid::after {
@@ -669,7 +673,7 @@ section[id] {
 
 .workflow-group--bird .workflow-grid {
   grid-template-columns: minmax(0, 1fr);
-  max-width: min(720px, 100%);
+  max-width: min(640px, 100%);
   margin-inline: auto;
 }
 
@@ -971,8 +975,8 @@ section[id] {
   content: "";
   position: absolute;
   inset: auto 0 0;
-  height: 44%;
-  background: linear-gradient(180deg, transparent, rgba(22, 22, 22, 0.34) 22%, rgba(22, 22, 22, 0.68));
+  height: 40%;
+  background: linear-gradient(180deg, transparent 0%, rgba(18, 18, 18, 0.58) 26%, rgba(18, 18, 18, 0.84) 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -1003,23 +1007,32 @@ section[id] {
 .project-card--image-bg .project-card__info {
   min-height: 0;
   margin-top: auto;
-  padding: 1.1rem 1.25rem 0.35rem;
+  padding: 0.95rem 1.15rem 0.25rem;
   background: transparent;
   backdrop-filter: none;
 }
 
 .project-card--image-bg .project-card__body {
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.8rem;
-  padding: 0.25rem 1.25rem 1rem;
+  gap: 0.9rem;
+  padding: 0.2rem 1.15rem 0.9rem;
   background: transparent;
   backdrop-filter: none;
   flex: 0 0 auto;
 }
 
 .project-card--image-bg .project-card__title {
+  display: inline;
+  padding: 0.08rem 0.22rem;
+  border-radius: 0.3rem;
+  background: rgba(12, 12, 12, 0.18);
   color: #f7f4eb;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.72);
+  font-weight: 700;
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.95),
+    0 0 18px rgba(0, 0, 0, 0.82);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 .project-card--image-bg .project-card__field {
@@ -1033,8 +1046,8 @@ section[id] {
 
 .project-card--image-bg .project-card__field p {
   color: rgba(247, 244, 235, 0.9);
-  font-size: 0.78rem;
-  line-height: 1.5;
+  font-size: 0.76rem;
+  line-height: 1.42;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
 }
 
@@ -1195,7 +1208,7 @@ section[id] {
 
 .project-feature-card--image-bg .project-card__info {
   margin-top: auto;
-  padding: 1.1rem 1.25rem 0.35rem;
+  padding: 0.95rem 1.15rem 0.25rem;
   background: transparent;
   backdrop-filter: none;
 }
@@ -1203,8 +1216,8 @@ section[id] {
 .project-feature-card--image-bg .project-card__body {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.8rem;
-  padding: 0.25rem 1.25rem 1rem;
+  gap: 0.9rem;
+  padding: 0.2rem 1.15rem 0.9rem;
   background: transparent;
   backdrop-filter: none;
 }
@@ -1221,8 +1234,8 @@ section[id] {
 
 .project-feature-card--image-bg .project-card__field p {
   color: rgba(247, 244, 235, 0.9);
-  font-size: 0.78rem;
-  line-height: 1.5;
+  font-size: 0.76rem;
+  line-height: 1.42;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
 }
 
@@ -1537,6 +1550,43 @@ section[id] {
   border-radius: 50%;
   background: var(--color-accent);
   box-shadow: 0 0 10px rgba(201, 168, 76, 0.28);
+}
+
+.project-modal__point-title {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--color-text-primary);
+  font-weight: 700;
+}
+
+.project-modal__point-list li p {
+  margin: 0;
+}
+
+.project-modal__subpoint-list {
+  display: grid;
+  gap: 0.32rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-modal__subpoint-list li {
+  position: relative;
+  padding-left: 0.9rem;
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+}
+
+.project-modal__subpoint-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.82em;
+  width: 0.32rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.65;
 }
 
 .project-modal__section {
