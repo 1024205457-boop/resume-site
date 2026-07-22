@@ -1022,7 +1022,9 @@ section[id] {
 }
 
 .project-card--image-bg .project-card__title {
-  display: inline;
+  display: block;
+  width: max-content;
+  max-width: 100%;
   padding: 0.08rem 0.22rem;
   border-radius: 0.3rem;
   background: rgba(12, 12, 12, 0.18);
@@ -1033,6 +1035,15 @@ section[id] {
     0 0 18px rgba(0, 0, 0, 0.82);
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
+}
+
+.project-card--image-bg .project-card__title-row {
+  display: block;
+}
+
+.project-card--image-bg[data-project="minmin"] .project-card__title {
+  white-space: nowrap;
+  font-size: 0.92rem;
 }
 
 .project-card--image-bg .project-card__field {
@@ -1058,9 +1069,21 @@ section[id] {
 
 .project-card--image-bg .project-card__trial,
 .project-feature-card--image-bg .project-card__trial {
-  background: rgba(226, 198, 109, 0.16);
-  color: #f2d16c;
-  border-color: rgba(226, 198, 109, 0.58);
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  z-index: 4;
+  background: #e2c66d;
+  color: #141414;
+  border-color: rgba(255, 238, 167, 0.86);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.32);
+}
+
+.project-card--image-bg .project-card__trial:hover,
+.project-feature-card--image-bg .project-card__trial:hover {
+  background: #f3d977;
+  color: #111111;
+  border-color: #f3d977;
 }
 
 .project-card__info {
