@@ -1058,9 +1058,10 @@ section[id] {
 
 .project-card--image-bg .project-card__trial,
 .project-feature-card--image-bg .project-card__trial {
-  background: rgba(226, 198, 109, 0.16);
-  color: #f2d16c;
-  border-color: rgba(226, 198, 109, 0.58);
+  background: #e2c66d;
+  color: #141414;
+  border-color: rgba(255, 238, 167, 0.86);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
 }
 
 .project-card__info {
@@ -1104,15 +1105,16 @@ section[id] {
   justify-content: center;
   min-height: 1.8rem;
   padding: 0.25rem 0.68rem;
-  border: 1px solid rgba(201, 168, 76, 0.42);
+  border: 1px solid rgba(255, 238, 167, 0.86);
   border-radius: 999px;
-  color: var(--color-accent);
+  color: #141414;
   font-size: 0.72rem;
   font-weight: 800;
   line-height: 1;
   white-space: nowrap;
   text-decoration: none;
-  background: rgba(201, 168, 76, 0.1);
+  background: var(--color-accent);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
   transition:
     color var(--transition-fast),
     border-color var(--transition-fast),
@@ -1121,8 +1123,8 @@ section[id] {
 
 .project-card__trial:hover {
   color: #111111;
-  border-color: var(--color-accent);
-  background: var(--color-accent);
+  border-color: #f3d977;
+  background: #f3d977;
 }
 
 .project-card__awards {
