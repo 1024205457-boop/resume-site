@@ -959,8 +959,9 @@ section[id] {
 
 .workflow-grid .project-card.project-card--image-bg,
 .project-card--image-bg {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  grid-template-rows: 1fr auto;
   aspect-ratio: 3 / 2;
   min-height: 0;
   isolation: isolate;
@@ -1007,19 +1008,34 @@ section[id] {
 .project-card--image-bg .project-card__info {
   height: auto;
   min-height: 0;
-  margin-top: auto;
-  padding: 0.95rem 1.15rem 0.25rem;
+  align-self: end;
+  grid-column: 1;
+  grid-row: 2;
+  padding: 0.95rem 0.55rem 5.3rem 1.15rem;
   background: transparent;
   backdrop-filter: none;
 }
 
 .project-card--image-bg .project-card__body {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.9rem;
-  padding: 0.2rem 1.15rem 0.9rem;
+  align-self: end;
+  grid-column: 2;
+  grid-row: 2;
+  grid-template-columns: 1fr;
+  gap: 0.6rem;
+  padding: 0.95rem 1.15rem 0.95rem 0.55rem;
   background: transparent;
   backdrop-filter: none;
-  flex: 0 0 auto;
+}
+
+.project-card--image-bg .project-card__body .project-card__field:first-child {
+  position: absolute;
+  left: 1.15rem;
+  bottom: 0.95rem;
+  width: calc(50% - 1.7rem);
+}
+
+.project-card--image-bg .project-card__body .project-card__field:first-child + .project-card__field {
+  grid-column: 1;
 }
 
 .project-card--image-bg .project-card__title {
@@ -1058,8 +1074,8 @@ section[id] {
 
 .project-card--image-bg .project-card__field p {
   color: rgba(247, 244, 235, 0.9);
-  font-size: 0.76rem;
-  line-height: 1.42;
+  font-size: 0.74rem;
+  line-height: 1.36;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
 }
 
@@ -1067,6 +1083,7 @@ section[id] {
   background: rgba(20, 20, 20, 0.42);
   color: rgba(247, 244, 235, 0.9);
 }
+
 
 .project-card--image-bg .project-card__trial,
 .project-feature-card--image-bg .project-card__trial {
